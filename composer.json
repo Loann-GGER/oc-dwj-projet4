@@ -1,0 +1,24 @@
+{
+    "name": "loann_goerger/projet_4",
+    "description": "OC - DWJ - Projet_4",
+    "require": {
+        "michelf/php-markdown": "1.4.*@dev",
+        "doctrine/orm": "^2.6"
+    },
+    "authors": [
+        {
+            "name": "Loann GGER",
+            "email": "loann.goerger@glk-group.com"
+        }
+    ], 
+    "autoload": {
+        "psr-4": {
+            "App\\":"app",
+			"Entity\\":"model/entites/",
+            "Repository\\":"model/repository/",
+            "Controller\\":"controller/",
+            "ViewBack\\":"view/backend/",
+            "ViewFront\\":"view/frontend/"
+		}
+    }
+}

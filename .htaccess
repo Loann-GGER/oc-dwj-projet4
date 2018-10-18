@@ -1,0 +1,32 @@
+#--------------------------------------------------
+# Ne pas autoriser la listage d'un dossier.
+#--------------------------------------------------
+Options -Indexes
+
+#--------------------------------------------------
+# Renvoi vers les erreurs personnalisées.
+#--------------------------------------------------
+ErrorDocument 401 /public/erreurs/erreur_401.html
+ErrorDocument 403 /public/erreurs/erreur_403.html
+ErrorDocument 404 /public/erreurs/erreur_404.html
+ErrorDocument 500 /public/erreurs/erreur_500.html
+
+#--------------------------------------------------
+# Répertoire : /articles/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+#Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+#RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+# Article sans numéro de page :
+# RewriteRule ^article-([0-9]+)-([0-9]+).html$   /articles/article.php?id=$1&rubrique=$2 [L]
+
+# Article avec numéro de page :
+# RewriteRule ^article-([0-9]+)-([0-9]+)-([0-9]+).html   /articles/article.php?id=$1&page=$2&rubrique=$3 [L]
