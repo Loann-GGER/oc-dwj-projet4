@@ -18,7 +18,7 @@ $useSimpleAnnotationReader = false;
         'charset'  => 'utf8mb4',
         'user'     => 'root',
         'password' => 'root',
-        'dbname'   => 'projet_4',
+        'dbname'   => 'OC_DWJ_Projet-4',
         /* A supprimer en mode production */
         'port'     => '8889',
         'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock'
