@@ -2,7 +2,7 @@
 namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
 
-abstract class Entity
+class Entity
 {
     /**
      * @ORM\Id
@@ -10,6 +10,16 @@ abstract class Entity
      * @ORM\Column(type="integer")
      */
     protected $id;
+
+    public function id()
+    {
+        return $this->id;
+    }
+
+    public function setId(int $identifiant)
+    {
+        $this->id = $identifiant;
+    }
 
     public function __construct(array $datas = null)
     {

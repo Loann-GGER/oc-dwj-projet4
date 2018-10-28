@@ -7,14 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity;
  * @ORM\Table(name="users")
  */
-class User
+class User extends Entity
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-	 */
-    private $id;
     /**
      * @ORM\Column(type="string", unique=true)
      */
@@ -36,29 +30,7 @@ class User
      */
     private $level;
 
-    public function __construct(array $datas = null)
-    {
-        if($datas != null)
-        {
-            $this->hydrate($datas);
-        }
-        
-    }
-
-    private function hydrate($datas)
-    {
-        foreach($datas as $attribute => $value)
-        {
-            $method = 'set'.ucfirst($attribute);
-            $this->$method($value);
-        }
-    }
 // GETTER
-    public function id()
-    {
-        return $this->id;
-    }
-
     public function userName()
     {
         return $this->userName;
@@ -84,11 +56,6 @@ class User
         return $this->level;
     }
 // SETTER
-    public function setId(int $identifiant)
-    {
-        $this->id = $identifiant;
-    }
-
     public function setUserName(int $UserName)
     {
         $this->userName = $UserName;

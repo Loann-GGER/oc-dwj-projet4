@@ -6,14 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity;
  * @ORM\Table(name="posts")
  */
-class Post
+class Post extends Entity
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
     /**
      * @ORM\Column(type="string")
      */
@@ -31,29 +25,7 @@ class Post
      */
     private $creationDate;
 
-    public function __construct(array $datas = null)
-    {
-        if($datas != null)
-        {
-            $this->hydrate($datas);
-        }
-        
-    }
-
-    private function hydrate($datas)
-    {
-        foreach($datas as $attribute => $value)
-        {
-            $method = 'set'.ucfirst($attribute);
-            $this->$method($value);
-        }
-    }
 // GETTER
-    public function id()
-    {
-        return $this->id;
-    }
-
     public function title()
     {
         return $this->title;
@@ -74,11 +46,6 @@ class Post
         return $this->creationDate;
     }
 // SETTER
-    public function setId(int $identifiant)
-    {
-        $this->id = $identifiant;
-    }
-
     public function settitle(int $title)
     {
         $this->title = $title;

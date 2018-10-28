@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Comment extends Entity
 {
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -30,14 +29,7 @@ class Comment extends Entity
      */
     private $alert;
 
-
-
-// GETTER
-    public function id()
-    {
-        return $this->id;
-    }
-
+    // GETTER
     public function postid()
     {
         return $this->postid;
@@ -63,10 +55,6 @@ class Comment extends Entity
         return $this->alert;
     }
 // SETTER
-    public function setId(int $identifiant)
-    {
-        $this->id = $identifiant;
-    }
 
     public function setpostid(int $postid)
     {
