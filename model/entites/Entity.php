@@ -11,16 +11,18 @@ class Entity
      */
     protected $id;
 
+    // GETTER
     public function id()
     {
         return $this->id;
     }
-
+    //SETTER
     public function setId(int $identifiant)
     {
         $this->id = $identifiant;
     }
 
+    
     public function __construct(array $datas = null)
     {
         if($datas != null)

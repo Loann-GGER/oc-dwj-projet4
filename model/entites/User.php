@@ -3,7 +3,6 @@ namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * 
  * @ORM\Entity;
  * @ORM\Table(name="users")
  */
@@ -30,7 +29,7 @@ class User extends Entity
      */
     private $level;
 
-// GETTER
+    // GETTER
     public function userName()
     {
         return $this->userName;
@@ -55,7 +54,8 @@ class User extends Entity
     {
         return $this->level;
     }
-// SETTER
+
+    // SETTER
     public function setUserName(int $UserName)
     {
         $this->userName = $UserName;

@@ -54,8 +54,8 @@ class Comment extends Entity
     {
         return $this->alert;
     }
-// SETTER
-
+    
+    // SETTER
     public function setpostid(int $postid)
     {
         $this->postid = $postid;

@@ -45,6 +45,7 @@ class Post extends Entity
     {
         return $this->creationDate;
     }
+    
 // SETTER
     public function settitle(int $title)
     {
