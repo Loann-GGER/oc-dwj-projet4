@@ -3,7 +3,7 @@ namespace Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity;
+ * @ORM\Entity(repositoryClass="Repository\PostRepository");
  * @ORM\Table(name="posts")
  */
 class Post extends Entity
@@ -47,22 +47,22 @@ class Post extends Entity
     }
     
 // SETTER
-    public function settitle(int $title)
+    public function setTitle($title)
     {
         $this->title = $title;
     }
 
-    public function setcontents($contents)
+    public function setContents($contents)
     {
         $this->contents = $contents;
     }
 
-    public function setauthor(int $author)
+    public function setAuthor($author)
     {
         $this->author = $author;
     }
 
-    public function setcreationDate(int $creationDate)
+    public function setCreationDate(int $creationDate)
     {
         $this->creationDate = $creationDate;
     }
