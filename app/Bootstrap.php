@@ -6,10 +6,10 @@ use Doctrine\ORM\EntityManager;
 class Bootstrap
 {
 
-    public static function getEntityManager()
+    public static function getEntityManager($path = "..model/entites")
     {
 
-        $entitiesPath = ["../model/entites"];
+        $entitiesPath = [$path];
     
         $isDevMode = true;
        $proxyDir = null;
