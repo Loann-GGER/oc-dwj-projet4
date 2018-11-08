@@ -3,9 +3,14 @@
 
 <div>
       <ul>
+        <p>Gestion des articles</p>
         <li><a href="index.php?action=writeNewPost">Ecrire un nouvel article</a></li>
-        <li><a href="index.php?action=managePosts">Gestion des articles</a></li>
-        <li><a href="index.php?action=manageComments">Gestion des commentaires</a></li>
+        <li><a href="index.php?action=voirlesposts">Lire les acticles</a></li>
+        <li><a href="index.php?action=writeUpdatePosts">Mofidier un acticle</a></li>
+        <li><a href="index.php?action=viewdelete">Supprimer un article</a></li>
+        <br/><br/>
+        <p>Gestion des commentaires</p>
+        <li><a href="index.php?action=manageComments">Lire les commentaires</a></li>
       </ul>
 </div>
 

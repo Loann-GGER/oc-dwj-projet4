@@ -1,4 +1,11 @@
 <?php ob_start(); ?>
+<div class="page-heading">
+        <div class="container">
+            <div class="heading-content">
+                <h1>CHAPITRE<em> X</em></h1>
+            </div>
+        </div>
+</div>
 <div class="blog-entries">
     <div class="container-fluid">
         <div class="col-md-12">

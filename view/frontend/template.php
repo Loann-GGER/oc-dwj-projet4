@@ -42,7 +42,7 @@ http://www.templatemo.com/tm-520-highway
     <footer>
         <div class="container-fluid">
             <div class="col-md-12">
-                <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : GLK - Digital</p>
+                <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : Loann GOERGER</p>
     
             </div>
         </div>
@@ -103,10 +103,22 @@ http://www.templatemo.com/tm-520-highway
           <div class="main-menu">
               <ul>
                   <li>
-                      <a href="#video-container">Accueil</a>
+                      <a href="index.php">Accueil</a>
+                  </li>
+                  <li>
+                      <a href="index.php?action=author">L'auteur</a>
+                  </li>
+                  <li>
+                      <a href="index.php?action=blog">Le livre</a>
+                  </li>
+                  <li>
+                      <a href="index.php?action=contact">Contact</a>
+                  </li>
+                  <li>
+                      <a href="index.php?action=login">Se connecter</a>
                   </li>
               </ul>
-              <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : GLK - Digital</p>
+              <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : Loann GOERGER</p>
           </div>
         </div>
       </div>
