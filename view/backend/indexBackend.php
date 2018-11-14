@@ -10,7 +10,7 @@
         <li><a href="index.php?action=viewdelete">Supprimer un article</a></li>
         <br/><br/>
         <p>Gestion des commentaires</p>
-        <li><a href="index.php?action=manageComments">Lire les commentaires</a></li>
+        <li><a href="index.php?action=manageComments">Voir les commentaires signalés</a></li>
       </ul>
 </div>
 

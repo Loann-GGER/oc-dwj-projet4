@@ -1,8 +1,22 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+
+$mesPosts = $entityManager->find("Entity\Post",$_GET['id']);
+$POSTid = $mesPosts->id();
+$POSTtitle = $mesPosts->title();
+$POSTcontents = $mesPosts->contents();
+$POSTauthor = $mesPosts->author();
+$POSTcreationDate = $mesPosts->creationDate();
+
+use Entity\Comment;
+use App\Bootstrap;
+?>
+
+
+   
 <div class="page-heading">
         <div class="container">
             <div class="heading-content">
-                <h1>CHAPITRE<em> X</em></h1>
+                <h1><?php echo($POSTtitle);?></h1>
             </div>
         </div>
 </div>
@@ -13,32 +27,55 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="single-blog-post">
-                            <img src="public/img/frontend/blog_post_1.png" alt="" style="height:50%;width:50%;margin-top:30px;">
                             <div class="text-content">
-                                <h2>Lorem ipsum dolor sit amet.</h2>
-                                <span><a href="#">JEAN FORTEROCHE</a> / <a href="#">16 Septembre 2018</a></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique arcu nulla, vitae malesuada diam cursus quis. Donec sit amet consequat magna, nec egestas lectus. Nam a egestas justo, quis dictum lectus. Sed ultricies condimentum efficitur. Nam scelerisque placerat nibh, ullamcorper tincidunt eros iaculis eget. Nulla purus purus, vestibulum eu dui non, varius ultrices dui. Proin ultrices, risus ac rutrum tempus, erat augue aliquet enim, sed consectetur elit dolor eu dolor.
-                                <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique arcu nulla, vitae malesuada diam cursus quis. Donec sit amet consequat magna, nec egestas lectus. Nam a egestas justo, quis dictum lectus. Sed ultricies condimentum efficitur. Nam scelerisque placerat nibh, ullamcorper tincidunt eros iaculis eget. Nulla purus purus, vestibulum eu dui non, varius ultrices dui.
-                                
-                                <br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique arcu nulla, vitae malesuada diam cursus quis. Donec sit amet consequat magna, nec egestas lectus. Nam a egestas justo, quis dictum lectus. Sed ultricies condimentum efficitur.
-                                <br><br><a href="#">Retour au Blog</a></p>
+                                <span><a href="#"><?php echo($POSTauthor);?></a> / <a href="#"><?php echo($POSTcreationDate);?></a></span>
+                                <p><?php echo($POSTcontents);?></p>
+                                <a href="index.php?action=blog">Retour au Blog</a>
                                 <div class="tags-share">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="tags">
-                                                <li>Tags:</li>
-                                                <li><a href="#">vie</a>,</li>
-                                                <li><a href="#">nature</a>,</li>
-                                                <li><a href="#">vie est belle</a></li>
-                                            </ul>
+                                        <div class="text-content">
+                                            <p>Les commentaires :</p>
+                                            <?php
+                                    $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
+                                    $post = $postRepo->findAll();
+
+                                    foreach ($post as $mesPosts)
+                                    {
+                                        $idpost = $mesPosts->postId();
+                                        $alert = $mesPosts->alert();
+                                        if ($idpost == $POSTid ){
+
+                                            if ($alert == false) {
+
+                                           
+                                            $commentaireid = $mesPosts->id();
+                                            $commentairecontents = $mesPosts->contents();
+                                            $commentaireauthor = $mesPosts->author();
+                                        
+                                    ?>
+                                        <div style='border: 1px blue solid'>
+                                            <p>AUTEUR : <?php echo($commentaireauthor);?>
+                                            <br/>
+                                            COMMENT : <?php echo($commentairecontents);?></p>
+                                            <a href="<?php echo("index.php?action=commentSignal&id=".$commentaireid)?>">Signaler le commentaire</a>
                                         </div>
-                                        <div class="col-md-6">
-                                            <ul class="share">
-                                                <li>Partager:</li>
-                                                <li><a href="#">facebook</a>,</li>
-                                                <li><a href="#">twitter</a>,</li>
-                                                <li><a href="#">instagram</a></li>
-                                            </ul>
+
+                                    <?php
+                                     }
+                                    }
+                                    }
+                                            ?>
+
+                                        
+                                        <p>Ajouter un commentaire : </p>
+                                        
+                                        <form method="post" action="index.php?action=postComment">
+                                            <input type="text" name="author" placeholder="Auteur" required="required">
+                                            <input style="display:none;" type="text" name="id" value=<?php echo($POSTid);?>>
+                                            <br/>
+                                            <textarea rows="5" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br>
+                                            <input type="submit" id="btn-form" value="Envoyer">
+                                        </form>
                                         </div>
                                     </div>
                                 </div>

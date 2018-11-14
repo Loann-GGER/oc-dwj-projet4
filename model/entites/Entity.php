@@ -27,7 +27,7 @@ class Entity
     {
         if($datas != null)
         {
-            $this->hydrate($datas);
+            $this->hydrate($datas);   
         }
         
     }

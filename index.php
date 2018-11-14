@@ -3,10 +3,14 @@
 require "vendor/autoload.php";
 
 use Controller\BackendController;
+use Controller\PostController;
+use Controller\CommentController;
 use Controller\FrontendController;
 
 $frontend = new FrontendController();
 $backend = new BackendController();
+$post = new PostController();
+$comment = new CommentController();
 
 if (isset($_GET['action'])) 
 {
@@ -25,7 +29,7 @@ if (isset($_GET['action']))
             break;
 
         case 'manageComments':
-            $backend->manageComments();
+            $comment->manageComments();
             break;
 
         case 'post':
@@ -91,7 +95,21 @@ if (isset($_GET['action']))
         case 'lireunpost':
             $backend->show(2);
             break;
-
+        case 'postComment':
+            $comment->postComment();
+            break;
+        case 'viewComment':
+            $comment->viewComment();
+            break;
+        case 'commentSignal':
+            $comment->commentSignal();
+            break;
+        case 'aprouvecomment':
+            $comment->aprouvecomment();
+            break;
+        case 'refusecomment':
+            $comment->refusecomment();
+            break;
         default:
             $frontend->listPosts();
             break;

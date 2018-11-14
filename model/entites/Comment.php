@@ -11,7 +11,7 @@ class Comment extends Entity
     /**
      * @ORM\Column(type="integer")
      */
-    private $postId;
+    private $postid;
     /**
      * @ORM\Column(type="text")
      */
@@ -56,27 +56,27 @@ class Comment extends Entity
     }
     
     // SETTER
-    public function setpostid(int $postid)
+    public function setpostid($postid)
     {
         $this->postid = $postid;
     }
 
-    public function setcontents(int $contents)
+    public function setcontents($contents)
     {
         $this->contents = $contents;
     }
 
-    public function setpublicationDate(int $publicationDate)
+    public function setpublicationDate($publicationDate)
     {
         $this->publicationDate = $publicationDate;
     }
 
-    public function setauthor(int $author)
+    public function setauthor($author)
     {
         $this->author = $author;
     }
 
-    public function setalert(int $alert)
+    public function setalert($alert)
     {
         $this->alert = $alert;
     }

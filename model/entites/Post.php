@@ -62,7 +62,7 @@ class Post extends Entity
         $this->author = $author;
     }
 
-    public function setCreationDate(int $creationDate)
+    public function setCreationDate($creationDate)
     {
         $this->creationDate = $creationDate;
     }

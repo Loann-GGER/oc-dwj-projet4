@@ -3,17 +3,18 @@
         <div class="video-overlay"></div>
         <div class="video-content">
             <div class="inner">
-              <h1>Jean<em> Forteroche</em></h1><br/>
-              <p style="font-size:4rem;">Billet simple pour l'Alaska</p>
+              <h1>Un billet simple pour l'Alaska</h1><br/>
+              <p style="font-size:5rem;">Jean<em> Forteroche</em></p><br/>
               <p>Cliquez pour découvrir le livre.</p>
                 <div class="scroll-icon">
                     <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="public/img/frontend/scroll-icon.png" alt=""></a>
                 </div>    
             </div>
         </div>
-        <video autoplay="" loop="" muted>
+        <img src="public/img/frontend/home-bg.jpg" alt="home-bg">
+        <!-- <video autoplay="" loop="" muted>
             <source src="public/img/frontend/highway-loop.mp4" type="video/mp4" />
-        </video>
+        </video> -->
     </div>
 
      <div class="grid-portfolio" id="portfolio">
@@ -25,14 +26,15 @@ $cpt =1;
 
 foreach ($post as $mesPosts)
 {
-   $POSTtitle = $mesPosts->title();
-   $POSTcontents = $mesPosts->contents();
+    $POSTid = $mesPosts->id();
+    $POSTtitle = $mesPosts->title();
+    $POSTcontents = $mesPosts->contents();
    
 ?>
             <div class="col-md-4 col-sm-6">
                 <div class="portfolio-item">
                     <div class="thumb">
-                        <a href="index.php"><div class="hover-effect">
+                        <a href="<?php echo("index.php?action=singlepost&id=".$POSTid)?>"><div class="hover-effect">
                             <div class="hover-content">
                                 <h1><?php echo($POSTtitle); ?></h1>
                                 <p><?php echo($POSTcontents); ?></p>

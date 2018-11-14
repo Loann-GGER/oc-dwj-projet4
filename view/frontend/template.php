@@ -2,17 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Jean Forteroche</title>
-<!-- 
-
-Highway Template
-
-http://www.templatemo.com/tm-520-highway
-
--->
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="public/css/frontend/bootstrap.min.css">
@@ -23,18 +16,35 @@ http://www.templatemo.com/tm-520-highway
 
         <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-        <script src="public/js/frontend/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <!-- <script src="public/js/frontend/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> -->
     </head>
 
 <body>
 
-    <nav>
-        <div class="logo">
-            <a href="index.php">Jean<em> Forteroche</em></a>
+    <nav id="header">
+        <div class="logo"><a href="index.php">Jean<em> Forteroche</em></a></div>
+      <div id="menu">
+        <div id="navDesktop">
+          <ul id="menuNav">
+                <li>
+                    <a href="index.php">Accueil</a>
+                </li>
+                <li>
+                    <a href="index.php?action=author">L'auteur</a>
+                </li>
+                <li>
+                    <a href="index.php?action=blog">Le livre</a>
+                </li>
+                <li>
+                    <a id="modBtn">Contact</a>
+                </li>
+                <li>
+                      <a href="index.php?action=login">Se connecter</a>
+                </li>
+          </ul>
         </div>
-      <div class="menu-icon">
-        <span></span>
       </div>
+      <div id="menu-rwd" class="menu-icon"><span></span></div>
     </nav>
 
     <?= $content ?>
@@ -43,19 +53,26 @@ http://www.templatemo.com/tm-520-highway
         <div class="container-fluid">
             <div class="col-md-12">
                 <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : Loann GOERGER</p>
-    
             </div>
         </div>
     </footer>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
 
-      <!-- Modal button -->
-    <div class="popup-icon">
-      <button id="modBtn" class="modal-btn"><img src="public/img/frontend/contact-icon.png" alt=""></button>
-    </div>  
+    <script src="public/js/frontend/vendor/bootstrap.min.js"></script>
+    <!-- <script src="public/js/frontend/plugins.js"></script> -->
+    <script src="public/js/frontend/main.js"></script>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
+
+
+    <!-- Modal button -->
+    <!-- <div class="popup-icon">
+      <button id="modBtn2" class="modal-btn"><img src="public/img/frontend/contact-icon.png" alt=""></button>
+    </div>   -->
+
+<!-- Modal -->
+<div id="modal" class="modal">
       <!-- Modal Content -->
       <div class="modal-content">
         <!-- Modal Header -->
@@ -94,10 +111,7 @@ http://www.templatemo.com/tm-520-highway
         </div>
       </div>
     </div>
-
-    
-
-    <section class="overlay-menu">
+<section class="overlay-menu">
       <div class="container">
         <div class="row">
           <div class="main-menu">
@@ -123,14 +137,5 @@ http://www.templatemo.com/tm-520-highway
         </div>
       </div>
     </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-    <script src="public/js/frontend/vendor/bootstrap.min.js"></script>
-    
-    <script src="public/js/frontend/plugins.js"></script>
-    <script src="public/js/frontend/main.js"></script>
-
-</body>
+  </body>
 </html>

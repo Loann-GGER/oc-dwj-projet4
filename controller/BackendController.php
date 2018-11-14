@@ -6,38 +6,139 @@ use Entity\Post;
 use App\Bootstrap;
 
 class BackendController
-{
+{ 
+    
+    public function login()
+    {  
+        require("view/backend/login.php");
+    }
+
+    public function register()
+    {  
+        require("view/backend/register.php");
+    }
+
+    public function forgotPassword()
+    {  
+        require("view/backend/forgot-password.php");
+    }
     
     public function admin()
     {
-        require("view/backend/template.php");
+        require("view/backend/indexBackend.php");
     }
 
-    public function writeNewPost()
+    public function addPost()
     {
-        $post = new Post(['title'=>$_POST['title']]);
-        Bootstrap::getEntityManager()->persist($post);
-        // ->flush();
-        $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
-        $post = $postRepo->find(1);
-        var_dump($post);
-
-       
-        // $this->entityManager->persist($user);                   $this->entityManager->flush();
-
         require("view/backend/writeNewPost.php");
-        
     }
 
     public function managePosts()
     {
-        require("view/backend/template.php");
-        echo("Gerer les acticles");
+        require("view/backend/managePosts.php");
     }
 
-    public function manageComments()
+    // CREATE POST 
+    public function postPost()
     {
-        require("view/backend/template.php");
-        echo("Gerer les commentaires");
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $post = new Post([
+                'title'=>$_POST['title'],
+                'contents'=>$_POST['content'],
+                'author'=>'Jean Forteroche',
+                'creationdate'=>new \DateTime("now")
+                ]);
+            
+                var_dump($post); // Voir 
+            try
+            {
+                $entityManager = Bootstrap::getEntityManager();
+                $entityManager->persist($post); // Créer la réquète 
+                $entityManager->flush(); // Exe. réquète
+            } 
+            catch(Exception $e) 
+            {
+                var_dump($e->getMessage());
+            } 
+        }
+        echo("Le post est save ! <br/>");
+        echo('<a href="index.php?action=writeNewPost">Retour</a>');
+    }
+
+    // READ POST
+    public function show($id)
+    {
+        $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
+        $post = $postRepo->find($id);
+        // var_dump($post);
+
+        if ($post === null) {
+            echo "Post non trouvé ! ";
+        }
+        
+        echo ('Title : '.$post->title().'<br/>');
+        echo ('Contents : '.$post->contents().'<br/>');
+    }
+
+    public function viewposts()
+    {   
+        $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
+        $post = $postRepo->findAll();
+
+        foreach ($post as $mesPosts)
+        {
+            echo ('ID : '.$mesPosts->id().'<br/>');
+            echo ('Title : '.$mesPosts->title().'<br/>');
+            echo ('Contents : '.$mesPosts->contents().'<br/>');
+            echo ('Author : '.$mesPosts->author().'<br/>');
+            echo ('CreationDate : '.$mesPosts->creationDate().'<br/>');
+            echo ("<br/>");
+        }
+    }
+
+    public function voirlesposts()
+    {
+        require("view/backend/viewposts.php");
+    }
+
+    // UPDATE POST
+    public function updatePosts()
+    {
+        $entityManager = Bootstrap::getEntityManager();
+        $post = $entityManager->find("Entity\Post",$_POST['id']);
+        var_dump($post);
+
+        $post->setTitle($_POST['title']);
+        $post->setContents($_POST['content']);
+        var_dump($post);
+        echo("<br/>");
+
+        $entityManager->flush(); // Exe. réquète
+
+
+
+    }
+
+    public function writeUpdatePosts()
+    {
+        require("view/backend/writeUpdatePost.php");
+    }
+
+    //DELETE POST
+    public function deletePost()
+    {
+        $entityManager = Bootstrap::getEntityManager();
+        $post = $entityManager->find("Entity\Post",$_POST['id']);
+        var_dump($post);
+
+        $entityManager->remove($post);
+        $entityManager->flush();
+        echo('ok l\''.$_POST['id'].'est sup');       
+    }
+
+    public function viewdelete()
+    {
+        require("view/backend/viewdelete.php");
     }
 }
