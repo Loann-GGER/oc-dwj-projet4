@@ -18,7 +18,7 @@ body::-webkit-scrollbar {
 /* Add a thumb */
 body::-webkit-scrollbar-thumb {
     background: rgba(250, 250, 250, 0.5);
-}
+} 
 
 body, html {
   height: 100%;
@@ -26,6 +26,9 @@ body, html {
   overflow-x: hidden;
 }
 
+#menu-rwd {
+  display: none;
+}
 
 .page-heading {
   background-image: url(../../img/frontend/heading_bg.png);
@@ -254,7 +257,7 @@ nav {
 
 #video-container .video-overlay {
   z-index: 9999;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
   width: 100%;
 }
 
@@ -1320,7 +1323,12 @@ footer a:hover {
   .more-about-us .content {
     padding: 60px 30px;
   }
-
+  #menu-rwd {
+    display: flex;
+  }
+  #menu {
+    display: none;
+  }
 }
 
 
@@ -1347,4 +1355,41 @@ footer a:hover {
     text-align: center;
   }
 
+  #menu-rwd {
+    display: flex;
+  }
+#menu {
+  display: none;
+}
+
+}
+
+#menuNav{
+	display:flex;
+	justify-content:space-around;
+	list-style:none;
+	margin-top:-0px;
+	margin-right: 30px;
+}
+li{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:80px;
+	width:130px;
+	font-size:16px;
+
+}
+
+#menuNav a{
+	color:white;
+	text-decoration:none;
+}
+
+#menu {
+  width: 700px;
+}
+#header {
+  display:flex;
+  justify-content:space-between;
 }

@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
             modal.css('display', 'block');
             modContent.removeClass('modal-animated-out').addClass('modal-animated-in');
           });
-          
+                    
           // close modal when click on close button or somewhere out the modal content 
           $(document).on('click', function(e) {
             var target = $(e.target);
