@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="public/css/sb-admin.css" rel="stylesheet">
-
+    
   </head>
 
   <body id="page-top">
@@ -143,6 +143,11 @@
     <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="public/js/sb-admin.min.js"></script>
+    <script src="public/js/backend/sb-admin.min.js"></script>
+
+    <!-- TINY MCE -->
+    <script src="/vendor/tinymce/tinymce/tinymce.min.js"></script>
+    <script src='public/js/backend/tinyconfig.js'></script>
+
   </body>
 </html>

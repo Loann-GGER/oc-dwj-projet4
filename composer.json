@@ -3,7 +3,8 @@
     "description": "OC - DWJ - Projet_4",
     "require": {
         "michelf/php-markdown": "1.4.*@dev",
-        "doctrine/orm": "^2.6"
+        "doctrine/orm": "^2.6",
+        "tinymce/tinymce": "^4.8"
     },
     "authors": [
         {

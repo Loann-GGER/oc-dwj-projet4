@@ -3,7 +3,7 @@
 
  <form method="post" action="index.php?action=post">
 	<input type="text" name="title" placeholder="Titre de l'article" required="required"><br>
-	<textarea rows="5" cols="25" name="content" placeholder="Contenu de l'article" required="required"></textarea><br>
+	<textarea rows="5" cols="45" name="content" placeholder="Contenu de l'article"></textarea><br>
 	<input type="submit" id="btn-form" value="Envoyer">
 </form>
 <?php $content = ob_get_clean(); ?>
