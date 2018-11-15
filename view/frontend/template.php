@@ -39,7 +39,7 @@
                     <a id="modBtn">Contact</a>
                 </li>
                 <li>
-                      <a href="index.php?action=login">Se connecter</a>
+                    <a href="index.php?action=login">Se connecter</a>
                 </li>
           </ul>
         </div>
@@ -52,7 +52,7 @@
     <footer>
         <div class="container-fluid">
             <div class="col-md-12">
-                <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : Loann GOERGER</p>
+                <p>Copyright &copy; 2018 JEAN FORTEROCHE | <a href="index.php?action=mentionlegales" style="color:white">Mentions Légales</a> | Réalisation du site : <a href="https://loanngoerger.com" style="color:white">Loann GOERGER</a></p>
             </div>
         </div>
     </footer>

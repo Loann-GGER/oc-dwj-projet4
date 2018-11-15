@@ -2,6 +2,9 @@
 
 require "vendor/autoload.php";
 
+use App\Session;
+Session::start();
+
 use Controller\BackendController;
 use Controller\PostController;
 use Controller\CommentController;

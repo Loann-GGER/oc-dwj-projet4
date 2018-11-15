@@ -5,6 +5,7 @@ namespace Controller;
 use Entity\Post;
 use Entity\User;
 use App\Bootstrap;
+use App\Session;
 
 class BackendController
 { 
@@ -63,8 +64,8 @@ class BackendController
                 var_dump($e->getMessage());
             } 
         }
-        echo("Le post est save ! <br/>");
-        echo('<a href="index.php?action=writeNewPost">Retour</a>');
+        Session::setValue('flash', 'Votre post a bien été écrit');
+        header("location:index.php?action=writeNewPost");
     }
 
     // READ POST
@@ -146,9 +147,6 @@ class BackendController
 
     public function validelogin()
     {
-        // On démarre la session AVANT d'écrire du code HTML
-        session_start();
-
         $postRepo = Bootstrap::getEntityManager()->getRepository(User::class);
         $user = $postRepo->find(1);
         
@@ -166,14 +164,12 @@ class BackendController
             $_SESSION['login'] = 0;
         }
     
-        echo("lien vers espace admin <a href='index.php?action=admin'>ICI</a>");
+        header("location:index.php?action=admin");
     }
 
     public function logout()
     {
-        session_start();
-        $_SESSION['login'] = 0;
-        echo("Déconnexion avec succès</br>");
-        echo("lien vers l'accueil <a href='index.php'>ICI</a>");
+        Session::destroy();
+        header("location:index.php");
     }
 }

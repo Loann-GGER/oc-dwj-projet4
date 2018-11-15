@@ -23,11 +23,16 @@
   </head>
 
   <body class="bg-dark">
-
     <div class="container">
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="card-body">
+      
+  <?php
+    if(!empty($flash = App\Session::get('flash'))) {
+      echo $flash; App\Session::setValue('flash', '');
+     } ?>
+     
           <form method="post" action="index.php?action=validelogin" >
             <div class="form-group">
               <div class="form-label-group">

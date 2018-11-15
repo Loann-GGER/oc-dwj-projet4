@@ -30,6 +30,24 @@ foreach ($post as $mesPosts)
     $POSTtitle = $mesPosts->title();
     $POSTcontents = $mesPosts->contents();
    
+            if (strlen($POSTtitle)>20) 
+        {
+            $POSTtitle = substr($POSTtitle, 0, 20);
+            $dernier_mot = strrpos($POSTtitle," ");
+            $POSTtitle = substr($POSTtitle,0,$dernier_mot);
+        }
+        if (strlen($POSTcontents)>35) 
+        {
+            $POSTcontents = substr($POSTcontents, 0, 35);
+            $dernier_mot = strrpos($POSTcontents," ");
+            $POSTcontents = substr($POSTcontents,0,$dernier_mot);
+        }
+//   En gros, ça fait ceci :  
+//   1) si le commentaire est plus grand que 50 caractères alors,
+//   2) prendre seulement les 50 premiers caractères,
+//   3) regarde ou ce trouve le dernier [espace] dans ces 50 caractères. (normalement, c'est ce qui délimite un mot :lol: )
+//   4) prendre les premiers caractères jusqu'au dernier [espace].
+   
 ?>
             <div class="col-md-4 col-sm-6">
                 <div class="portfolio-item">
@@ -37,7 +55,7 @@ foreach ($post as $mesPosts)
                         <a href="<?php echo("index.php?action=singlepost&id=".$POSTid)?>"><div class="hover-effect">
                             <div class="hover-content">
                                 <h1><?php echo($POSTtitle); ?></h1>
-                                <p><?php echo($POSTcontents); ?></p>
+                                <p><?php echo($POSTcontents."..."); ?></p>
                             </div>
                         </div>
                         <div class="image">
@@ -48,7 +66,7 @@ foreach ($post as $mesPosts)
                 </div>
             </div>
 <?php
-   $cpt++; if($cpt==7) break; 
+   $cpt++; if($cpt==10) break; 
  
 }
 ?>

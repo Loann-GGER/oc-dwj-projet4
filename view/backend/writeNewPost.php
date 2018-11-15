@@ -1,5 +1,9 @@
 <?php ob_start(); ?>
 <h1>Ecrire l'article</h1>
+<?php
+    if(!empty($flash = App\Session::get('flash'))) {
+      echo $flash; App\Session::setValue('flash', '');
+     } ?>
 
  <form method="post" action="index.php?action=post">
 	<input type="text" name="title" placeholder="Titre de l'article" required="required"><br>
