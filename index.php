@@ -110,6 +110,12 @@ if (isset($_GET['action']))
         case 'refusecomment':
             $comment->refusecomment();
             break;
+        case 'validelogin':
+            $backend->validelogin();
+            break;
+        case 'logout':
+            $backend->logout();
+            break;
         default:
             $frontend->listPosts();
             break;

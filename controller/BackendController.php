@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Entity\Post;
+use Entity\User;
 use App\Bootstrap;
 
 class BackendController
@@ -140,5 +141,39 @@ class BackendController
     public function viewdelete()
     {
         require("view/backend/viewdelete.php");
+    }
+
+
+    public function validelogin()
+    {
+        // On démarre la session AVANT d'écrire du code HTML
+        session_start();
+
+        $postRepo = Bootstrap::getEntityManager()->getRepository(User::class);
+        $user = $postRepo->find(1);
+        
+       
+ 
+        if ($_POST['Email'] == $user->email() && $_POST['Password'] == $user->password())
+        {
+            if ($user->level() == 1) {
+                $_SESSION['login'] = 1;
+            }
+        }
+        else // Sinon, on affiche un message d'erreur
+         {
+
+            $_SESSION['login'] = 0;
+        }
+    
+        echo("lien vers espace admin <a href='index.php?action=admin'>ICI</a>");
+    }
+
+    public function logout()
+    {
+        session_start();
+        $_SESSION['login'] = 0;
+        echo("Déconnexion avec succès</br>");
+        echo("lien vers l'accueil <a href='index.php'>ICI</a>");
     }
 }

@@ -28,16 +28,16 @@
       <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="card-body">
-          <form>
+          <form method="post" action="index.php?action=validelogin" >
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
                 <label for="inputEmail">Email address</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                <input type="password" name="Password" id="inputPassword" class="form-control" placeholder="Password" required="required">
                 <label for="inputPassword">Password</label>
               </div>
             </div>
@@ -49,7 +49,7 @@
                 </label>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" href="index.php?action=admin">Login</a>
+            <input class="btn btn-primary btn-block" type="submit" value="Login">
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="index.php?action=register">Pas de compte ? </a>

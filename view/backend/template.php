@@ -1,3 +1,11 @@
+<?php
+// On démarre la session AVANT d'écrire du code HTML
+session_start();
+ 
+if ($_SESSION['login'] == 1) 
+{
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -129,7 +137,7 @@
           <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-            <a class="btn btn-primary" href="login.php">Déconnexion</a>
+            <a class="btn btn-primary" href="index.php?action=logout">Déconnexion</a>
           </div>
         </div>
       </div>
@@ -151,3 +159,15 @@
 
   </body>
 </html>
+
+<?php 
+
+    }
+    else // Sinon, on affiche un message d'erreur
+    {
+        echo '<p>Accès internet, veuillez-vous <a href="index.php?action=login">connecter</a></p>';
+        // require('view/backend/echecconnection.php');
+    }
+    ?>
+
+
