@@ -4,6 +4,7 @@ namespace Controller;
 
 use Entity\Comment;
 use App\Bootstrap;
+use App\Session;
 
 class CommentController
 {
@@ -28,7 +29,8 @@ class CommentController
                 var_dump($e->getMessage());
             } 
         }
-        echo("ok comment en BDD");
+        Session::setValue('flash', 'Votre commentaire a bien été posté ! ');
+        header("location:index.php?action=singlepost&id=".$_POST['id']);
      
     }
 
@@ -64,7 +66,8 @@ class CommentController
 
         $entityManager->flush(); // Exe. réquète
        
-        echo("ok,commentaire signaler !");
+        Session::setValue('flash', 'Votre commentaire a bien été signalé ! ');
+        header("location:index.php?action=singlepost&id=".$_GET['id']);
 
     }
 

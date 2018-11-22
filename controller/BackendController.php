@@ -88,19 +88,6 @@ class BackendController
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
 
-        foreach ($post as $mesPosts)
-        {
-            echo ('ID : '.$mesPosts->id().'<br/>');
-            echo ('Title : '.$mesPosts->title().'<br/>');
-            echo ('Contents : '.$mesPosts->contents().'<br/>');
-            echo ('Author : '.$mesPosts->author().'<br/>');
-            echo ('CreationDate : '.$mesPosts->creationDate().'<br/>');
-            echo ("<br/>");
-        }
-    }
-
-    public function voirlesposts()
-    {
         require("view/backend/viewposts.php");
     }
 
@@ -164,7 +151,7 @@ class BackendController
             $_SESSION['login'] = 0;
         }
     
-        header("location:index.php?action=admin");
+        header("location:index.php?action=login");
     }
 
     public function logout()

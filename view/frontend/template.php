@@ -132,7 +132,6 @@
                       <a href="index.php?action=login">Se connecter</a>
                   </li>
               </ul>
-              <p>Copyright &copy; 2018 JEAN FORTEROCHE | Réalisation : Loann GOERGER</p>
           </div>
         </div>
       </div>

@@ -36,13 +36,12 @@ foreach ($post as $mesPosts)
             $dernier_mot = strrpos($POSTtitle," ");
             $POSTtitle = substr($POSTtitle,0,$dernier_mot);
         }
-        if (strlen($POSTcontents)>35) 
+        if (strlen($POSTcontents)>35) //1
         {
-            $POSTcontents = substr($POSTcontents, 0, 35);
-            $dernier_mot = strrpos($POSTcontents," ");
-            $POSTcontents = substr($POSTcontents,0,$dernier_mot);
+            $POSTcontents = substr($POSTcontents, 0, 35);//2
+            $dernier_mot = strrpos($POSTcontents," ");//3
+            $POSTcontents = substr($POSTcontents,0,$dernier_mot);//4
         }
-//   En gros, ça fait ceci :  
 //   1) si le commentaire est plus grand que 50 caractères alors,
 //   2) prendre seulement les 50 premiers caractères,
 //   3) regarde ou ce trouve le dernier [espace] dans ces 50 caractères. (normalement, c'est ce qui délimite un mot :lol: )

@@ -22,14 +22,21 @@ foreach ($post as $mesPosts)
     $POSTcontents = $mesPosts->contents();
     $POSTauthor = $mesPosts->author();
     $POSTcreationDates = $mesPosts->creationDate();
+
+    if (strlen($POSTcontents)>800) 
+    {
+        $POSTcontents = substr($POSTcontents, 0, 800);
+        $dernier_mot = strrpos($POSTcontents," ");
+        $POSTcontents = substr($POSTcontents,0,$dernier_mot);
+    }
 ?>
                         <div class="col-md-12">
                             <div class="blog-post">
                                 <!-- <img src="img/blog_post_1.png" alt=""> -->
                                 <div class="text-content">
-                                    <span><a href="#"><?php echo($POSTauthor); ?></a> / <a href="#"></a></span>
                                     <h2><?php echo($POSTtitle);?></h2>
-                                    <p><?php echo($POSTcontents);?></p>
+                                    <span><a href="#">Auteur : <?php echo($POSTauthor); ?></a> / <a href="#">Date de publication :</a></span>
+                                    <p><?php echo($POSTcontents."...");?></p>
                                     <div class="simple-btn">
                                         <a href="<?php echo("index.php?action=singlepost&id=".$POSTid)?>">Lire la suite</a>
                                     </div>

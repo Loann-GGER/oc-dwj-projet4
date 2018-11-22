@@ -34,4 +34,9 @@ class FrontendController
     {
         require("view/frontend/auteur.php");
     }
+
+    public function mentionlegales()
+    {
+        require("view/frontend/mentionlegales.php");
+    }
 }

@@ -28,13 +28,14 @@ use App\Bootstrap;
                     <div class="col-md-12">
                         <div class="single-blog-post">
                             <div class="text-content">
-                                <span><a href="#"><?php echo($POSTauthor);?></a> / <a href="#"><?php echo($POSTcreationDate);?></a></span>
+                                <span><a href="index.php?action=author">Auteur : <?php echo($POSTauthor);?></a> / <a href="#">Date de publication : </a></span>
                                 <p><?php echo($POSTcontents);?></p>
-                                <a href="index.php?action=blog">Retour au Blog</a>
+                                <span><a href="index.php?action=blog">Retour au Blog</a></span>
                                 <div class="tags-share">
                                     <div class="row">
+                                    <div class="col-md-12">
                                         <div class="text-content">
-                                            <p>Les commentaires :</p>
+                                            <span><p>Commentaires :</p></span>
                                             <?php
                                     $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
                                     $post = $postRepo->findAll();
@@ -68,7 +69,13 @@ use App\Bootstrap;
 
                                         
                                         <p>Ajouter un commentaire : </p>
-                                        
+                                        <p>
+                                            <?php
+                                        if(!empty($flash = App\Session::get('flash'))) {
+                                        echo $flash; App\Session::setValue('flash', '');
+                                        }
+                                        ?>
+                                        </p>
                                         <form method="post" action="index.php?action=postComment">
                                             <input type="text" name="author" placeholder="Auteur" required="required">
                                             <input style="display:none;" type="text" name="id" value=<?php echo($POSTid);?>>
@@ -79,6 +86,7 @@ use App\Bootstrap;
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>

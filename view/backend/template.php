@@ -33,7 +33,7 @@ if ($_SESSION['login'] == 1)
 
   <body id="page-top">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top" style="position:fixed;width:100%;z-index:10;">
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -74,7 +74,7 @@ if ($_SESSION['login'] == 1)
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
+      <ul class="sidebar navbar-nav" style="margin-top:56px;">
         <li class="nav-item">
           <a class="nav-link" href="index.php?action=admin">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -88,7 +88,7 @@ if ($_SESSION['login'] == 1)
         <div class="container-fluid">
 
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <ol class="breadcrumb" style="margin-top:56px;">
             <li class="breadcrumb-item">
               <a href="index.php?action=admin">Accueil</a>
             </li>

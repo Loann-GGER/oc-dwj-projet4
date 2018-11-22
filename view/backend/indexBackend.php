@@ -5,7 +5,7 @@
       <ul>
         <p>Gestion des articles</p>
         <li><a href="index.php?action=writeNewPost">Ecrire un nouvel article</a></li>
-        <li><a href="index.php?action=voirlesposts">Lire les acticles</a></li>
+        <li><a href="index.php?action=viewPosts">Lire les acticles</a></li>
         <li><a href="index.php?action=writeUpdatePosts">Mofidier un acticle</a></li>
         <li><a href="index.php?action=viewdelete">Supprimer un article</a></li>
         <br/><br/>

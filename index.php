@@ -119,6 +119,9 @@ if (isset($_GET['action']))
         case 'logout':
             $backend->logout();
             break;
+        case 'mentionlegales':
+            $frontend->mentionlegales();
+            break;
         default:
             $frontend->listPosts();
             break;
