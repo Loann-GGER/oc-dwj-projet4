@@ -1,10 +1,13 @@
 {
-    "name": "loann_goerger/projet_4",
+    "name": "loann_gger/projet_4",
     "description": "OC - DWJ - Projet_4",
     "require": {
         "michelf/php-markdown": "1.4.*@dev",
+        "twig/twig": "^2.5",
         "doctrine/orm": "^2.6",
-        "tinymce/tinymce": "^4.8"
+        "tinymce/tinymce": "^4.8",
+        "twbs/bootstrap": "^4.1"
+        
     },
     "authors": [
         {
@@ -15,9 +18,9 @@
     "autoload": {
         "psr-4": {
             "App\\":"app",
+            "Controller\\":"controller/",
 			"Entity\\":"model/entites/",
             "Repository\\":"model/repository/",
-            "Controller\\":"controller/",
             "ViewBack\\":"view/backend/",
             "ViewFront\\":"view/frontend/"
 		}

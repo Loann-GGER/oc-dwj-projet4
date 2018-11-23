@@ -1,32 +1,23 @@
-#--------------------------------------------------
-# Ne pas autoriser la listage d'un dossier.
-#--------------------------------------------------
 Options -Indexes
-#--------------------------------------------------
-# Renvoi vers les erreurs personnalisées.
-#--------------------------------------------------
-ErrorDocument 401 /controller/error.php
-ErrorDocument 403 /controller/error.php
-ErrorDocument 404 /controller/error.php
-ErrorDocument 405 /controller/error.php
-ErrorDocument 408 /controller/error.php
-ErrorDocument 500 /controller/error.php
-ErrorDocument 502 /controller/error.php
-ErrorDocument 504 /controller/error.php
 
-#--------------------------------------------------
-# Répertoire : /articles/
-#--------------------------------------------------
+ErrorDocument 401 /controller/ErrorController.php
+ErrorDocument 403 /controller/ErrorController.php
+ErrorDocument 404 /controller/ErrorController.php
+ErrorDocument 405 /controller/ErrorController.php
+ErrorDocument 408 /controller/ErrorController.php
+ErrorDocument 500 /controller/ErrorController.php
+ErrorDocument 502 /controller/ErrorController.php
+ErrorDocument 504 /controller/ErrorController.php
 
-# Le serveur doit suivre les liens symboliques :
-#Options +FollowSymlinks
-
+Options +FollowSymlinks
 # Activation du module de réécriture d'URL :
-#RewriteEngine on
+RewriteEngine on
 
-#--------------------------------------------------
-# Règles de réécriture d'URL :
-#--------------------------------------------------
+# RewriteCond %{REQUEST_FILENAME} !-f 
+
+# RewriteRule ^(.*)$ index.php?action=$1 [QSA,L]
+
+
 
 # Article sans numéro de page :
 # RewriteRule ^article-([0-9]+)-([0-9]+).html$   /articles/article.php?id=$1&rubrique=$2 [L]

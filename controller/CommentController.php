@@ -33,7 +33,9 @@ class CommentController
         header("location:index.php?action=singlepost&id=".$_POST['id']);
      
     }
-
+    /**
+     * 
+     */
     public function viewComment()
     {   
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);

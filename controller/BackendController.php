@@ -139,7 +139,7 @@ class BackendController
         
        
  
-        if ($_POST['Email'] == $user->email() && $_POST['Password'] == $user->password())
+        if ($_POST['Email'] == $user->email() && password_verify($_POST['Password'], $user->password()))
         {
             if ($user->level() == 1) {
                 $_SESSION['login'] = 1;
@@ -154,6 +154,18 @@ class BackendController
         header("location:index.php?action=login");
     }
 
+    public function incrilogin()
+    {
+        $postPass = "MLKDGGL";
+        
+        $mail = "";
+
+        $password = password_hash( $postPass, PASSWORD_BCRYPT);
+
+        $entityManager = Bootstrap::getEntityManager();
+        $entityManager->persist(); // Créer la réquète 
+        $entityManager->flush(); // Exe. réquète
+    }
     public function logout()
     {
         Session::destroy();
