@@ -64,7 +64,6 @@ class CommentController
 
         $comment->setalert(true);
         // var_dump($comment);
-        // echo("<br/>");
 
         $entityManager->flush(); // Exe. réquète
        

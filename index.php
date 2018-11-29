@@ -9,11 +9,13 @@ use Controller\BackendController;
 use Controller\PostController;
 use Controller\CommentController;
 use Controller\FrontendController;
+use Controller\UserController;
 
 $frontend = new FrontendController();
 $backend = new BackendController();
 $post = new PostController();
 $comment = new CommentController();
+$user = new UserController();
 
 if (isset($_GET['action'])) 
 {
@@ -24,11 +26,11 @@ if (isset($_GET['action']))
             break;
 
         case 'writeNewPost':
-            $backend->addPost();
+            $post->addPost();
             break;
 
         case 'managePosts':
-            $backend->managePosts();
+            $post->managePosts();
             break;
 
         case 'manageComments':
@@ -36,19 +38,19 @@ if (isset($_GET['action']))
             break;
 
         case 'post':
-            $backend->postPost();
+            $post->postPost();
             break;
 
         case 'login':
-            $backend->login();
+            $user->login();
             break;
 
         case 'register':
-            $backend->register();
+            $user->register();
             break;
 
         case 'forgotPassword':
-            $backend->forgotPassword();
+            $user->forgotPassword();
             break;  
 
         case 'singlepost':
@@ -56,11 +58,11 @@ if (isset($_GET['action']))
             break;
 
         case 'testpost':
-            $backend->show();
+            $post->show();
             break;
 
         case 'delete':
-            $backend->deletePost();
+            $post->deletePost();
             break;
 
         case 'blog':
@@ -72,31 +74,31 @@ if (isset($_GET['action']))
             break;
 
         case 'viewPosts':
-            $backend->viewPosts();
+            $post->viewPosts();
             break;
 
         case 'voirlesposts':
-            $backend->voirlesposts();
+            $post->voirlesposts();
             break;
 
         case 'updatePosts':
-            $backend->updatePosts();
+            $post->updatePosts();
             break;
 
         case 'writeUpdatePosts':
-            $backend->writeUpdatePosts();
+            $post->writeUpdatePosts();
             break;
 
         case 'delete':
-            $backend->deletePost();
+            $post->deletePost();
             break;
 
         case 'viewdelete':
-            $backend->viewdelete();
+            $post->viewdelete();
             break;
 
         case 'lireunpost':
-            $backend->show(2);
+            $post->show(2);
             break;
         case 'postComment':
             $comment->postComment();
@@ -114,10 +116,10 @@ if (isset($_GET['action']))
             $comment->refusecomment();
             break;
         case 'validelogin':
-            $backend->validelogin();
+            $user->validelogin();
             break;
         case 'logout':
-            $backend->logout();
+            $user->logout();
             break;
         case 'mentionlegales':
             $frontend->mentionlegales();
