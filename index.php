@@ -5,17 +5,30 @@ require "vendor/autoload.php";
 use App\Session;
 Session::start();
 
+
+// use App\Router;
+
+
 use Controller\BackendController;
 use Controller\PostController;
 use Controller\CommentController;
 use Controller\FrontendController;
 use Controller\UserController;
+use Controller\ErrorController;
 
 $frontend = new FrontendController();
 $backend = new BackendController();
 $post = new PostController();
 $comment = new CommentController();
 $user = new UserController();
+$error = new ErrorController();
+
+
+// $router = new Router($_GET['action']);
+// $router->getRoute('admin', ['controller'=>'backendController', 'method'=>'admin']);
+// $router->postRoute('writeNewPost', ['controller'=>'postController', 'method'=>'addPost']);
+
+// $router->run();
 
 if (isset($_GET['action'])) 
 {
@@ -124,6 +137,11 @@ if (isset($_GET['action']))
         case 'mentionlegales':
             $frontend->mentionlegales();
             break;
+
+        case 'error':
+            $error->errors();
+            break;
+
         default:
             $frontend->listPosts();
             break;
@@ -131,4 +149,4 @@ if (isset($_GET['action']))
 }
 else {
     $frontend->listPosts();
-}
+} 

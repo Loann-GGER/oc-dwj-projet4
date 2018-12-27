@@ -1,4 +1,5 @@
-<?php ob_start(); ?>
+{% extends "template.php" %}
+{% block content %}
     <div id="video-container">
         <div class="video-overlay"></div>
         <div class="video-content">
@@ -20,17 +21,18 @@
      <div class="grid-portfolio" id="portfolio">
         <div class="container">
 
-<?php 
+{% set cpt=1 %}
 
-$cpt =1;
+{% for post in mesPosts %}
 
-foreach ($post as $mesPosts)
-{
-    $POSTid = $mesPosts->id();
-    $POSTtitle = $mesPosts->title();
-    $POSTcontents = $mesPosts->contents();
-   
-            if (strlen($POSTtitle)>20) 
+{% if post.title()|length >20 %}
+
+$POSTtitle = substr($POSTtitle, 0, 20);
+            $dernier_mot = strrpos($POSTtitle," ");
+            $POSTtitle = substr($POSTtitle,0,$dernier_mot);
+
+{% endif %}
+
         {
             $POSTtitle = substr($POSTtitle, 0, 20);
             $dernier_mot = strrpos($POSTtitle," ");
@@ -47,7 +49,7 @@ foreach ($post as $mesPosts)
 //   3) regarde ou ce trouve le dernier [espace] dans ces 50 caractères. (normalement, c'est ce qui délimite un mot :lol: )
 //   4) prendre les premiers caractères jusqu'au dernier [espace].
    
-?>
+{% endfor %}
             <div class="col-md-4 col-sm-6">
                 <div class="portfolio-item">
                     <div class="thumb">
@@ -64,11 +66,9 @@ foreach ($post as $mesPosts)
                     </div>
                 </div>
             </div>
-<?php
-   $cpt++; if($cpt==10) break; 
+
+{% set cpt=cpt+1 %}
  
-}
-?>
 
             <div class="col-md-12">
                 <div class="load-more-button">
@@ -77,7 +77,4 @@ foreach ($post as $mesPosts)
             </div>
         </div>
     </div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require("view/frontend/template.php");?>
+    {% endblock %}

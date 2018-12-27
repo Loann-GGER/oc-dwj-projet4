@@ -1,17 +1,17 @@
 Options -Indexes
 
-ErrorDocument 401 /controller/ErrorController.php
-ErrorDocument 403 /controller/ErrorController.php
-ErrorDocument 404 /controller/ErrorController.php
-ErrorDocument 405 /controller/ErrorController.php
-ErrorDocument 408 /controller/ErrorController.php
-ErrorDocument 500 /controller/ErrorController.php
-ErrorDocument 502 /controller/ErrorController.php
-ErrorDocument 504 /controller/ErrorController.php
+ErrorDocument 401 /index.php?action=error&code=401
+ErrorDocument 403 /index.php?action=error&code=403
+ErrorDocument 404 /index.php?action=error&code=404
+ErrorDocument 405 /index.php?action=error&code=405
+ErrorDocument 408 /index.php?action=error&code=408
+ErrorDocument 500 /index.php?action=error&code=500
+ErrorDocument 502 /index.php?action=error&code=502
+ErrorDocument 504 /index.php?action=error&code=504
 
-Options +FollowSymlinks
+#Options +FollowSymlinks
 # Activation du module de réécriture d'URL :
-RewriteEngine on
+#RewriteEngine on
 
 # RewriteCond %{REQUEST_FILENAME} !-f 
 

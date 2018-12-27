@@ -47,7 +47,7 @@
       <div id="menu-rwd" class="menu-icon"><span></span></div>
     </nav>
 
-    <?= $content ?>
+ {% block content %}{% endblock %}
 
     <footer>
         <div class="container-fluid">

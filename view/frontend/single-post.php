@@ -7,6 +7,8 @@ $POSTcontents = $mesPosts->contents();
 $POSTauthor = $mesPosts->author();
 $POSTcreationDate = $mesPosts->creationDate();
 
+var_dump($POSTcreationDate);
+
 use Entity\Comment;
 use App\Bootstrap;
 ?>
@@ -28,7 +30,7 @@ use App\Bootstrap;
                     <div class="col-md-12">
                         <div class="single-blog-post">
                             <div class="text-content">
-                                <span><a href="index.php?action=author">Auteur : <?php echo($POSTauthor);?></a> / <a href="#">Date de publication : </a></span>
+                                <span><a href="index.php?action=author">Auteur : <?php echo $POSTauthor;?></a> / <a href="#">Date de publication :  <?php echo $POSTcreationDate->format("Y-M-d H:m");?></a></span>
                                 <p><?php echo($POSTcontents);?></p>
                                 <span><a href="index.php?action=blog">Retour au Blog</a></span>
                                 <div class="tags-share">
@@ -37,34 +39,26 @@ use App\Bootstrap;
                                         <div class="text-content">
                                             <span><p>Commentaires :</p></span>
                                             <?php
-                                    $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
-                                    $post = $postRepo->findAll();
 
-                                    foreach ($post as $mesPosts)
+
+                                    foreach ($mesPosts->comments() as $commentaire)
                                     {
-                                        $idpost = $mesPosts->postId();
-                                        $alert = $mesPosts->alert();
-                                        if ($idpost == $POSTid ){
+                                
+                                            if ($commentaire->alert() == false) {
 
-                                            if ($alert == false) {
-
-                                           
-                                            $commentaireid = $mesPosts->id();
-                                            $commentairecontents = $mesPosts->contents();
-                                            $commentaireauthor = $mesPosts->author();
                                         
                                     ?>
                                         <div style='border: 1px blue solid'>
-                                            <p>AUTEUR : <?php echo($commentaireauthor);?>
+                                            <p>AUTEUR : <?php echo $commentaire->author();?>
                                             <br/>
-                                            COMMENT : <?php echo($commentairecontents);?></p>
-                                            <a href="<?php echo("index.php?action=commentSignal&id=".$commentaireid)?>">Signaler le commentaire</a>
+                                            COMMENT : <?php echo $commentaire->contents(); ?></p>
+                                            <a href="<?php echo"index.php?action=commentSignal&id=".$commentaire->id(); ?>">Signaler le commentaire</a>
                                         </div>
 
                                     <?php
                                      }
                                     }
-                                    }
+                                    
                                             ?>
 
                                         
