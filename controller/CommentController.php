@@ -6,7 +6,7 @@ use Entity\Comment;
 use App\Bootstrap;
 use App\Session;
 
-class CommentController
+class CommentController extends Controller
 {
     public function postComment()
     {
@@ -78,6 +78,7 @@ class CommentController
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
         $comments = $postRepo->findAll();
 
+       //Twig :  $this->render('view/backend/manageComments.php', ['comments'=>$comments]);
         require("view/backend/manageComments.php");
     }
 

@@ -4,8 +4,9 @@ namespace Controller;
 
 use Entity\Post;
 use App\Bootstrap;
+use App\Session;
 
-class FrontendController 
+class FrontendController extends Controller
 {
     public function listPosts()
     {
@@ -32,7 +33,8 @@ class FrontendController
 
     public function author()
     {
-        require("view/frontend/auteur.php");
+        // require("view/frontend/auteur.php");
+        $this->render("frontend/auteur.php");
     }
 
     public function mentionlegales()

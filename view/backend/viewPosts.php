@@ -11,7 +11,7 @@ foreach ($post as $mesPosts)
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
             <h1><?php echo($mesPosts->title())?></h1>
-              <p class="card-text"><?php echo($mesPosts->contents())?></p>
+              <p class="card-text"><?php echo $mesPosts->contents() ?></p>
               <p><?php echo($mesPosts->author())?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">

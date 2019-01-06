@@ -1,6 +1,7 @@
 <?php ob_start(); ?>
 <h1>Ecrire l'article</h1>
 <?php
+    App\Session::displayFlash();
     if(!empty($flash = App\Session::get('flash'))) {
       echo $flash; App\Session::setValue('flash', '');
      } ?>
