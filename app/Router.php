@@ -8,12 +8,14 @@ class Router
     private $getRoutes = array();
     private $postRoutes = array();
 
-
-    public function __construct($action)
+    public function __construct($action_url)
     {
-        // check isset action
-        $this->action = $action;
-        // cree un if pour l'index si pas d'action 
+        if ($action_url === NULL) {
+            echo "Pas d'action URL";
+        }
+        else {
+            $this->action = $action_url;
+        }
     }
 
     public function getRoute(string $url, array $infos)

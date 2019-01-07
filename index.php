@@ -8,67 +8,39 @@ use App\Router;
 Session::start();
 
 $router = new Router($_GET['action']);
-$router->getRoute(
-    // 'admin', ['controller'=>'backendController', 'method'=>'admin'],
-    'author', ['controller'=>'frontendController', 'method'=>'author']
 
-);
-$router->postRoute('writeNewPost', ['controller'=>'postController', 'method'=>'addPost']);
+$router->getRoute('author', ['controller'=>'FrontendController', 'method'=>'author']);
+$router->getRoute('singlepost', ['controller'=>'FrontendController', 'method'=>'singlepost']);
+$router->getRoute('blog', ['controller'=>'FrontendController', 'method'=>'blog']);
+
+$router->getRoute('admin', ['controller'=>'BackendController', 'method'=>'admin']);
+
+$router->getRoute('login', ['controller'=>'UserController', 'method'=>'login']);
+$router->getRoute('manageComments', ['logout'=>'UserController', 'method'=>'logout']);
+
+$router->getRoute('writeNewPost', ['controller'=>'PostController', 'method'=>'addPost']);
+$router->getRoute('managePosts', ['controller'=>'PostController', 'method'=>'managePosts']);
+$router->getRoute('delete', ['controller'=>'PostController', 'method'=>'deletePost']);
+
+$router->getRoute('error', ['controller'=>'ErrorController', 'method'=>'errors']);
+
+
+
+
+
+
+// $router->postRoute('writeNewPost', ['controller'=>'postController', 'method'=>'addPost']);
 
 $router->run();
 
-// if (isset($_GET['action'])) 
-// {
-//     switch ($_GET['action'])
-//     {
-//         case 'admin':
-//             $backend->admin();
-//             break;
-
-//         case 'writeNewPost':
-//             $post->addPost();
-//             break;
-
-//         case 'managePosts':
-//             $post->managePosts();
-//             break;
-
-//         case 'manageComments':
-//             $comment->manageComments();
-//             break;
 
 //         case 'post':
 //             $post->postPost();
 //             break;
 
-//         case 'login':
-//             $user->login();
-//             break;
-
-//         case 'register':
-//             $user->register();
-//             break;
-
-//         case 'forgotPassword':
-//             $user->forgotPassword();
-//             break;  
-
-//         case 'singlepost':
-//             $frontend->singlePost();
-//             break;
-
 //         case 'testpost':
 //             $post->show();
 //             break;
-
-//         case 'delete':
-//             $post->deletePost();
-//             break;
-
-//         case 'blog':
-//             $frontend->blog();
-//             break;
-
 
 
 //         case 'viewPosts':
@@ -115,9 +87,6 @@ $router->run();
 //             break;
 //         case 'validelogin':
 //             $user->validelogin();
-//             break;
-//         case 'logout':
-//             $user->logout();
 //             break;
 //         case 'mentionlegales':
 //             $frontend->mentionlegales();

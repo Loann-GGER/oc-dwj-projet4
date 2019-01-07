@@ -17,7 +17,9 @@ abstract class Controller
     public function render($file) {
        
        // if($datas === null) {
-            echo $this->twig->load($file);
+        //echo $file;    
+        echo $this->twig->render($file);
+
        // }     
         // else { 
         //     echo $this->twig->render($file, $datas);

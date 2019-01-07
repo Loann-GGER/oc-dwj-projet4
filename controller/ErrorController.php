@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class errorController
+class ErrorController extends Controller
 {
   public function errors()
   {
@@ -22,6 +22,6 @@ class errorController
     $title = $codes[$status][0];
     $message = $codes[$status][1];
 
-    require('view/frontend/error.php');
+    $this->render('frontend/error.php');
     }
 }

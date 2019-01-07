@@ -6,11 +6,11 @@ use App\Bootstrap;
 use Entity\User;
 use App\Session;
 
-class UserController
+class UserController extends Controller
 {
     public function login()
     {  
-        require("view/backend/login.php");
+        $this->render('backend/login.php');
     }
 
     public function register()
