@@ -7,7 +7,7 @@ class BackendController
        
     public function admin()
     {
-        require("view/backend/indexBackend.php");
+        $this->render('backend/indexBackend.php');
     }
 
 }

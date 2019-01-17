@@ -14,15 +14,12 @@ abstract class Controller
         $this->twig = new \Twig_Environment($this->loader, array('cache' => false));
     }
 
-    public function render($file) {
-       
-       // if($datas === null) {
-        echo $file;    
-        echo $this->twig->render($file);
-
-       // }     
-        // else { 
-        //     echo $this->twig->render($file, $datas);
-        // } 
+    public function render($file, $datas = null ) {
+        if($datas === null) {
+            echo $this->twig->render($file);
+        }     
+        else {
+            echo $this->twig->render($file, $datas);
+        }
     }
 }

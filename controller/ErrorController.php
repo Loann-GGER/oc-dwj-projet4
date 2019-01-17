@@ -22,6 +22,6 @@ class ErrorController extends Controller
     $title = $codes[$status][0];
     $message = $codes[$status][1];
 
-    $this->render('frontend/error.php');
+    $this->render('frontend/error.html', ['title'=>$title, 'message'=>$message]);
     }
 }

@@ -10,19 +10,8 @@ class UserController extends Controller
 {
     public function login()
     {  
-        $this->render('backend/login.php');
+        $this->render('backend/login.html');
     }
-
-    public function register()
-    {  
-        require("view/backend/register.php");
-    }
-
-    public function forgotPassword()
-    {  
-        require("view/backend/forgot-password.php");
-    }
-
 
     public function validelogin()
     {
@@ -46,18 +35,6 @@ class UserController extends Controller
         header("location:index.php?action=login");
     }
 
-    public function incrilogin()
-    {
-        $postPass = "MLKDGGL";
-        
-        $mail = "";
-
-        $password = password_hash( $postPass, PASSWORD_BCRYPT);
-
-        $entityManager = Bootstrap::getEntityManager();
-        $entityManager->persist(); // Créer la réquète 
-        $entityManager->flush(); // Exe. réquète
-    }
     public function logout()
     {
         Session::destroy();

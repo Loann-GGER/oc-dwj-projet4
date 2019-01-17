@@ -8,18 +8,18 @@ use App\Session;
 
 class FrontendController extends Controller
 {
-    public function listPosts()
+    public function index()
     {
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
-    
-        require("view/frontend/indexFrontend.php");
+
+        $this->render("frontend/indexFrontend.html",['posts'=>$post]);
     }
 
     public function singlePost()
     {
         $entityManager = Bootstrap::getEntityManager();
-        require("view/frontend/single-post.php");
+        $this->render("frontend/singlePost.html");
 
     }
 
@@ -28,17 +28,16 @@ class FrontendController extends Controller
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
 
-        require("view/frontend/blog.php");
+        $this->render("frontend/blog.html",['post'=>$post]);
     }
 
     public function author()
     {
-        // require("view/frontend/auteur.php");
-        $this->render("frontend/auteur.php");
+        $this->render("frontend/auteur.html");
     }
 
     public function mentionlegales()
     {
-        require("view/frontend/mentionlegales.php");
+        require("view/frontend/mentionlegales.html");
     }
 }

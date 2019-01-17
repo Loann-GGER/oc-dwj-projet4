@@ -78,8 +78,7 @@ class CommentController extends Controller
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
         $comments = $postRepo->findAll();
 
-       //Twig :  $this->render('view/backend/manageComments.php', ['comments'=>$comments]);
-        require("view/backend/manageComments.php");
+       $this->render('view/backend/manageComments.php', ['comments'=>$comments]);
     }
 
     public function aprouvecomment()

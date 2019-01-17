@@ -10,13 +10,24 @@ class PostController
 {
     public function addPost()
     {
-        require("view/backend/writeNewPost.php");
+        $this->render('backend/writeNewPost.php');
     }
 
     public function managePosts()
     {
-        require("view/backend/managePosts.php");
+        $this->render('backend/managePosts.php');
     }
+
+    public function writeUpdatePosts()
+    {
+        $this->render('backend/writeUpdatePost.php');
+    }
+    
+    public function viewdelete()
+    {
+        $this->render('backend/viewdelete.php');
+    }
+
 
     // CREATE POST 
     public function postPost()
@@ -83,33 +94,16 @@ class PostController
 
         $entityManager->flush(); // Exe. réquète
 
-
-
     }
 
-    public function writeUpdatePosts()
-    {
-        require("view/backend/writeUpdatePost.php");
-    }
-
-    //DELETE POST
     public function deletePost()
     {
         $entityManager = Bootstrap::getEntityManager();
         $post = $entityManager->find("Entity\Post",$_POST['id']);
-        var_dump($post);
-
         $entityManager->remove($post);
         $entityManager->flush();
-        echo('ok l\''.$_POST['id'].'est sup');       
+    
+        Session::setValue('flash', 'Votre post a bien été supprimé');
     }
-
-    public function viewdelete()
-    {
-        require("view/backend/viewdelete.php");
-    }
-
-
-
 
 }
