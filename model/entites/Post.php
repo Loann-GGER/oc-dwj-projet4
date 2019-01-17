@@ -26,7 +26,7 @@ class Post extends Entity
      */
     private $creationDate;
     /**
-     * @ORM\OneToMany(targetEntity="Entity\Comment",mappedBy="post", fetch="EAGER", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Comment",mappedBy="post", fetch="EAGER", cascade={"persist"})
      */
     private $comments;
 
