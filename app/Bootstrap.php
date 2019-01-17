@@ -22,6 +22,7 @@ class Bootstrap
             'user'     => 'root',
             'password' => 'root',
             'dbname'   => 'OC_DWJ_PROJET-4',
+            
             'port'     => '8889',/* A supprimer en mode production */
             'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock'/* A supprimer en mode production */
         ];
