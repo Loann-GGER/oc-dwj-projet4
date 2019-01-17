@@ -7,8 +7,12 @@ use App\Router;
 
 Session::start();
 
-$router = new Router($_GET['action']);
+$action = $_GET['action'] ?? '';
 
+$router = new Router($action);
+
+$router->getRoute('', ['controller'=>'FrontendController', 'method'=>'index']);
+$router->getRoute('index', ['controller'=>'FrontendController', 'method'=>'index']);
 $router->getRoute('author', ['controller'=>'FrontendController', 'method'=>'author']);
 $router->getRoute('singlepost', ['controller'=>'FrontendController', 'method'=>'singlepost']);
 $router->getRoute('blog', ['controller'=>'FrontendController', 'method'=>'blog']);
@@ -25,11 +29,8 @@ $router->getRoute('delete', ['controller'=>'PostController', 'method'=>'deletePo
 $router->getRoute('error', ['controller'=>'ErrorController', 'method'=>'errors']);
 
 
-
-
-
-
-// $router->postRoute('writeNewPost', ['controller'=>'postController', 'method'=>'addPost']);
+$router->postRoute('validelogin', ['controller'=>'UserController', 'method'=>'validelogin']);
+$router->postRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
 
 $router->run();
 
@@ -85,9 +86,7 @@ $router->run();
 //         case 'refusecomment':
 //             $comment->refusecomment();
 //             break;
-//         case 'validelogin':
-//             $user->validelogin();
-//             break;
+
 //         case 'mentionlegales':
 //             $frontend->mentionlegales();
 //             break;
@@ -96,11 +95,3 @@ $router->run();
 //             $error->errors();
 //             break;
 
-//         default:
-//             $frontend->listPosts();
-//             break;
-//     }
-// }
-// else {
-//     $frontend->listPosts();
-// } 
