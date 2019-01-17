@@ -1,0 +1,58 @@
+{% extends "frontend/template.html" %}
+{% block content %}
+
+<div id="video-container">
+    <div class="video-overlay"></div>
+    <div class="video-content">
+        <div class="inner">
+            <h1>Un billet simple pour l'Alaska</h1><br />
+            <p style="font-size:5rem;">Jean<em> Forteroche</em></p><br />
+            <p>Cliquez pour découvrir le livre.</p>
+            <div class="scroll-icon">
+                <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="public/img/frontend/scroll-icon.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <img src="public/img/frontend/home-bg.jpg" alt="home-bg">
+    <!-- 
+    <video autoplay="" loop="" muted>
+        <source src="public/img/frontend/highway-loop.mp4" type="video/mp4" />
+    </video>
+    -->
+</div>
+
+<div class="grid-portfolio" id="portfolio">
+    <div class="container">
+
+        {% set cpt=1 %}
+        {% for post in posts %}
+
+        <div class="col-md-4 col-sm-6">
+            <div class="portfolio-item">
+                <div class="thumb">
+                    <a href="index.php?action=singlepost&id={{ post.id }}">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1>{{ post.title|slice(0, 20) }}</h1>
+                                <p>{{ post.contents|slice(0, 35) }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="public/img/frontend/portfolio_item_{{cpt}}.png" alt="Photo de l'article">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% set cpt=cpt+1 %}
+        {% endfor %}
+
+        <div class="col-md-12">
+            <div class="load-more-button">
+                <a href="index.php?action=blog">Voir tous les chapitres</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

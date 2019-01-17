@@ -1,4 +1,5 @@
-<?php ob_start(); 
+{% extends "frontend/template.html" %}
+{% block content %}
 
 $mesPosts = $entityManager->find("Entity\Post",$_GET['id']);
 $POSTid = $mesPosts->id();
@@ -89,6 +90,4 @@ use App\Bootstrap;
         </div>   
     </div>
 </div>
-<?php $content = ob_get_clean(); ?>
-
-<?php require("view/frontend/template.php");?>
+{% endblock %}

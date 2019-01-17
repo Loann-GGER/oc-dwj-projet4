@@ -1,4 +1,5 @@
-<?php ob_start(); ?>
+{% extends "frontend/template.html" %}
+{% block content %}
 <div class="page-heading">
         <div class="container">
             <div class="heading-content">
@@ -12,7 +13,12 @@
                 <div class="blog-posts">
                     <div class="row">
 
-<?php 
+{% for post in mesposts %}
+
+
+<h1>{{ mesPosts.id }}</h1>
+
+{% endfor %}
 
 
 foreach ($post as $mesPosts)
@@ -35,10 +41,10 @@ foreach ($post as $mesPosts)
                                 <!-- <img src="img/blog_post_1.png" alt=""> -->
                                 <div class="text-content">
                                     <h2><?php echo($POSTtitle);?></h2>
-                                    <span><a href="#">Auteur : <?php echo($POSTauthor); ?></a> / <a href="#">Date de publication :</a></span>
+                                    <span><a href="#">Auteur : {{ mesPosts.id }}</a> / <a href="#">Date de publication :</a></span>
                                     <p><?php echo($POSTcontents."...");?></p>
                                     <div class="simple-btn">
-                                        <a href="<?php echo("index.php?action=singlepost&id=".$POSTid)?>">Lire la suite</a>
+                                        <a href="index.php?action=singlepost&id={{mesPosts.id}}">Lire la suite</a>
                                     </div>
                                 </div>
                             </div>
@@ -52,6 +58,4 @@ foreach ($post as $mesPosts)
 </div>
 </div>
 </div>
-<?php $content = ob_get_clean(); ?>
-
-<?php require("view/frontend/template.php");?>
+{% endblock %}
