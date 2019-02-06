@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Entity\Post;
+use Entity\Comment;
 use App\Bootstrap;
 use App\Session;
 
@@ -19,7 +20,12 @@ class FrontendController extends Controller
     public function singlePost()
     {
         $entityManager = Bootstrap::getEntityManager();
-        $this->render("frontend/singlePost.html");
+        $post = $entityManager->find("Entity\Post",$_GET['id']);
+
+        $com = Bootstrap::getEntityManager()->getRepository(Comment::class);
+        $commentaires = $com->findAll();
+
+        $this->render("frontend/singlePost.html",['post'=>$post,'commentaires'=>$commentaires]);
 
     }
 
@@ -28,7 +34,7 @@ class FrontendController extends Controller
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
 
-        $this->render("frontend/blog.html",['post'=>$post]);
+        $this->render("frontend/blog.html",['posts'=>$post]);
     }
 
     public function author()
@@ -38,6 +44,6 @@ class FrontendController extends Controller
 
     public function mentionlegales()
     {
-        require("view/frontend/mentionlegales.html");
+        $this->render("frontend/mentionlegales.html");
     }
 }

@@ -16,6 +16,7 @@ $router->getRoute('index', ['controller'=>'FrontendController', 'method'=>'index
 $router->getRoute('author', ['controller'=>'FrontendController', 'method'=>'author']);
 $router->getRoute('singlepost', ['controller'=>'FrontendController', 'method'=>'singlepost']);
 $router->getRoute('blog', ['controller'=>'FrontendController', 'method'=>'blog']);
+$router->getRoute('mentionlegales', ['controller'=>'FrontendController', 'method'=>'mentionlegales']);
 
 $router->getRoute('admin', ['controller'=>'BackendController', 'method'=>'admin']);
 
@@ -28,11 +29,17 @@ $router->getRoute('delete', ['controller'=>'PostController', 'method'=>'deletePo
 
 $router->getRoute('error', ['controller'=>'ErrorController', 'method'=>'errors']);
 
+$router->getRoute('commentSignal', ['controller'=>'CommentController', 'method'=>'commentSignal']);
+
 
 $router->postRoute('validelogin', ['controller'=>'UserController', 'method'=>'validelogin']);
 $router->postRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
+$router->postRoute('postComment', ['controller'=>'CommentController', 'method'=>'postComment']);
+
+
 
 $router->run();
+
 
 
 //         case 'post':
@@ -71,27 +78,14 @@ $router->run();
 //         case 'lireunpost':
 //             $post->show(2);
 //             break;
-//         case 'postComment':
-//             $comment->postComment();
-//             break;
+
 //         case 'viewComment':
 //             $comment->viewComment();
 //             break;
-//         case 'commentSignal':
-//             $comment->commentSignal();
-//             break;
+
 //         case 'aprouvecomment':
 //             $comment->aprouvecomment();
 //             break;
 //         case 'refusecomment':
 //             $comment->refusecomment();
 //             break;
-
-//         case 'mentionlegales':
-//             $frontend->mentionlegales();
-//             break;
-
-//         case 'error':
-//             $error->errors();
-//             break;
-

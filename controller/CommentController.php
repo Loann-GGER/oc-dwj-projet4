@@ -12,10 +12,11 @@ class CommentController extends Controller
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $comment = new Comment([
-                'postid'=>$_POST['id'],
+                // 'post_id'=>$_POST['id'],
                 'contents'=>$_POST['content'],
                 'author'=>$_POST['author'],
-                'alert'=>0
+                'alert'=>0,
+                'publicationDate'=>new \DateTime("now")
                 ]);
                 // var_dump($comment); // Voir 
             try
@@ -57,7 +58,7 @@ class CommentController extends Controller
 
     public function commentSignal()
     {   
-
+        echo"coucou";
         $entityManager = Bootstrap::getEntityManager();
         $comment = $entityManager->find("Entity\Comment",$_GET['id']);
         // var_dump($comment);
