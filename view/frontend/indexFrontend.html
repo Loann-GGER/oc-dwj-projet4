@@ -30,7 +30,7 @@
                         <div class="hover-effect">
                             <div class="hover-content">
                                 <h1>{{ post.title|slice(0, 20) }}</h1>
-                                <p>{{ post.contents|slice(0, 35) }}</p>
+                                <p>{{ post.contents|slice(0, 35)|raw }}</p>
                             </div>
                         </div>
                         <div class="image">
