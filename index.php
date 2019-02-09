@@ -2,10 +2,9 @@
 
 require "vendor/autoload.php";
 
-use App\Session;
 use App\Router;
 
-Session::start();
+session_start();
 
 $action = $_GET['action'] ?? '';
 
@@ -33,7 +32,7 @@ $router->getRoute('commentSignal', ['controller'=>'CommentController', 'method'=
 
 
 $router->postRoute('validelogin', ['controller'=>'UserController', 'method'=>'validelogin']);
-$router->postRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
+$router->getRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
 $router->postRoute('postComment', ['controller'=>'CommentController', 'method'=>'postComment']);
 
 
