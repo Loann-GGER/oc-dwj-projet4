@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Entity\Comment;
+use Entity\Post;
 use App\Bootstrap;
 use App\Session;
 
@@ -11,8 +12,9 @@ class CommentController extends Controller
     public function postComment()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $entityManager = Bootstrap::getEntityManager();
             $comment = new Comment([
-                // 'post_id'=>$_POST['id'],
+                'post'=>$entityManager->find("Entity\Post",$_POST['id']),
                 'contents'=>$_POST['content'],
                 'author'=>$_POST['author'],
                 'alert'=>0,
@@ -21,7 +23,6 @@ class CommentController extends Controller
                 // var_dump($comment); // Voir 
             try
             {
-                $entityManager = Bootstrap::getEntityManager();
                 $entityManager->persist($comment); // Créer la réquète 
                 $entityManager->flush(); // Exe. réquète
             } 
@@ -30,7 +31,8 @@ class CommentController extends Controller
                 var_dump($e->getMessage());
             } 
         }
-        Session::setValue('flash', 'Votre commentaire a bien été posté ! ');
+
+        $_SESSION['flash'] = 'Votre commentaire a bien été posté ! ';
         header("location:index.php?action=singlepost&id=".$_POST['id']);
      
     }

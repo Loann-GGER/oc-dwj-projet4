@@ -2,12 +2,12 @@
 
 namespace Controller;
 
-class BackendController
-{ 
-       
+use App\Session;
+
+class BackendController extends Controller
+{    
     public function admin()
     {
-        $this->render('backend/indexBackend.php');
+        $this->render('backend/indexBackend.html');
     }
-
 }

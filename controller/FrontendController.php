@@ -12,7 +12,7 @@ class FrontendController extends Controller
     public function index()
     {
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
-        $post = $postRepo->findAll();
+        $post = $postRepo->findBy([],["id"=>"desc"]);
 
         $this->render("frontend/indexFrontend.html",['posts'=>$post]);
     }
@@ -22,8 +22,7 @@ class FrontendController extends Controller
         $entityManager = Bootstrap::getEntityManager();
         $post = $entityManager->find("Entity\Post",$_GET['id']);
 
-        $com = Bootstrap::getEntityManager()->getRepository(Comment::class);
-        $commentaires = $com->findAll();
+        $commentaires = $post->comments();
 
         $this->render("frontend/singlePost.html",['post'=>$post,'commentaires'=>$commentaires]);
 

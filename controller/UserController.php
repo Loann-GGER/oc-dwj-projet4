@@ -10,7 +10,12 @@ class UserController extends Controller
 {
     public function login()
     {  
-        $this->render('backend/login.html');
+        if (isset($_SESSION['login']) && $_SESSION['login'] === 1){
+            header("location:index.php?action=admin");
+        }
+        else {
+            $this->render('backend/login.html');
+        }
     }
 
     public function validelogin()

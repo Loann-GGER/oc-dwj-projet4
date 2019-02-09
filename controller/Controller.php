@@ -12,6 +12,12 @@ abstract class Controller
 
         $this->loader = new \Twig_Loader_Filesystem('view');
         $this->twig = new \Twig_Environment($this->loader, array('cache' => false));
+        $twigFunctionFlash = new \Twig_SimpleFunction('flash', function(){
+            echo $_SESSION['flash'];
+            $_SESSION['flash'] = '';
+        });
+        $this->twig->addFunction($twigFunctionFlash);
+        $this->twig->addGlobal('session',$_SESSION);
     }
 
     public function render($file, $datas = null ) {
@@ -22,4 +28,6 @@ abstract class Controller
             echo $this->twig->render($file, $datas);
         }
     }
+
+
 }
