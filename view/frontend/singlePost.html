@@ -41,15 +41,12 @@
                                     {% endfor %}
                                         <p>Ajouter un commentaire : </p>
                                         <p>
-                                            <!-- <?php
-                                        if(!empty($flash = App\Session::get('flash'))) {
-                                        echo $flash; App\Session::setValue('flash', '');
-                                        }
-                                        ?> -->
+
+                                                {{ flash() }}
                                         </p>
                                         <form method="post" action="index.php?action=postComment">
                                             <input type="text" name="author" placeholder="Auteur" required="required">
-                                            <input style="display:none;" type="text" name="id" value={{post.id}}>
+                                            <input type="hidden" name="id" value={{post.id}}>
                                             <br/>
                                             <textarea rows="5" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br>
                                             <input type="submit" id="btn-form" value="Envoyer">
