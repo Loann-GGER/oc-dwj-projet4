@@ -1,9 +1,4 @@
-<?php
-
-if ($_SESSION['login'] == 1) 
-{
-?>
-
+{% if session.login == 1 %}
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -157,15 +152,10 @@ if ($_SESSION['login'] == 1)
 
   </body>
 </html>
+{% endif %}
 
-<?php 
-
-    }
-    else // Sinon, on affiche un message d'erreur
-    {
-      ?>
     
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
 
   <head>
@@ -178,13 +168,12 @@ if ($_SESSION['login'] == 1)
 
     <title>SB Admin - Login</title>
 
-    <!-- Bootstrap core CSS-->
+
     <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template-->
+ 
     <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template-->
     <link href="public/css/sb-admin.css" rel="stylesheet">
 
   </head>
@@ -199,20 +188,16 @@ if ($_SESSION['login'] == 1)
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
+    
     <script src="public/vendor/jquery/jquery.min.js"></script>
     <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
+    
     <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   </body>
 
-</html>
+</html> -->
 
-
-    <?php
-    }
-    ?>
 
 
