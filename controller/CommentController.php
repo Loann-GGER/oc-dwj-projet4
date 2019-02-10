@@ -60,17 +60,12 @@ class CommentController extends Controller
 
     public function commentSignal()
     {   
-        echo"coucou";
         $entityManager = Bootstrap::getEntityManager();
-        $comment = $entityManager->find("Entity\Comment",$_GET['id']);
-        // var_dump($comment);
-
+        $comment = $entityManager->find("Entity\Comment",$_GET['n_com']);
         $comment->setalert(true);
-        // var_dump($comment);
-
         $entityManager->flush(); // Exe. réquète
        
-        Session::setValue('flash', 'Votre commentaire a bien été signalé ! ');
+        $_SESSION['flash'] = 'Votre commentaire a bien été signalé !';
         header("location:index.php?action=singlepost&id=".$_GET['id']);
 
     }
