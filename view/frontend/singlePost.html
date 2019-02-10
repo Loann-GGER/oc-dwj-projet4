@@ -1,14 +1,14 @@
 {% extends "frontend/template.html" %}
 {% block content %}
 
-   
 <div class="page-heading">
     <div class="container">
         <div class="heading-content">
-            <h1>{{ post.title }}</h1>
+            <h1 style="color:black;">{{ post.title }}</h1>
         </div>
     </div>
 </div>
+<div>
 <div class="blog-entries">
     <div class="container-fluid">
         <div class="col-md-12">
@@ -17,50 +17,59 @@
                     <div class="col-md-12">
                         <div class="single-blog-post">
                             <div class="text-content">
-                                <span><a href="index.php?action=author">Auteur : {{post.author}}</a> / <a href="#">Date de publication : {{post.creationDate|date("d M Y")}}</a></span>
-                                <p>{{post.contents}}</p>
-                                <span><a href="index.php?action=blog">Retour au Blog</a></span>
+                                <span style="font-size: 2rem; text-align:center;">Publié le :
+                                    {{post.creationDate|date("d M Y")}} - Auteur : <a style="color:white" href="index.php?action=author">{{post.author}}</a></span>
+                                <p>{{post.contents|raw}}</p>
                                 <div class="tags-share">
                                     <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="text-content">
-                                            <span><p>Commentaires :</p></span>
+                                        <div class="col-md-12">
+                                            <div class="text-content">
+                                                <p style="font-size: 2rem; color : white; text-align:center;">Commentaires</p>
+
+
+
+
+                                                {% for commentaire in commentaires  %}
+
+                                                {% if commentaire.alert == false %}
+
+                                                <div style="width:100%;background-color: #2b2a2a;color:white;">
+                                                    <p>Publié le : {{commentaire.publicationDate|date("d M Y à H:m")}} par {{commentaire.author}}</p>
+                                                    {{commentaire.contents}}
+                                                    <p><a href="index.php?action=commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
+
+                                                </div>
+                                               
+
+                                                {% endif %}
+                                                {% endfor %}
+
+                                                <p style="font-size: 2rem;text-align:center;color:white;">Ajouter un commentaire</p>
+
+                                                <p class="flash">{{ flash() }}</p>
+                                                <form method="post" action="index.php?action=postComment">
+                                                    <input style="width:100%" type="text" name="author" placeholder="Pseudo" required="required"><br>
+                                                    <input type="hidden" name="id" value={{post.id}}>
+                                                    <br/>
+                                                    <textarea style="width:100%" rows="5" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br/><br/>
+                                                    <button style="width:100%" type="submit" class="btn btn-light">Envoyer</button>
+                                                </form>
                                             
-
-                                    {% for commentaire in commentaires %}
-                                    {% if commentaire.alert == false %}
-
-                                        <div style='border: 1px blue solid'>
-                                            <p>AUTEUR : {{commentaire.author}}
-                                            <br/>
-                                            COMMENT : {{commentaire.contents}} ?></p>
-                                            <a href="index.php?action=commentSignal&id={{commentaire.id}}">Signaler le commentaire</a>
-                                        </div>
-                                        
-                                    {% endif %}
-                                    {% endfor %}
-                                        <p>Ajouter un commentaire : </p>
-                                        <p>
-
-                                                {{ flash() }}
-                                        </p>
-                                        <form method="post" action="index.php?action=postComment">
-                                            <input type="text" name="author" placeholder="Auteur" required="required">
-                                            <input type="hidden" name="id" value={{post.id}}>
-                                            <br/>
-                                            <textarea rows="5" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br>
-                                            <input type="submit" id="btn-form" value="Envoyer">
-                                        </form>
+                                               
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        </br>
+                            <p style="text-align:center;"><a style="font-size: 2rem; color : white; text-align:center;" href="index.php?action=blog">Retour au Blog</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
     </div>
+</div>
 </div>
 {% endblock %}
