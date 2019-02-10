@@ -20,7 +20,6 @@ $router->getRoute('mentionlegales', ['controller'=>'FrontendController', 'method
 $router->getRoute('admin', ['controller'=>'BackendController', 'method'=>'admin']);
 
 $router->getRoute('login', ['controller'=>'UserController', 'method'=>'login']);
-$router->getRoute('manageComments', ['logout'=>'UserController', 'method'=>'logout']);
 
 $router->getRoute('writeNewPost', ['controller'=>'PostController', 'method'=>'addPost']);
 $router->getRoute('managePosts', ['controller'=>'PostController', 'method'=>'managePosts']);
