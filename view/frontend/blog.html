@@ -18,8 +18,8 @@
                             <div class="text-content">
                                 <h2>{{ mesPosts.title }}</h2>
                                 <span><a href="index.php?action=author">Auteur : {{ mesPosts.author}}</a> / <a href="#">Date
-                                        de publication : {{ mesPosts.creationDate|date("d M Y")}}</a></span>
-                                <p>{{ mesPosts.contents|slice(0, 400)}}</p>
+                                        de publication : {{ mesPosts.creationDate|date("d m Y")}}</a></span>
+                                <p>{{ mesPosts.contents|slice(0, 400)|raw}}</p>
                                 <div class="simple-btn">
                                     <a href="index.php?action=singlepost&id={{mesPosts.id}}">Lire la suite</a>
                                 </div>
