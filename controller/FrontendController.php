@@ -22,9 +22,15 @@ class FrontendController extends Controller
         $entityManager = Bootstrap::getEntityManager();
         $post = $entityManager->find("Entity\Post",$_GET['id']);
 
-        $commentaires = $post->comments();
+        if ($post == null) {
+            $this->render("frontend/indexFrontEnd.html");
+        }
+        else {
+            $commentaires = $post->comments();
 
-        $this->render("frontend/singlePost.html",['post'=>$post,'commentaires'=>$commentaires]);
+            $this->render("frontend/singlePost.html",['post'=>$post,'commentaires'=>$commentaires]);
+        }
+
 
     }
 
