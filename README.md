@@ -1,5 +1,5 @@
 # OC - DWJ - Projet_4
-Projet 4 - Jean Forteroche - Blog PHP/SQL
+Projet 4 - Création d'un blog pour un écrivain (Jean Forteroche)
 
 ## Legend of commits
 * :art: CSS modifications, styling, design
@@ -25,15 +25,12 @@ git clone https://github.com/Loann-GGER/oc-dwj-projet4.git
 ``` bash
 composer install
 ```
-``` bash
-composer update
-```
 
 ## Vendor
 * [Twig](https://twig.symfony.com/doc/2.x/tags/if.html)
 * [Doctrine](https://packagist.org/packages/composer/composer)
-* [Font Awesome](https://fontawesome.com/)
 * [TinyMce](https://www.tiny.cloud/)
+* [Font Awesome](https://fontawesome.com/)
 
 
 ## Sujet de projet
