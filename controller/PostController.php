@@ -6,26 +6,26 @@ use Entity\Post;
 use App\Bootstrap;
 use App\Session;
 
-class PostController
+class PostController extends Controller
 {
     public function addPost()
     {
-        $this->render('backend/writeNewPost.php');
+        $this->render('backend/writeNewPost.html');
     }
 
     public function managePosts()
     {
-        $this->render('backend/managePosts.php');
+        $this->render('backend/managePosts.html');
     }
 
     public function writeUpdatePosts()
     {
-        $this->render('backend/writeUpdatePost.php');
+        $this->render('backend/writeUpdatePost.html');
     }
     
     public function viewdelete()
     {
-        $this->render('backend/viewdelete.php');
+        $this->render('backend/viewdelete.html');
     }
 
 
@@ -53,7 +53,7 @@ class PostController
                 var_dump($e->getMessage());
             } 
         }
-        Session::setValue('flash', 'Votre post a bien été écrit');
+        $_SESSION['flash'] = 'Votre post a bien été posté ! ';
         header("location:index.php?action=writeNewPost");
     }
 
@@ -77,7 +77,7 @@ class PostController
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
 
-        require("view/backend/viewposts.php");
+        $this->render('backend/viewposts.html',['posts'=>$post]);
     }
 
     // UPDATE POST
@@ -102,8 +102,9 @@ class PostController
         $post = $entityManager->find("Entity\Post",$_POST['id']);
         $entityManager->remove($post);
         $entityManager->flush();
-    
-        Session::setValue('flash', 'Votre post a bien été supprimé');
+
+        $_SESSION['flash'] = 'Votre article a été supprimé ! ';
+        header("location:index.php?action=viewdelete");
     }
 
 }
