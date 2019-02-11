@@ -31,7 +31,7 @@ composer update
 
 ## Vendor
 * [Twig](https://twig.symfony.com/doc/2.x/tags/if.html)
-* [Doctrine] (https://packagist.org/packages/composer/composer)
+* [Doctrine](https://packagist.org/packages/composer/composer)
 * [Font Awesome](https://fontawesome.com/)
 * [TinyMce](https://www.tiny.cloud/)
 
