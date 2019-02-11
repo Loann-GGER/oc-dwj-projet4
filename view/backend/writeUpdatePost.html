@@ -1,4 +1,6 @@
-<?php ob_start(); ?>
+{% extends "backend/template.html" %}
+{% block content %}
+<p class="flash">{{ flash() }}</p>
 <h1>Ecrire la mise a jour de l'article</h1>
 
  <form method="post" action="index.php?action=updatePosts">
@@ -7,6 +9,4 @@
 	<textarea rows="5" cols="25" name="content" placeholder="Contenu de l'article" required="required"></textarea><br>
 	<input type="submit" id="btn-form" value="Envoyer">
 </form>
-<?php $content = ob_get_clean(); ?>
-
-<?php require("view/backend/template.php");?>
+{% endblock %}
