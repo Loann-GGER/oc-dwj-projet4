@@ -1,25 +1,20 @@
-<?php ob_start();
+{% extends "backend/template.html" %}
+{% block content %}
 
-foreach ($comments as $commentairesignal)
-{
-    $idsignal = $commentairesignal->alert();
-    if ($idsignal == true){
-?>
+{% for commentaire in comments %}
+
+{% if commentaire.alert == true %}
+
+<p class="flash">{{ flash() }}</p>
+
 <div style="border: 1px red solid">
-    <p>Le post lié est le : <?php echo($commentairesignal->postId())?></p>
-    <p>L'auteur est : <?php echo($commentairesignal->author())?></p>
-    <p>Le contenu est : <?php echo($commentairesignal->contents())?></p>
-    <a href="<?php echo("index.php?action=aprouvecomment&id=".$commentairesignal->Id())?>">Supprimer com</a><br/>
-    <a href="<?php echo("index.php?action=refusecomment&id=".$commentairesignal->Id())?>">Consever com.</a>
+    <p>Le post lié est le : {{ commentaire.id }}</p>
+    <p>L'auteur est : {{ commentaire.author }}</p>
+    <p>Le contenu est : {{ commentaire.contents }}</p>
+    <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}">Conserver com</a><br/>
+    <a href="index.php?action=refusecomment&id={{ commentaire.id }}">Supprimer com</a>
 </div>
 
-<?php
-    }
-}
-
-?>
-
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require("view/backend/template.php");?>
+{% endif %}
+{% endfor %}
+{% endblock %}

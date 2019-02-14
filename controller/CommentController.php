@@ -5,7 +5,6 @@ namespace Controller;
 use Entity\Comment;
 use Entity\Post;
 use App\Bootstrap;
-use App\Session;
 
 class CommentController extends Controller
 {
@@ -73,7 +72,6 @@ class CommentController extends Controller
 
     public function manageComments()
     {  
-        echo "loann";
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
         $comments = $postRepo->findAll();
 
@@ -84,14 +82,11 @@ class CommentController extends Controller
     {  
         $entityManager = Bootstrap::getEntityManager();
         $comment = $entityManager->find("Entity\Comment",$_GET['id']);
-        // var_dump($comment);
-
         $comment->setalert(false);
-        // var_dump($comment);
-        // echo("<br/>");
-
         $entityManager->flush(); // Exe. réquète
-        echo("comm supprimer");
+
+        $_SESSION['flash'] = 'Le commentaire a bien signalé comme correct !';
+        header("location:index.php?action=manageComments");
     
     }
 
@@ -101,7 +96,9 @@ class CommentController extends Controller
         $comment = $entityManager->find("Entity\Comment",$_GET['id']);
         $entityManager->remove($comment);
         $entityManager->flush();
-        echo("comm conserver");
+
+        $_SESSION['flash'] = 'Le commentaire a bien été supprimé !';
+        header("location:index.php?action=manageComments");
 
     }
 }
