@@ -85,24 +85,21 @@ class PostController extends Controller
     {
         $entityManager = Bootstrap::getEntityManager();
         $post = $entityManager->find("Entity\Post",$_POST['id']);
-        var_dump($post);
 
         $post->setTitle($_POST['title']);
         $post->setContents($_POST['content']);
-        var_dump($post);
-        echo("<br/>");
 
         $entityManager->flush(); // Exe. réquète
 
     }
 
-    public function deletePost()
+    public function delete()
     {
         $entityManager = Bootstrap::getEntityManager();
         $post = $entityManager->find("Entity\Post",$_POST['id']);
         $entityManager->remove($post);
         $entityManager->flush();
-
+    
         $_SESSION['flash'] = 'Votre article a été supprimé ! ';
         header("location:index.php?action=viewdelete");
     }
