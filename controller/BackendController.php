@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-use App\Session;
-
 class BackendController extends Controller
 {    
     public function admin()

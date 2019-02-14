@@ -5,7 +5,6 @@ namespace Controller;
 use Entity\Post;
 use Entity\Comment;
 use App\Bootstrap;
-use App\Session;
 
 class FrontendController extends Controller
 {
