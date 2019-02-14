@@ -24,12 +24,12 @@ $router->getRoute('login', ['controller'=>'UserController', 'method'=>'login']);
 
 $router->getRoute('writeNewPost', ['controller'=>'PostController', 'method'=>'addPost']);
 $router->getRoute('managePosts', ['controller'=>'PostController', 'method'=>'managePosts']);
-$router->postRoute('delete', ['controller'=>'PostController', 'method'=>'deletePost']);
+$router->postRoute('delete', ['controller'=>'PostController', 'method'=>'delete']);
 
 $router->getRoute('error', ['controller'=>'ErrorController', 'method'=>'errors']);
 
 $router->getRoute('commentSignal', ['controller'=>'CommentController', 'method'=>'commentSignal']);
-$router->postRoute('manageComments', ['controller'=>'CommentController', 'method'=>'manageComments']);
+$router->getRoute('manageComments', ['controller'=>'CommentController', 'method'=>'manageComments']);
 
 $router->postRoute('validelogin', ['controller'=>'UserController', 'method'=>'validelogin']);
 $router->getRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
