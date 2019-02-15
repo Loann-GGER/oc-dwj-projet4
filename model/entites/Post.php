@@ -27,6 +27,7 @@ class Post extends Entity
     private $creationDate;
     /**
      * @ORM\OneToMany(targetEntity="Comment",mappedBy="post", fetch="EAGER", cascade={"persist"})
+     * @ORM\JoinColumn(nullable = true, onDelete="SET NULL")
      */
     private $comments;
 
