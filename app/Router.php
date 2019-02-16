@@ -46,5 +46,8 @@ class Router
                 $controller->$method(); 
             }
         }
+        else {
+            echo "404";
+        }
     }
 }
