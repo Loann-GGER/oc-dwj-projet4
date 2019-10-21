@@ -32,8 +32,9 @@ class PostController extends Controller
     // CREATE POST 
     public function postPost()
     {
+        echo 'ok';
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+            echo 'post';
             $post = new Post([
                 'title'=>$_POST['title'],
                 'contents'=>$_POST['content'],
@@ -44,6 +45,7 @@ class PostController extends Controller
                 var_dump($post); // Voir 
             try
             {
+                echo 'try';
                 $entityManager = Bootstrap::getEntityManager();
                 $entityManager->persist($post); // Créer la réquète 
                 $entityManager->flush(); // Exe. réquète
@@ -90,7 +92,7 @@ class PostController extends Controller
         $post->setContents($_POST['content']);
 
         $entityManager->flush(); // Exe. réquète
-
+        header("location:index.php?action=writeUpdatePosts");
     }
 
     public function delete()

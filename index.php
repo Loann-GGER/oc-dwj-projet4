@@ -35,7 +35,7 @@ $router->postRoute('validelogin', ['controller'=>'UserController', 'method'=>'va
 $router->getRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
 $router->postRoute('postComment', ['controller'=>'CommentController', 'method'=>'postComment']);
 
-$router->getRoute('post', ['controller'=>'PostController', 'method'=>'postPost']);
+$router->postRoute('post', ['controller'=>'PostController', 'method'=>'postPost']);
 $router->getRoute('viewPosts', ['controller'=>'PostController', 'method'=>'viewPosts']);
 $router->getRoute('writeUpdatePosts', ['controller'=>'PostController', 'method'=>'writeUpdatePosts']);
 
@@ -44,7 +44,7 @@ $router->getRoute('viewdelete', ['controller'=>'PostController', 'method'=>'view
 
 
 $router->getRoute('voirlesposts', ['controller'=>'PostController', 'method'=>'voirlesposts']);
-$router->getRoute('updatePosts', ['controller'=>'PostController', 'method'=>'updatePosts']);
+$router->postRoute('updatePosts', ['controller'=>'PostController', 'method'=>'updatePosts']);
 $router->getRoute('viewComment', ['controller'=>'CommentController', 'method'=>'viewComment']);
 $router->getRoute('aprouvecomment', ['controller'=>'CommentController', 'method'=>'aprouvecomment']);
 $router->getRoute('refusecomment', ['controller'=>'CommentController', 'method'=>'refusecomment']);
