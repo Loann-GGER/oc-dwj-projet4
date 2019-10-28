@@ -6,12 +6,15 @@ Projet 4 - Création d'un blog pour un écrivain (Jean Forteroche)
 * :wrench: Fixes
 * :heavy_plus_sign: Add
 * :heavy_minus_sign: Delete
-* :arrow_up: Upgrade
+* 🚀 Upgrade
+* 📌 Update
 * :arrow_down: Downgrade
-* :iphone: Responsive
 * :memo: Text modification
 * :pencil2: Spellchecking
+* 💬 Comment
 * :recycle: Organization
+* ✨Review de code
+* 🤩 Mise en production
 
 ## Requirement
 * PHP ≥ 7.1
