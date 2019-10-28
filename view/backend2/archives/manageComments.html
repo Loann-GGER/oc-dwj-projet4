@@ -1,0 +1,20 @@
+{% extends "backend/template.html" %}
+{% block content %}
+
+{% for commentaire in comments %}
+
+{% if commentaire.alert == true %}
+
+<p class="flash">{{ flash() }}</p>
+
+<div style="border: 1px red solid">
+    <p>Le post lié est le : {{ commentaire.id }}</p>
+    <p>L'auteur est : {{ commentaire.author }}</p>
+    <p>Le contenu est : {{ commentaire.contents }}</p>
+    <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}">Conserver com</a><br/>
+    <a href="index.php?action=refusecomment&id={{ commentaire.id }}">Supprimer com</a>
+</div>
+
+{% endif %}
+{% endfor %}
+{% endblock %}

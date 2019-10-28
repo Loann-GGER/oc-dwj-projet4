@@ -1,20 +1,32 @@
 {% extends "backend/template.html" %}
 {% block content %}
 
-{% for commentaire in comments %}
-
-{% if commentaire.alert == true %}
+<section id="title">
+    <div>
+        <p><a href="index.php?action=admin">Accueil </a></p>
+        <p>&nbsp;>&nbsp;</p>
+        <p> Gestions des commentaires</p>
+    </div>
+    <h2>Gestion des commentaires</h2>
+</section>
 
 <p class="flash">{{ flash() }}</p>
 
-<div style="border: 1px red solid">
-    <p>Le post lié est le : {{ commentaire.id }}</p>
-    <p>L'auteur est : {{ commentaire.author }}</p>
-    <p>Le contenu est : {{ commentaire.contents }}</p>
-    <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}">Conserver com</a><br/>
-    <a href="index.php?action=refusecomment&id={{ commentaire.id }}">Supprimer com</a>
-</div>
+{% for commentaire in comments %}
+{% if commentaire.alert == true %}
 
+<section id="content">
+    <div id="contentDb">
+        <p style="padding-top:20px;"><span>Commentaire lié au post :</span>{{ commentaire.id }}</p>
+        <p>{{ commentaire.contents }}</p>
+        <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
+        <p style="margin-top:-10px;"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:m")}}</p>
+        <div id="btn">
+            <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
+            <a href="index.php?action=refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>
+        </div>
+    </div>
+</section>
 {% endif %}
 {% endfor %}
 {% endblock %}

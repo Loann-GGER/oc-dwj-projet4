@@ -24,7 +24,7 @@ $router->getRoute('login', ['controller'=>'UserController', 'method'=>'login']);
 
 $router->getRoute('writeNewPost', ['controller'=>'PostController', 'method'=>'addPost']);
 $router->getRoute('managePosts', ['controller'=>'PostController', 'method'=>'managePosts']);
-$router->postRoute('delete', ['controller'=>'PostController', 'method'=>'delete']);
+$router->getRoute('delete', ['controller'=>'PostController', 'method'=>'delete']);
 
 $router->getRoute('error', ['controller'=>'ErrorController', 'method'=>'errors']);
 

@@ -1,17 +1,32 @@
 {% extends "backend/template.html" %}
 {% block content %}
-<h1>Bienvenue sur l'espace administrateur</h1>
+
+<section id="title">
+        <div>
+            <p><a href="index.php?action=admin">Accueil </a></p>
+            <p>&nbsp;>&nbsp;</p>
+            <p>Dashboard</p>
+        </div>
+        <h2>Bienvenue sur le dashboard</h2>
+    </section>
+
+       <!-- 4 bloc pour l'acceuil ?? -->
+    
+    <section style="width: 100%;height: 150px;display: flex; justify-content: space-around;margin-top:30px;">
+        <div style="height: 150px;background-color:white;width: 300px; box-shadow: 0px 0px 3px rgb(151, 151, 151);border-radius: 4px;"></div>
+        <div style="height: 150px;background-color:white;width: 300px; box-shadow: 0px 0px 3px rgb(151, 151, 151);border-radius: 4px;"></div>
+        <div style="height: 150px;background-color:white;width: 300px; box-shadow: 0px 0px 3px rgb(151, 151, 151);border-radius: 4px;"></div>
+        <div style="height: 150px;background-color:white;width: 300px; box-shadow: 0px 0px 3px RGB(151, 151, 151);border-radius: 4px;"></div>
+    </section>
 
 <div>
       <ul>
-        <p>Gestion des articles</p>
+        
         <li><a href="index.php?action=writeNewPost">Ecrire un nouvel article</a></li>
-        <li><a href="index.php?action=viewPosts">Lire les acticles</a></li>
-        <li><a href="index.php?action=writeUpdatePosts">Mofidier un acticle</a></li>
-        <li><a href="index.php?action=viewdelete">Supprimer un article</a></li>
-        <br/><br/>
-        <p>Gestion des commentaires</p>
-        <li><a href="index.php?action=manageComments">Voir les commentaires signalés</a></li>
+        <li><a href="index.php?action=viewPosts">Gestion des articles</a></li>
+<br>
+
+        <li><a href="index.php?action=manageComments">Gestions des commentaires</a></li>
       </ul>
 </div>
 {% endblock %}

@@ -55,7 +55,7 @@ class PostController extends Controller
                 var_dump($e->getMessage());
             } 
         }
-        $_SESSION['flash'] = 'Votre post a bien été posté ! ';
+        $_SESSION['flash'] = 'ℹ️ Votre post a bien été posté ! ';
         header("location:index.php?action=writeNewPost");
     }
 
@@ -98,12 +98,11 @@ class PostController extends Controller
     public function delete()
     {
         $entityManager = Bootstrap::getEntityManager();
-        $post = $entityManager->find("Entity\Post",$_POST['id']);
+        $post = $entityManager->find("Entity\Post",$_GET['id']);
         $entityManager->remove($post);
         $entityManager->flush();
     
         $_SESSION['flash'] = 'Votre article a été supprimé ! ';
-        header("location:index.php?action=viewdelete");
+        header("location:index.php?action=viewPosts");
     }
-
 }

@@ -1,26 +1,34 @@
 {% extends "backend/template.html" %}
 {% block content %}
 
-{% for post in posts %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-          <h1>{{post.title}}</h1>
-          <p class="card-text">{{post.contents|slice(0, 400)|raw}}</p>
-          <p>{{post.author}}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Modifier</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Supprimer</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<section id="title">
+    <div>
+        <p><a href="index.php?action=admin">Accueil </a></p>
+        <p>&nbsp;>&nbsp;</p>
+        <p> Gestions des articles</p>
     </div>
-  </div>
-</div>
-{% endfor %}
+    <h2>Gestion des articles</h2>
+</section>
+
+<p class="flash">{{ flash() }}</p>
+
+<section id="content">
+    {% for post in posts %}
+    <div id="contentDb">
+        <h3>{{post.title}}</h3>
+        <p>{{post.contents|slice(0, 500)|raw}}</p>
+        <p><span>Auteur de l'article : </span>{{post.author}}</p>
+        <p style="margin-top:-10px;"><span>Date de publication :</span>{{post.creationDate|date("d.m.Y à H:m")}}</p>
+
+        <div id="btn">
+                <a href="index.php?action=singlepost&id={{ post.id }}"><button id="btnRead">Lire</button></a>
+                <a href="index.php?action=writeUpdatePosts&id={{ post.id  }}"><button id="btnEdit">Modifier</button></a>
+                <a href="index.php?action=delete&id={{ post.id }}"><button id="btnDelete">Supprimer</button></a>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
 {% endblock %}
+
+
