@@ -30,43 +30,11 @@
     <meta name="format-detection" content="telephone=no">
     <!-- Css -->
     <link href="public/backend/css/styles.css" rel="stylesheet">
-    <!-- <link href="public/css/styles.min.css" rel="stylesheet"> -->
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <style>
-.modalAvatar {
-    width: 200px;height:85px;background: white;position: absolute;top:70px;right: 15px;border-radius: 4px;box-shadow: 0px 0px 4px rgb(151, 151, 151);display: none;
-}
-
-        .modalAvatar::after {
-            position: absolute;
-width: 0;
-height: 0;
-margin-top: -10px;
-top: 0%;
-right: 11%;
-border-style: solid;
-border-width: 10px 10px 0px 10px;
-border-color: white transparent transparent transparent;
-content: "";
-transform: rotate(180deg);
-
-        }   
-        
-        .modalAvatar div p:hover {
-            color:red;
-            cursor: pointer;
-        }
-
-        .modalAvatar-visible {
-            display: initial;
-        }
-
-    </style>
     <header>
         <div id="textHeader"style="">
             <i class="fas fa-stream"></i>
@@ -76,13 +44,13 @@ transform: rotate(180deg);
             <i id="iAvatar" class="fas fa-user-circle fa-2x"></i>
         </div>
         <div class="modalAvatar">
-            <div style="width:100%;height:auto;color: #555;border-bottom: 1px solid rgb(151, 151, 151);display: flex;align-items: center;">
-                <i style="padding-left:15px;" class="fas fa-home"></i>
-                <a href="index.php" style="text-decoration: none;"><p class="liModalAvatar" style="width:100%;margin-top:10px;margin-bottom: 10px;padding-left:10px;color:black;">Voir le site</p></a>
+            <div id="modalAvatarSite">
+                <i class="fas fa-home"></i>
+                <a href="index.php"><p class="liModalAvatar">Voir le site</p></a>
             </div>
-            <div style="width:100%;height:auto;color: #555;display: flex;align-items: center;">
-                <i style="padding-left:15px;" class="fas fa-power-off"></i>
-               <a href="index.php?action=logout" style="text-decoration: none;"><p class="liModalAvatar" style="width:100%;margin:0;margin-top:10px;margin-bottom: 10px;padding-left:10px;color: black;">Déconnexion</p></a>
+            <div id="modalAvatarLogout">
+                <i class="fas fa-power-off"></i>
+               <a href="index.php?action=logout"><p class="liModalAvatar">Déconnexion</p></a>
             </div>
         </div>
     </header>
