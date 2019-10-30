@@ -90,8 +90,9 @@ class PostController extends Controller
 
         $post->setTitle($_POST['title']);
         $post->setContents($_POST['content']);
-
         $entityManager->flush(); // Exe. réquète
+
+        $_SESSION['flash'] = '🎨 Votre article a bien été mise à jour ! ';
         header("location:index.php?action=writeUpdatePosts");
     }
 
@@ -102,7 +103,7 @@ class PostController extends Controller
         $entityManager->remove($post);
         $entityManager->flush();
     
-        $_SESSION['flash'] = 'Votre article a été supprimé ! ';
+        $_SESSION['flash'] = '🗑 Votre article a été supprimé ! ';
         header("location:index.php?action=viewPosts");
     }
 }

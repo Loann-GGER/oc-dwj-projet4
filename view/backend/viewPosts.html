@@ -10,15 +10,19 @@
     <h2>Gestion des articles</h2>
 </section>
 
-<p class="flash">{{ flash() }}</p>
-
 <section id="content">
+
+    <div id="flash">
+        <p id="varFlash" class="flash">{{ flash() }}</p>
+        <i id="closeFlash" class="fas fa-times"></i>
+    </div>
+    
     {% for post in posts %}
     <div id="contentDb">
         <h3>{{post.title}}</h3>
         <p>{{post.contents|slice(0, 500)|raw}}</p>
         <p><span>Auteur de l'article : </span>{{post.author}}</p>
-        <p style="margin-top:-10px;"><span>Date de publication :</span>{{post.creationDate|date("d.m.Y à H:m")}}</p>
+        <p style="margin-top:-10px;"><span>Date de publication :</span>{{post.creationDate|date("d.m.Y à H:i")}}</p>
 
         <div id="btn">
                 <a href="index.php?action=singlepost&id={{ post.id }}"><button id="btnRead">Lire</button></a>
@@ -28,7 +32,4 @@
     </div>
     {% endfor %}
 </section>
-
 {% endblock %}
-
-

@@ -85,7 +85,7 @@ class CommentController extends Controller
         $comment->setalert(false);
         $entityManager->flush(); // Exe. réquète
 
-        $_SESSION['flash'] = 'Le commentaire a bien signalé comme correct !';
+        $_SESSION['flash'] = '🚀 Le commentaire a bien été conserver !';
         header("location:index.php?action=manageComments");
     
     }
@@ -97,7 +97,7 @@ class CommentController extends Controller
         $entityManager->remove($comment);
         $entityManager->flush();
 
-        $_SESSION['flash'] = 'Le commentaire a bien été supprimé !';
+        $_SESSION['flash'] = '🗑 Le commentaire a bien été supprimé !';
         header("location:index.php?action=manageComments");
 
     }

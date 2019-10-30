@@ -10,14 +10,11 @@
     <h2>Écrire un article</h2>
 </section>
 
-
-
-
 <section id="content">
 
     <div id="flash">
-        <p class="flash">{{ flash() }}</p>
-        <i class="fas fa-times"></i>
+        <p id="varFlash" class="flash">{{ flash() }}</p>
+        <i id="closeFlash" class="fas fa-times"></i>
     </div>
 
     <form method="post" action="index.php?action=post">
