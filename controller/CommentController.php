@@ -73,9 +73,10 @@ class CommentController extends Controller
     public function manageComments()
     {  
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
-        $comments = $postRepo->findAll();
+        $comments = $postRepo->findBy(['alert'=>true]);
+    
 
-       $this->render('backend/manageComments.html', ['comments'=>$comments]);
+        $this->render('backend/manageComments.html', ['comments'=>$comments]);
     }
 
     public function aprouvecomment()

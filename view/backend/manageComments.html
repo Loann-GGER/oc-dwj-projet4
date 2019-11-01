@@ -16,21 +16,24 @@
         <p id="varFlash" class="flash">{{ flash() }}</p>
         <i id="closeFlash" class="fas fa-times"></i>
     </div>
-    
-    {% for commentaire in comments %}
-    {% if commentaire.alert == true %}
-    <div id="contentDb">
-        <p style="padding-top:20px;"><span>Commentaire lié au post :</span>{{ commentaire.id }}</p>
-        <p>{{ commentaire.contents }}</p>
-        <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
-        <p style="margin-top:-10px;"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>
-        <div id="btn">
-            <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
-            <a href="index.php?action=refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>
-        </div>
-    </div>
-    {% endif %}
-    {% endfor %}
 
+    {% if comments|length > 0 %}
+        {% for commentaire in comments %}
+        <div id="contentDb">
+            <p style="padding-top:20px;"><span>Commentaire lié au post :</span>{{ commentaire.post.title }}</p>
+            <p>{{ commentaire.contents }}</p>
+            <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
+            <p style="margin-top:-10px;"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>
+            <div id="btn">
+                <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
+                <a href="index.php?action=refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>
+            </div>
+        </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Pas de commentaires signalés</p>
+    {% endif %}
+    
 </section>
 {% endblock %}
