@@ -20,7 +20,7 @@
     {% if comments|length > 0 %}
         {% for commentaire in comments %}
         <div id="contentDb">
-            <p style="padding-top:20px;"><span>Commentaire lié au post :</span>{{ commentaire.post.title }}</p>
+            <p id="comLink"><span>Commentaire lié au post : </span>{{ commentaire.post.title }}</p>
             <p>{{ commentaire.contents }}</p>
             <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
             <p style="margin-top:-10px;"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>

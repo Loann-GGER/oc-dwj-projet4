@@ -1,3 +1,8 @@
+@charset "utf-8";
+/* File CSS -  Autor : L.GOERGER - Version : 1.00 - MàJ: 21.10.2019 */
+
+/* -------------------- CSS - PAGE -------------------- */
+
 html,body {
     margin: 0;
     padding: 0;
@@ -40,6 +45,10 @@ header {
 #textHeader p a {
     color:white;
     text-decoration: none;
+}
+
+#mobilText{
+    display: none;
 }
 
 #avatar {
@@ -91,6 +100,9 @@ header {
     
 }
 
+#comLink {
+    padding-top:20px;
+}
 #content div h3 {
     padding-left:35px;
     padding-top:20px;
@@ -300,3 +312,26 @@ footer p {
     padding-left: 10px;
     color: black;
 }
+
+
+/* -------------------- MQ - Tablette -------------------- */
+
+@media screen and (max-width: 968px){
+
+    #mobilText{
+        display: initial;
+    }
+    
+    #desktopText {
+        display: none;
+    }
+}
+
+/* -------------------- MQ - Mobile -------------------- */
+
+@media screen and (max-width: 400px){
+
+}
+
+
+
