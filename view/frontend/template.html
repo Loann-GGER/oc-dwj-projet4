@@ -1,103 +1,81 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Jean Forteroche</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" href="#">
-
-        <link rel="stylesheet" href="public/css/frontend/bootstrap.min.css">
-        <link rel="stylesheet" href="public/css/frontend/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="public/css/frontend/fontAwesome.css">
-        <link rel="stylesheet" href="public/css/frontend/light-box.css">
-        <link rel="stylesheet" href="public/css/frontend/templatemo-style.css">
-
-        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    </head>
-
+<html lang="fr">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="Blog de Jean Forteroche, auteur du livre UN BILLET SIMPLE POUR L'ALASKA. Cliquez pour découvrir son dernier livre ! ">
+    <meta name="author" content="Loann GOERGER">
+    <meta name="keywords" content="Blog,blog de Jean Forteroche,Jean Forteroche, un billet simple pour l'ALASKA, livre de jean Forteroche">
+    <meta name="creation_date" content="21.10.2019">
+    <meta name="robots" content="index, follow">
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Titre -->
+    {% block title %}{% endblock %}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/img/icon"/>
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Blog de Jean Forteroche | Acteur et Écrivain">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oc.loanngoerger.fr/projet_4/">
+    <meta property="og:image" content="#">
+    <meta property="og:description" content="Blog de Jean Forteroche, auteur du livre UN BILLET SIMPLE POUR L'ALASKA. Cliquez pour découvrir son dernier livre ! ">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blog de Jean Forteroche | Acteur et Écrivain">
+    <meta name="twitter:description" content="Blog de Jean Forteroche, auteur du livre UN BILLET SIMPLE POUR L'ALASKA. Cliquez pour découvrir son dernier livre ! ">
+    <meta name="twitter:image" content="#">
+    <!--For Ios number highlight-->
+    <meta name="format-detection" content="telephone=no">
+    <!-- Css -->
+    <link href="../../public/frontend/css/styles.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200&display=swap" rel="stylesheet">
+</head>
 <body>
-
-    <nav id="header">
-        <div class="logo"><a href="index.php">Jean<em> Forteroche</em></a></div>
-      <div id="menu">
-        <div id="navDesktop">
-          <ul id="menuNav">
-                <li>
-                    <a href="index.php">Accueil</a>
-                </li>
-                <li>
-                    <a href="index.php?action=author">L'auteur</a>
-                </li>
-                <li>
-                    <a href="index.php?action=blog">Le livre</a>
-                </li>
-                <li>
-                    <a href="index.php?action=login">Se connecter</a>
-                </li>
-          </ul>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.php" style="margin-left:30px; font-size:18px;font-family: 'Montserrat', sans-serif;text-decoration: none;color: black;vertical-align: middle;line-height: 15px;"><p>Jean | Forteroche</p></a>
+            <div id="navigation">
+                <nav id="navDesktop" >
+                    <ul>
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="index.php?action=author">L'auteur</a></li>
+                        <li><a href="index.php?action=blog">Le livre</a></li>
+                        <li><a href="index.php?action=login">Se connecter</a></li>
+                    </ul>
+                </nav>
+                <label id="hamburgerLabel">
+                    <img id="hamburger" src="../../public/frontend/img/menu/menu.png" alt="Hamburger for Mobil"/>
+                </label>
+            </div>
+            <nav class="navMobile">
+                <div class="test">
+                    <a class="linkMobil" href="index.php">Accueil</a>
+                    <a class="linkMobil" href="index.php?action=author">L'auteur</a>
+                    <a class="linkMobil" href="index.php?action=blog">Le livre</a>
+                    <a class="linkMobil" href="index.php?action=login">Se connecter</a>
+                </div>
+            </nav>
         </div>
-      </div>
-      <div id="menu-rwd" class="menu-icon"><span></span></div>
-    </nav>
+    </header>
 
- {% block content %}{% endblock %}
+    <!-- Page Content -->
+    {% block content %}{% endblock %}
+    <!-- End Page Content -->
 
     <footer>
-        <div class="container-fluid">
-            <div class="col-md-12">
-                <p>Copyright &copy; 2019 JEAN FORTEROCHE | <a href="index.php?action=mentionlegales" style="color:white">Mentions Légales</a></p>
-            </div>
-        </div>
+        <p>Copyright 2019 - Jean Forteroche | <a href="index.php?action=mentionlegales" style="text-decoration:none;color:black;">Mentions Légales</a></p>
     </footer>
+    
+    <!-- SCRIPT JavaScript -->
+    <script src="../../public/frontend/js/main.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script> -->
-
-    <script src="public/js/frontend/vendor/bootstrap.min.js"></script>
-    <!-- <script src="public/js/frontend/plugins.js"></script> -->
-    <script src="public/js/frontend/main.js"></script>
-
-
-
-    <!-- Modal button -->
-    <!-- <div class="popup-icon">
-      <button id="modBtn2" class="modal-btn"><img src="public/img/frontend/contact-icon.png" alt=""></button>
-    </div>   -->
-
-<!-- Modal -->
-<div id="modal" class="modal">
-      <!-- Modal Content -->
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h3 class="header-title">Contacter <em>moi !</em></h3>
-          <div class="close-btn"><img src="public/img/frontend/close_contact.png" alt=""></div>    
-        </div>
-      </div>
-    </div>
-<section class="overlay-menu">
-      <div class="container">
-        <div class="row">
-          <div class="main-menu">
-              <ul>
-                  <li>
-                      <a href="index.php">Accueil</a>
-                  </li>
-                  <li>
-                      <a href="index.php?action=author">L'auteur</a>
-                  </li>
-                  <li>
-                      <a href="index.php?action=blog">Le livre</a>
-                  </li>
-                  <li>
-                      <a href="index.php?action=login">Se connecter</a>
-                  </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </body>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/dab178ca63.js" crossorigin="anonymous"></script>
+    {% block script %}{% endblock %}
+</body>
 </html>

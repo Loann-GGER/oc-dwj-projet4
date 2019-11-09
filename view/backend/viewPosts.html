@@ -1,5 +1,4 @@
 {% extends "backend/template.html" %}
-
 {% block content %}
 
 <section id="title">
@@ -28,13 +27,13 @@
 
         <div id="btn">
                 <a href="index.php?action=singlepost&id={{ post.id }}"><button id="btnRead">Lire</button></a>
-                <a href="index.php?action=writeUpdatePosts&id={{ post.id  }}"><button id="btnEdit">Modifier</button></a>
+                <a href="index.php?action=updatePost&id={{ post.id }}"><button id="btnEdit">Modifier</button></a>
                 <a href="index.php?action=delete&id={{ post.id }}"><button id="btnDelete">Supprimer</button></a>
         </div>
     </div>
     {% endfor %}
     {% else %}
-    <p>Il n'y a pas (encore) d'article sur votre blog</p>
+    <p>Il n'y a pas d'article sur votre blog</p>
     {% endif %}
 </section>
 {% endblock %}
