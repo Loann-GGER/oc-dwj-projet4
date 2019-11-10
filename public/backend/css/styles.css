@@ -1,0 +1,368 @@
+@charset "utf-8";
+/* File CSS -  Autor : L.GOERGER - Version : 1.00 - MàJ: 21.10.2019 */
+
+/* -------------------- CSS - PAGE -------------------- */
+
+html,body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F6FA;
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 57px;
+    background-color: white;
+    display: flex;
+    box-shadow: 0px 0px 3px rgb(151, 151, 151);
+    background-color: #343a40;
+    justify-content: space-between;
+}
+
+#textHeader {
+    display: flex;
+    color: white;
+}
+
+#textHeader i {
+    vertical-align: middle;
+    line-height: 57px;
+    margin-left: 2rem;
+    height:100%;
+}
+
+#textHeader p {
+    margin-left: 1rem;
+    vertical-align: middle;
+    height: 100%;
+    margin-top:0;
+    line-height: 57px; 
+}
+
+#textHeader p a {
+    color:white;
+    text-decoration: none;
+}
+
+#mobilText{
+    display: none;
+}
+
+#avatar {
+    display: flex;
+    margin-right: 2rem; 
+}
+
+#avatar i {
+    color:white;
+    height: 100%;
+    line-height: 57px;
+    vertical-align: middle;
+}
+
+#title {
+    margin-left:30px;
+    margin-right:30px;
+}
+
+#title div {
+    display: flex;
+}
+
+#title div p a { 
+    text-decoration: none;
+    color:black;
+}
+
+#title h2 {
+    margin-top: 0;
+    margin-left: 30px; 
+}
+
+#content {
+    width: 90%;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+#contentDb {
+    position: relative;
+    height: 215px;
+    background-color:white;
+    width: 100%;
+    box-shadow: 0px 0px 3px rgb(151, 151, 151);
+    border-radius: 4px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+#comLink {
+    padding-top:20px;
+}
+#content div h3 {
+    padding-left:35px;
+    padding-top:20px;
+}
+
+#content div p {
+    padding-left:35px;
+    padding-right: 35px;
+}
+
+#content div p span {
+    font-weight: bold;
+}
+
+#btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+#btnRead {
+    margin:0px;
+    padding:6px 0 6px 0;
+    font:bold 13px Arial;
+    background:#f5f5f5;
+    color:#555;
+    border-radius:5px 0px 0px 5px;
+    width:80px;
+    border:1px solid #ccc;
+}
+
+#btnEdit {
+    margin:0;
+    padding:6px 0 6px 0;
+    font:bold 13px Arial;
+    background:#f5f5f5;
+    color:#555;
+    border-radius:0px 0px 0px 0px;
+    width:80px;
+    border:1px solid #ccc;
+}
+
+#btnDelete {
+    margin:0;
+    padding:6px 0 6px 0;
+    font:bold 13px Arial;
+    background:#f5f5f5;
+    color:#555;
+    border-radius:0px 5px 5px 0px;
+    width:80px;
+    border:1px solid #ccc;
+}
+
+#btnEdit:hover,
+#btnRead:hover,
+#btnDelete:hover,
+#btnForm:hover {
+    background:#555;
+    color:#f5f5f5;
+    border:1px solid #555;
+}
+
+#titleDashboard {
+    margin-top:30px;
+}
+
+#contentDashboard a {
+    text-decoration: none;
+    color:black;
+    margin-left:35px;
+}
+
+#contentDashboard:hover,
+#contentDashboard a:hover {
+    color: gray;
+}
+
+#vide {
+    height: 150px;
+}
+
+.pDatePublication {
+    margin-top:-10px;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    vertical-align:middle;
+    background-color: #E8ECEF;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+footer p {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+#newPostTitle {
+    width: 100%;
+    height:30px;
+    margin-bottom: 20px;
+    font-size: 14px;
+ }
+ 
+#btnForm {
+    margin:0px;
+    padding:6px 0 6px 0;
+    font:bold 13px Arial;
+    background:#f5f5f5;
+    color:#555;
+    border-radius:5px 5px 5px 5px;
+    width:120px;
+    border:1px solid #ccc;
+    margin-bottom: 20px;
+    
+}
+
+#btn a {
+    text-decoration: none;
+}
+
+#flash {
+    width: 100%;
+    height: 45px;
+    vertical-align: middle;
+    line-height: 45px;
+    background: #d4edda;
+    color:#155724;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+    display: none;   
+}
+
+#flash i {
+    position: absolute;
+    top : 51%;
+    transform: translateY(-50%);
+    right:15px;
+    cursor: pointer;
+}
+
+.modalAvatar {
+    width: 200px;
+    height: 85px;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px rgb(151, 151, 151);
+    display: none;
+}
+
+.modalAvatar::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-top: -10px;
+    top: 0%;
+    right: 11%;
+    border-style: solid;
+    border-width: 10px 10px 0px 10px;
+    border-color: white transparent transparent transparent;
+    content: "";
+    transform: rotate(180deg);
+
+}
+
+.modalAvatar div p:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.modalAvatar-visible {
+    display: initial;
+}
+
+#modalAvatarSite {
+    width: 100%;
+    height: auto;
+    color: #555;
+    border-bottom: 1px solid rgb(151, 151, 151);
+    display: flex;
+    align-items: center;
+}
+
+#modalAvatarSite a {
+    text-decoration: none;
+}
+
+#modalAvatarSite i {
+    padding-left: 15px;
+}
+
+#modalAvatarSite a p {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: black;
+}
+
+#modalAvatarLogout {
+    width: 100%;
+    height: auto;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+#modalAvatarLogout i {
+    padding-left: 15px;
+}
+
+#modalAvatarLogout a {
+    text-decoration: none;
+}
+
+#modalAvatarLogout a p {
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: black;
+}
+
+
+/* -------------------- MQ - Tablette -------------------- */
+
+@media screen and (max-width: 968px){
+
+    #mobilText{
+        display: initial;
+    }
+    
+    #desktopText {
+        display: none;
+    }
+
+    #contentDb {
+        height: auto;
+    }
+
+    .pDatePublication {
+        margin-top:-10px;
+        padding-bottom: 55px;
+    }
+}
+
+/* -------------------- MQ - Mobile -------------------- */
+
+@media screen and (max-width: 400px){
+
+}
+
+
+

@@ -24,7 +24,7 @@ $router->getRoute('login', ['controller'=>'UserController', 'method'=>'login']);
 
 $router->getRoute('writeNewPost', ['controller'=>'PostController', 'method'=>'addPost']);
 $router->getRoute('managePosts', ['controller'=>'PostController', 'method'=>'managePosts']);
-$router->postRoute('delete', ['controller'=>'PostController', 'method'=>'delete']);
+$router->getRoute('delete', ['controller'=>'PostController', 'method'=>'delete']);
 
 $router->getRoute('error', ['controller'=>'ErrorController', 'method'=>'errors']);
 
@@ -37,14 +37,15 @@ $router->postRoute('postComment', ['controller'=>'CommentController', 'method'=>
 
 $router->postRoute('post', ['controller'=>'PostController', 'method'=>'postPost']);
 $router->getRoute('viewPosts', ['controller'=>'PostController', 'method'=>'viewPosts']);
-$router->getRoute('writeUpdatePosts', ['controller'=>'PostController', 'method'=>'writeUpdatePosts']);
-
+$router->getRoute('updatePost', ['controller'=>'PostController', 'method'=>'updatePost']);
 $router->getRoute('viewdelete', ['controller'=>'PostController', 'method'=>'viewdelete']);
 
 
 
 $router->getRoute('voirlesposts', ['controller'=>'PostController', 'method'=>'voirlesposts']);
+
 $router->postRoute('updatePosts', ['controller'=>'PostController', 'method'=>'updatePosts']);
+
 $router->getRoute('viewComment', ['controller'=>'CommentController', 'method'=>'viewComment']);
 $router->getRoute('aprouvecomment', ['controller'=>'CommentController', 'method'=>'aprouvecomment']);
 $router->getRoute('refusecomment', ['controller'=>'CommentController', 'method'=>'refusecomment']);

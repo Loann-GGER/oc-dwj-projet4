@@ -1,7 +1,29 @@
 {% extends "frontend/template.html" %}
+
+{% block title %}
+<title>Blog de Jean Forteroche | Acteur et Écrivain</title>
+{% endblock %}
+
 {% block content %}
 
-<div id="video-container">
+
+<section style="height: 100%; width: 100%;position: relative;">
+    <img style="height: 100%; width: 100%;" src="../../public/frontend/img/homePage/home-bg.jpg" alt="">
+    <div style="width: 100%;padding-top:300px;;position: absolute;top:0;left:0;text-align: center;z-index:2;">
+        <h1 style="font-size: 60px;color:white;font-family: 'Exo', sans-serif;">UN BILLET SIMPLE POUR L'ALASKA</h1>
+        <h2 style="font-size: 50px;color:white;font-family: 'Montserrat', sans-serif;margin-top:0px;">Jean Forteroche</h2>
+        <p style="font-size: 30px;color:white;font-family: 'Montserrat', sans-serif;">Cliquez pour découvrir le livre.</p>
+
+    </div>
+    <div style="height: 100%; width: 100%;background:rgba(0,0,0,0.3);position: absolute;top:0;left:0;"></div>
+</section>
+
+    <!-- Contener max width : 1150px; -->
+    <!-- <section style="border:1px solid red;">
+        DIV 1
+    </section> -->
+
+<!-- <div id="video-container">
     <div class="video-overlay"></div>
     <div class="video-content">
         <div class="inner">
@@ -9,11 +31,11 @@
             <p style="font-size:5rem;">Jean<em> Forteroche</em></p><br />
             <p>Cliquez pour découvrir le livre.</p>
             <div class="scroll-icon">
-                <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="public/img/frontend/scroll-icon.png" alt="Scroll-icon"></a>
+                <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="public2/img/frontend/scroll-icon.png" alt="Scroll-icon"></a>
             </div>
         </div>
     </div>
-    <img src="public/img/frontend/home-bg.jpg" alt="home-bg">
+    <img src="public2/img/frontend/home-bg.jpg" alt="home-bg">
 </div>
 
 <div class="grid-portfolio" id="portfolio">
@@ -34,7 +56,7 @@
                             </div>
                         </div>
                         <div class="image">
-                            <img src="public/img/frontend/portfolio_item_{{cpt}}.png" alt="Photo de l'article">
+                            <img src="public2/img/frontend/portfolio_item_{{cpt}}.png" alt="Photo de l'article">
                         </div>
                     </a>
                 </div>
@@ -49,5 +71,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 {% endblock %}

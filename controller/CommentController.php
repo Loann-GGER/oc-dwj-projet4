@@ -73,9 +73,10 @@ class CommentController extends Controller
     public function manageComments()
     {  
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
-        $comments = $postRepo->findAll();
+        $comments = $postRepo->findBy(['alert'=>true]);
+    
 
-       $this->render('backend/manageComments.html', ['comments'=>$comments]);
+        $this->render('backend/manageComments.html', ['comments'=>$comments]);
     }
 
     public function aprouvecomment()
@@ -85,7 +86,7 @@ class CommentController extends Controller
         $comment->setalert(false);
         $entityManager->flush(); // Exe. réquète
 
-        $_SESSION['flash'] = 'Le commentaire a bien signalé comme correct !';
+        $_SESSION['flash'] = '🚀 Le commentaire a bien été conserver !';
         header("location:index.php?action=manageComments");
     
     }
@@ -97,7 +98,7 @@ class CommentController extends Controller
         $entityManager->remove($comment);
         $entityManager->flush();
 
-        $_SESSION['flash'] = 'Le commentaire a bien été supprimé !';
+        $_SESSION['flash'] = '🗑 Le commentaire a bien été supprimé !';
         header("location:index.php?action=manageComments");
 
     }

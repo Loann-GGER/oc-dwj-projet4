@@ -22,6 +22,19 @@ class PostController extends Controller
     {
         $this->render('backend/writeUpdatePost.html');
     }
+
+    public function writePost()
+    {
+        $this->render('backend/writeUpdatePost.html');
+    }
+
+    public function updatePost()
+    {
+        $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
+        $post = $postRepo->find($_GET['id']);
+        
+        $this->render('backend/writeUpdatePost.html', compact('post')); //compact('post) équivalent à ['post'=>$post]
+    }
     
     public function viewdelete()
     {
@@ -55,7 +68,7 @@ class PostController extends Controller
                 var_dump($e->getMessage());
             } 
         }
-        $_SESSION['flash'] = 'Votre post a bien été posté ! ';
+        $_SESSION['flash'] = 'ℹ️ Votre post a bien été posté ! ';
         header("location:index.php?action=writeNewPost");
     }
 
@@ -90,20 +103,21 @@ class PostController extends Controller
 
         $post->setTitle($_POST['title']);
         $post->setContents($_POST['content']);
-
         $entityManager->flush(); // Exe. réquète
-        header("location:index.php?action=writeUpdatePosts");
+ 
+        $_SESSION['flash'] = '🎨 Votre article a été mise à jour ! ';
+
+        header("location:index.php?action=updatePost&id=".$_POST['id']);
     }
 
     public function delete()
     {
         $entityManager = Bootstrap::getEntityManager();
-        $post = $entityManager->find("Entity\Post",$_POST['id']);
+        $post = $entityManager->find("Entity\Post",$_GET['id']);
         $entityManager->remove($post);
         $entityManager->flush();
     
-        $_SESSION['flash'] = 'Votre article a été supprimé ! ';
-        header("location:index.php?action=viewdelete");
+        $_SESSION['flash'] = '🗑 Votre article a été supprimé ! ';
+        header("location:index.php?action=viewPosts");
     }
-
 }

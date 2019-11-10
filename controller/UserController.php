@@ -14,7 +14,7 @@ class UserController extends Controller
             header("location:index.php?action=admin");
         }
         else {
-            $this->render('backend/login.html');
+            $this->render('frontend/login.html');
         }
     }
 

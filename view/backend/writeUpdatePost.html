@@ -1,12 +1,29 @@
 {% extends "backend/template.html" %}
 {% block content %}
-<p class="flash">{{ flash() }}</p>
-<h1>Ecrire la mise a jour de l'article</h1>
 
- <form method="post" action="index.php?action=updatePosts">
-    <input type="text" name="id" placeholder="ID de l'acticle" required="required"><br>
-	<input type="text" name="title" placeholder="Titre de l'article" required="required"><br>
-	<textarea rows="5" cols="25" name="content" placeholder="Contenu de l'article"></textarea><br>
-	<input type="submit" id="btn-form" value="Envoyer">
-</form>
+<section id="title">
+	<div>
+		<p><a href="index.php?action=admin">Accueil </a></p>
+		<p>&nbsp;>&nbsp;</p>
+		<p><a href="index.php?action=viewPosts">Gestions des articles</a></p>
+		<p>&nbsp;>&nbsp;</p>
+		<p> Mise à jour d'un article</p>
+	</div>
+	<h2>Mise à jour d'un article</h2>
+</section>
+	
+<section id="content">
+
+	<div id="flash">
+		<p id="varFlash" class="flash">{{ flash() }}</p>
+		<i id="closeFlash" class="fas fa-times"></i>
+	</div>
+
+	<form method="post" action="index.php?action=updatePosts">
+		<input type="hidden" name="id" placeholder="ID de l'acticle" required="required" value="{{ post.id }}"><br>
+		<input id="newPostTitle" type="text" name="title" placeholder="Titre de l'article" required="required" value="{{ post.title }}"><br>
+		<textarea rows="5" cols="45" name="content" placeholder="Contenu de l'article">{{ post.contents }}</textarea><br>
+		<input type="submit" id="btnForm" value="Envoyer">
+	</form>
+</section>
 {% endblock %}
