@@ -66,17 +66,17 @@ class User extends Entity
         $this->password = md5($password);
     }
 
-    public function setemail(int $email)
+    public function setEmail(int $email)
     {
         $this->email = $email;
     }
 
-    public function setdateInscription(int $dateInscription)
+    public function setDateInscription(int $dateInscription)
     {
         $this->dateInscription = $dateInscription;
     }
 
-    public function setlevel(int $level)
+    public function setlLvel(int $level)
     {
         $this->level = $level;
     }

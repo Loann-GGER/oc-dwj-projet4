@@ -22,6 +22,19 @@ class PostController extends Controller
     {
         $this->render('backend/writeUpdatePost.html');
     }
+
+    public function writePost()
+    {
+        $this->render('backend/writeUpdatePost.html');
+    }
+
+    public function updatePost()
+    {
+        $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
+        $post = $postRepo->find($_GET['id']);
+        
+        $this->render('backend/writeUpdatePost.html', compact('post')); //compact('post) équivalent à ['post'=>$post]
+    }
     
     public function viewdelete()
     {
@@ -56,7 +69,7 @@ class PostController extends Controller
             } 
         }
         $_SESSION['flash'] = 'ℹ️ Votre post a bien été posté ! ';
-        header("location:index.php?action=writeNewPost");
+        header("location:index.php?action=updatePost");
     }
 
     // READ POST
@@ -91,9 +104,10 @@ class PostController extends Controller
         $post->setTitle($_POST['title']);
         $post->setContents($_POST['content']);
         $entityManager->flush(); // Exe. réquète
-
+ 
         $_SESSION['flash'] = '🎨 Votre article a bien été mise à jour ! ';
-        header("location:index.php?action=writeUpdatePosts");
+
+        header("location:index.php?action=updatePost&id=".$_POST['id']);
     }
 
     public function delete()
