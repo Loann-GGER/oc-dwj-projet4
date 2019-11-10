@@ -69,7 +69,7 @@ class PostController extends Controller
             } 
         }
         $_SESSION['flash'] = 'ℹ️ Votre post a bien été posté ! ';
-        header("location:index.php?action=updatePost");
+        header("location:index.php?action=writeNewPost");
     }
 
     // READ POST
@@ -105,7 +105,7 @@ class PostController extends Controller
         $post->setContents($_POST['content']);
         $entityManager->flush(); // Exe. réquète
  
-        $_SESSION['flash'] = '🎨 Votre article a bien été mise à jour ! ';
+        $_SESSION['flash'] = '🎨 Votre article a été mise à jour ! ';
 
         header("location:index.php?action=updatePost&id=".$_POST['id']);
     }

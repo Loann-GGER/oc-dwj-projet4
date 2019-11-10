@@ -23,7 +23,7 @@
             <p id="comLink"><span>Commentaire lié au post : </span>{{ commentaire.post.title }}</p>
             <p>{{ commentaire.contents }}</p>
             <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
-            <p style="margin-top:-10px;"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>
+            <p class="pDatePublication"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>
             <div id="btn">
                 <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
                 <a href="index.php?action=refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>

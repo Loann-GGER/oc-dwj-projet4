@@ -97,7 +97,6 @@ header {
     border-radius: 4px;
     margin-top:20px;
     margin-bottom:20px;
-    
 }
 
 #comLink {
@@ -163,6 +162,29 @@ header {
     background:#555;
     color:#f5f5f5;
     border:1px solid #555;
+}
+
+#titleDashboard {
+    margin-top:30px;
+}
+
+#contentDashboard a {
+    text-decoration: none;
+    color:black;
+    margin-left:35px;
+}
+
+#contentDashboard:hover,
+#contentDashboard a:hover {
+    color: gray;
+}
+
+#vide {
+    height: 150px;
+}
+
+.pDatePublication {
+    margin-top:-10px;
 }
 
 footer {
@@ -324,6 +346,15 @@ footer p {
     
     #desktopText {
         display: none;
+    }
+
+    #contentDb {
+        height: auto;
+    }
+
+    .pDatePublication {
+        margin-top:-10px;
+        padding-bottom: 55px;
     }
 }
 
