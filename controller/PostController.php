@@ -112,12 +112,19 @@ class PostController extends Controller
 
     public function delete()
     {
-        $entityManager = Bootstrap::getEntityManager();
-        $post = $entityManager->find("Entity\Post",$_GET['id']);
-        $entityManager->remove($post);
-        $entityManager->flush();
-    
-        $_SESSION['flash'] = '🗑 Votre article a été supprimé ! ';
-        header("location:index.php?action=viewPosts");
+        if (isset($_SESSION['login']) && $_SESSION['login'] === 1)
+        {
+            $entityManager = Bootstrap::getEntityManager();
+            $post = $entityManager->find("Entity\Post",$_GET['id']);
+            $entityManager->remove($post);
+            $entityManager->flush();
+        
+            $_SESSION['flash'] = '🗑 Votre article a été supprimé ! ';
+            header("location:index.php?action=viewPosts");
+        }
+        else 
+        {
+            echo("Vous n'avez pas les droits d'effectuer cette action !");
+        }
     }
 }
