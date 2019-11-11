@@ -23,10 +23,10 @@
       <div class="card-header">Login</div>
       <div class="card-body">
 
-        <!-- <?php
-    if(!empty($flash = App\Session::get('flash'))) {
-      echo $flash; App\Session::setValue('flash', '');
-     } ?> -->
+     <div id="flash">
+      <p id="varFlash" class="flash">{{ flash() }}</p>
+      <i id="closeFlash" class="fas fa-times"></i>
+  </div>
 
         <form method="post" action="index.php?action=validelogin">
           <div class="form-group">

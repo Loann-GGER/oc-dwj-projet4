@@ -23,17 +23,15 @@ class UserController extends Controller
         $postRepo = Bootstrap::getEntityManager()->getRepository(User::class);
         $user = $postRepo->find(1);
         
-       
- 
         if ($_POST['Email'] == $user->email() && password_verify($_POST['Password'], $user->password()))
         {
             if ($user->level() == 1) {
                 $_SESSION['login'] = 1;
             }
         }
-        else // Sinon, on affiche un message d'erreur
-         {
-
+        else
+        {
+            $_SESSION['flash'] = 'Identifiant ou mot de passe Incorrect ...  ';
             $_SESSION['login'] = 0;
         }
     
