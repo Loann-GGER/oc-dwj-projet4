@@ -99,6 +99,17 @@ header {
     margin-bottom:20px;
 }
 
+#contentDbComment {
+    position: relative;
+    height: auto;
+    background-color:white;
+    width: 100%;
+    box-shadow: 0px 0px 3px rgb(151, 151, 151);
+    border-radius: 4px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
 #comLink {
     padding-top:20px;
 }
@@ -185,6 +196,11 @@ header {
 
 .pDatePublication {
     margin-top:-10px;
+}
+
+.pDatePublicationComment {
+    margin-top:-10px;
+    padding-bottom: 55px;
 }
 
 footer {
