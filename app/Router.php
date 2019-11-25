@@ -30,24 +30,20 @@ class Router
 
     public function run()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'GET') {
-            if(array_key_exists($this->action, $this->getRoutes)){
-                $controller = 'Controller\\'.ucfirst($this->getRoutes[$this->action]['controller']);
+       $this->launchController($_SERVER['REQUEST_METHOD']);
+    }
+
+    private function launchController($url_method){
+        $router_attribute = strtolower($url_method).'Routes';
+        if(property_exists($this, $router_attribute)) {
+            if(array_key_exists($this->action, $this->$router_attribute)){
+                $controller = 'Controller\\'.ucfirst($this->$router_attribute[$this->action]['controller']);
                 $controller = new $controller();
-                $method = $this->getRoutes[$this->action]['method'];
-                $controller->$method();
-            }
-        }
-        elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if(array_key_exists($this->action, $this->postRoutes)){
-                $controller = 'Controller\\'.ucfirst($this->postRoutes[$this->action]['controller']);
-                $controller = new $controller();
-                $method = $this->postRoutes[$this->action]['method'];
+                $method = $this->$router_attribute[$this->action]['method'];            
                 $controller->$method(); 
             }
-        }
-        else {
-            echo "404";
+        } else {
+            throw new \InvalidArgumentException("Route request not good");
         }
     }
 }
