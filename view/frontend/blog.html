@@ -17,11 +17,11 @@
                         <div class="blog-post">
                             <div class="text-content">
                                 <h2>{{ mesPosts.title }}</h2>
-                                <span><a href="index.php?action=author">Auteur : {{ mesPosts.author}}</a> / <a href="#">Date
+                                <span><a href="author">Auteur : {{ mesPosts.author}}</a> / <a href="#">Date
                                         de publication : {{ mesPosts.creationDate|date("d m Y")}}</a></span>
                                 <p>{{ mesPosts.contents|slice(0, 400)|raw}}</p>
                                 <div class="simple-btn">
-                                    <a href="index.php?action=singlepost&id={{mesPosts.id}}">Lire la suite</a>
+                                    <a href="singlepost&id={{mesPosts.id}}">Lire la suite</a>
                                 </div>
                             </div>
                         </div>

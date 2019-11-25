@@ -18,7 +18,7 @@
                         <div class="single-blog-post">
                             <div class="text-content">
                                 <span style="font-size: 2rem; text-align:center;">Publié le :
-                                    {{post.creationDate|date("d M Y")}} - Auteur : <a style="color:white" href="index.php?action=author">{{post.author}}</a></span>
+                                    {{post.creationDate|date("d M Y")}} - Auteur : <a style="color:white" href="author">{{post.author}}</a></span>
                                 <p>{{post.contents|raw}}</p>
                                 <div class="tags-share">
                                     <div class="row">
@@ -36,7 +36,7 @@
                                                 <div style="width:100%;background-color: #2b2a2a;color:white;">
                                                     <p>Publié le : {{commentaire.publicationDate|date("d M Y à H:m")}} par {{commentaire.author}}</p>
                                                     {{commentaire.contents}}
-                                                    <p><a href="index.php?action=commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
+                                                    <p><a href="commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
 
                                                 </div>
                                                
@@ -47,7 +47,7 @@
                                                 <p style="font-size: 2rem;text-align:center;color:white;">Ajouter un commentaire</p>
 
                                                 <p class="flash">{{ flash() }}</p>
-                                                <form method="post" action="index.php?action=postComment">
+                                                <form method="post" action="postComment">
                                                     <input style="width:100%" type="text" name="author" placeholder="Pseudo" required="required"><br>
                                                     <input type="hidden" name="id" value={{post.id}}>
                                                     <br/>
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </br>
-                            <p style="text-align:center;"><a style="font-size: 2rem; color : white; text-align:center;" href="index.php?action=blog">Retour au Blog</a></p>
+                            <p style="text-align:center;"><a style="font-size: 2rem; color : white; text-align:center;" href="blog">Retour au Blog</a></p>
                         </div>
                     </div>
                 </div>

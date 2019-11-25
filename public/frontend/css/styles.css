@@ -154,6 +154,89 @@ footer p {
     font-size: 0.95rem;
 }
 
+/* -------------------- CSS - BIOGRAPHIE -------------------- */
+#textBiographie {
+    font-size: 18px;
+    max-width: 1150px;
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+    line-height: 32px;
+    color: white;
+}
+
+#biographie-text-div {
+    max-width:1150px;
+    display: table;
+    margin: auto;
+    padding-top:30px;
+    padding-bottom:30px;
+    padding-left:25px;
+    padding-right:25px;
+    color: white;
+}
+
+#biographie-text-div-box {
+    width: 100%;
+    background-color: #333A40;
+    margin-top: -5px;
+}
+
+#headerPage {
+    position: relative;
+}
+
+#headerPage img {
+    width: 100%;
+    margin: 0;
+}
+
+#layerBlack {
+    height:99%;
+    width: 100%;
+    background:rgba(0,0,0,0.25);
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+.titlePage {
+    width: 100%;
+    position: absolute;
+    bottom:4px;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titlePage p {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    width: 250px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#rwdBiographie {
+    display: none;
+}
+
+#rwdBiographie p {
+    text-align: center;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    color: white;
+    font-size: 1.3em;
+}
+
 /* -------------------- MQ - Tablette -------------------- */
 
 @media screen and (max-width: 968px){
@@ -164,6 +247,21 @@ footer p {
     
     #hamburger {
         display: initial;
+    }
+
+    #rwdBiographie {
+        display: initial;
+        
+    }
+
+    #rwdBiographie p { 
+        background-color: #333A40;
+        padding-top:110px;
+        text-transform: uppercase;
+    }
+
+    #headerPage {
+        display: none;
     }
 }
 
