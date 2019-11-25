@@ -38,8 +38,8 @@
     <header>
         <div id="textHeader"style="">
             <i class="fas fa-stream"></i>
-            <p id="desktopText"><a href="index.php?action=admin"> Espace administrateur | Blog de Jean Forteroche</a></p>
-            <p id="mobilText"><a href="index.php?action=admin"> Espace administrateur</a></p>
+            <p id="desktopText"><a href="admin"> Espace administrateur | Blog de Jean Forteroche</a></p>
+            <p id="mobilText"><a href="admin"> Espace administrateur</a></p>
         </div>
         <div id="avatar">
             <i id="iAvatar" class="fas fa-user-circle fa-2x"></i>
@@ -51,7 +51,7 @@
             </div>
             <div id="modalAvatarLogout">
                 <i class="fas fa-power-off"></i>
-               <a href="index.php?action=logout"><p class="liModalAvatar">Déconnexion</p></a>
+               <a href="logout"><p class="liModalAvatar">Déconnexion</p></a>
             </div>
         </div>
     </header>
@@ -75,5 +75,6 @@
 </body>
 </html>
 {% else %}
-<p>Veuillez vous <a href="index.php?action=login">connecter</a>.</p>
+<p>Veuillez vous <a href="login">connecter</a>.</p>
+<!-- header("location:viewPosts"); -->
 {% endif %}

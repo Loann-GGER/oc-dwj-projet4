@@ -3,9 +3,9 @@
 
 <section id="title">
 	<div>
-		<p><a href="index.php?action=admin">Accueil </a></p>
+		<p><a href="admin">Accueil </a></p>
 		<p>&nbsp;>&nbsp;</p>
-		<p><a href="index.php?action=viewPosts">Gestions des articles</a></p>
+		<p><a href="viewPosts">Gestions des articles</a></p>
 		<p>&nbsp;>&nbsp;</p>
 		<p> Mise à jour d'un article</p>
 	</div>
@@ -19,7 +19,7 @@
 		<i id="closeFlash" class="fas fa-times"></i>
 	</div>
 
-	<form method="post" action="index.php?action=updatePosts">
+	<form method="post" action="updatePosts">
 		<input type="hidden" name="id" placeholder="ID de l'acticle" required="required" value="{{ post.id }}"><br>
 		<input id="newPostTitle" type="text" name="title" placeholder="Titre de l'article" required="required" value="{{ post.title }}"><br>
 		<textarea rows="5" cols="45" name="content" placeholder="Contenu de l'article">{{ post.contents }}</textarea><br>

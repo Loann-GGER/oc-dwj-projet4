@@ -3,7 +3,7 @@
 
 <section id="title">
     <div>
-        <p><a href="index.php?action=admin">Accueil </a></p>
+        <p><a href="admin">Accueil </a></p>
         <p>&nbsp;>&nbsp;</p>
         <p> Gestions des commentaires</p>
     </div>
@@ -25,8 +25,8 @@
             <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
             <p class="pDatePublicationComment"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>
             <div id="btn">
-                <a href="index.php?action=aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
-                <a href="index.php?action=refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>
+                <a href="aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
+                <a href="refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>
             </div>
         </div>
         {% endfor %}

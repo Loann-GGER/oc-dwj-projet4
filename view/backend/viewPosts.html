@@ -3,7 +3,7 @@
 
 <section id="title">
     <div>
-        <p><a href="index.php?action=admin">Accueil </a></p>
+        <p><a href="admin">Accueil </a></p>
         <p>&nbsp;>&nbsp;</p>
         <p> Gestions des articles</p>
     </div>
@@ -26,9 +26,9 @@
         <p class="pDatePublication"><span>Date de publication :</span>{{post.creationDate|date("d.m.Y à H:i")}}</p>
 
         <div id="btn">
-                <a href="index.php?action=singlepost&id={{ post.id }}"><button id="btnRead">Lire</button></a>
-                <a href="index.php?action=updatePost&id={{ post.id }}"><button id="btnEdit">Modifier</button></a>
-                <a href="index.php?action=delete&id={{ post.id }}"><button id="btnDelete">Supprimer</button></a>
+                <a href="singlepost&id={{ post.id }}"><button id="btnRead">Lire</button></a>
+                <a href="updatePost&id={{ post.id }}"><button id="btnEdit">Modifier</button></a>
+                <a href="delete&id={{ post.id }}"><button id="btnDelete">Supprimer</button></a>
         </div>
     </div>
     {% endfor %}
