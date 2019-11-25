@@ -13,7 +13,7 @@ $router = new Router($action);
 
 $router->getRoute('', ['controller'=>'FrontendController', 'method'=>'index']);
 $router->getRoute('index', ['controller'=>'FrontendController', 'method'=>'index']);
-$router->getRoute('author', ['controller'=>'FrontendController', 'method'=>'author']);
+$router->getRoute('biographie', ['controller'=>'FrontendController', 'method'=>'author']);
 $router->getRoute('singlepost', ['controller'=>'FrontendController', 'method'=>'singlepost']);
 $router->getRoute('blog', ['controller'=>'FrontendController', 'method'=>'blog']);
 $router->getRoute('mentionlegales', ['controller'=>'FrontendController', 'method'=>'mentionlegales']);
