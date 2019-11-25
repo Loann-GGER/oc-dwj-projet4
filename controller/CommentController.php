@@ -19,7 +19,6 @@ class CommentController extends Controller
                 'alert'=>0,
                 'publicationDate'=>new \DateTime("now")
                 ]);
-                // var_dump($comment); // Voir 
             try
             {
                 $entityManager->persist($comment); // Créer la réquète 
@@ -31,7 +30,7 @@ class CommentController extends Controller
             } 
         }
 
-        $_SESSION['flash'] = 'Votre commentaire a bien été posté ! ';
+        $_SESSION['flash'] = '🚀 Votre commentaire a bien été posté ! ';
         header("location:index.php?action=singlepost&id=".$_POST['id']);
      
     }
@@ -64,7 +63,7 @@ class CommentController extends Controller
         $comment->setalert(true);
         $entityManager->flush(); // Exe. réquète
        
-        $_SESSION['flash'] = 'Votre commentaire a bien été signalé !';
+        $_SESSION['flash'] = ' ✅ Votre commentaire a bien été signalé !';
         header("location:index.php?action=singlepost&id=".$_GET['id']);
 
     }
@@ -88,7 +87,6 @@ class CommentController extends Controller
 
         $_SESSION['flash'] = '🚀 Le commentaire a bien été conserver !';
         header("location:index.php?action=manageComments");
-    
     }
 
     public function refusecomment()
