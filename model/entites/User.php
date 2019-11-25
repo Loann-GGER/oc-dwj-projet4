@@ -54,30 +54,4 @@ class User extends Entity
     {
         return $this->level;
     }
-
-    // SETTER
-    public function setUserName(int $UserName)
-    {
-        $this->userName = $UserName;
-    }
-
-    public function setPassword($password)
-    {
-        $this->password = md5($password);
-    }
-
-    public function setEmail(int $email)
-    {
-        $this->email = $email;
-    }
-
-    public function setDateInscription(int $dateInscription)
-    {
-        $this->dateInscription = $dateInscription;
-    }
-
-    public function setlLvel(int $level)
-    {
-        $this->level = $level;
-    }
 }
