@@ -33,13 +33,13 @@
 
         {% for commentaire in commentaires  %}
         {% if commentaire.alert == false %}
-        <div id="blockCommentSP">
+        <div id="blockCommentSP"> 
             <p class="textSinglePostContent blockCommentSPp">Publié le : {{commentaire.publicationDate|date("d M Y à H:m")}} par {{commentaire.author}}</p>
-            <p class="textSinglePostContent blockCommentSPp">{{commentaire.contents}}</p>
+            <p class="textSinglePostContent blockCommentSPp blockCommentSPpRwd">{{commentaire.contents}}</p>
             <p class="textSinglePostContent blockCommentSPp"><a href="commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
         </div>
         {% endif %}
-        {% endfor %}
+        {% endfor %} 
 
         <p>______________________</p>
         <p class="titleComSinglePost textSinglePost">Ajouter un commentaire :</p>

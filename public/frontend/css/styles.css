@@ -569,4 +569,27 @@ width:100%;
         padding: 0;
         width: 100%;
     }
+
+    .input-form-com {
+        width: 95%;
+    }
+
+    .blockCommentSPpRwd {
+        padding-left:0px;
+        padding-right:0px;
+    }
+
+    #headerHome div h1 {
+        font-size: 35px;
+    }
+
+    #headerHome div h2 {
+        font-size: 25px;
+    }
+    #headerHome div p {
+        font-size: 20px;
+    }
+    #headerHome div {
+        padding-top: 60%;
+    }
 }
