@@ -47,6 +47,15 @@ header {
     background-color: white;
 }
 
+#header-template-name {
+    margin-left:30px;
+    font-size:18px;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: black;
+    vertical-align: middle;
+    line-height: 15px;
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -154,6 +163,11 @@ footer p {
     font-size: 0.95rem;
 }
 
+#footer-template-a {
+    text-decoration:none;
+    color:black;
+}
+
 /* -------------------- CSS - BIOGRAPHIE -------------------- */
 #textBiographie {
     font-size: 18px;
@@ -165,6 +179,17 @@ footer p {
 }
 
 #biographie-text-div {
+    max-width:1150px;
+    display: table;
+    margin: auto;
+    padding-top:30px;
+    padding-bottom:30px;
+    padding-left:25px;
+    padding-right:25px;
+    color: white;
+}
+
+#biographie-text-div2 {
     max-width:1150px;
     display: table;
     margin: auto;
@@ -237,6 +262,272 @@ footer p {
     font-size: 1.3em;
 }
 
+/* -------------------- CSS - Blog -------------------- */
+.contentsBlog {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+}
+
+/* -------------------- CSS - Single Post -------------------- */
+.textSinglePost {
+    font-size: 18px;
+    max-width: 1150px;
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+    line-height: 32px;
+    color: white;
+}
+
+.textSinglePostContent {
+    font-size: 16px;
+    max-width: 1150px;
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+    line-height: 32px;
+    color: white;
+}
+
+.textSinglePostContent a { 
+    text-decoration: none;
+    color: rgb(158, 158, 158);
+}
+.textSinglePostContent a:hover { 
+    color:red;
+}
+
+.titleComSinglePost {
+    font-size:20px;
+}
+
+#btnSubmitComm {
+border:1px white solid;
+background-color:#333A44;
+border-radius:5px;
+padding: 8px 8px 10px 10px;
+color:white;
+width: 100px;
+cursor: pointer;
+}
+
+#btnSubmitComm:hover {
+color:black;
+background-color: white;
+transition: ease-out 0.4s;
+}
+
+#flash {
+width: 100%;
+height: 45px;
+vertical-align: middle;
+line-height: 45px;
+background: #d4edda;
+color:#155724;
+border-radius: 4px;
+margin-bottom: 20px;
+position: relative;
+display: none;  
+font-family: 'Exo', sans-serif;
+padding-left:8px; 
+}
+
+#flash i {
+position: absolute;
+top : 51%;
+transform: translateY(-50%);
+right:15px;
+cursor: pointer;
+}
+
+#barSP-1 {
+margin-top:-20px;
+}
+
+#blockCommentSP {
+border:1px white solid;
+background-color:#333A44;
+border-radius:5px;
+margin-bottom: 25px;
+width: 100%;
+}
+
+.blockCommentSPp {
+padding-left:30px;
+padding-right:30px;
+}
+
+.input-form-com {
+border:1px white solid;
+background-color:#333A44;
+border-radius:5px;
+padding: 8px 8px 10px 10px;
+color:white;
+width:100%;
+}
+
+/* -------------------- CSS - Login -------------------- */
+#login-header-white {
+    border:1px white solid;
+    width: 600px;
+    border-radius: 15px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+#login-header-white div {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px 15px 0px 0px;
+}
+
+#login-header-white p {
+    margin-top:0;
+    width: 100%;
+    text-align: center;
+    color:black;
+    font-family: 'Exo', sans-serif;
+    font-size: 18px;
+    padding-top:40px;
+}
+
+#login-input {
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+    width: 90%;
+    border:1px white solid;
+    background-color:#333A44;
+    border-radius:5px;
+    padding: 10px 0px 10px 0px;
+    color:white
+}
+
+.btn-login {
+    margin-left:5%;
+    margin-top:5%;
+    margin-bottom: 5%;
+}
+
+/* -------------------- CSS - Home Page -------------------- */
+
+#voirTousLesChapitres {
+    color:white;
+}
+#voirTousLesChapitres:hover {
+    color:gray;
+}
+
+#headerHome {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#headerHome img {
+    height: 100%;
+    width: 100%;
+}
+
+#headerHome div {
+    width: 100%;
+    padding-top:300px;
+    position: absolute;
+    top:0;
+    left:0;
+    text-align: center;
+    z-index:2;
+}
+
+#headerHome div h1 {
+    font-size: 60px;
+    color:white;
+    font-family: 'Exo', sans-serif;
+}
+
+#headerHome div h2 {
+    font-size: 50px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    margin-top:0px;
+}
+#headerHome div p {
+    font-size: 30px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#headerHome div a i  {
+    color:white
+}
+
+#layerHome {
+    height: 100%;
+    width: 100%;
+    background:rgba(0,0,0,0.3);
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+#decouvrirAuteur {
+    font-size: 30px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0px;
+}
+
+#decouvrirAuteurText {
+    font-size: 16px;
+    max-width: 1150px;
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+    line-height: 32px;
+    color: white;
+}
+
+#decouvrirAuteurDiv {
+    margin-top:-40px;
+}
+
+#decouvrirAuteurText a {
+    color:white;
+    text-decoration:none;
+}
+
+#decouvrirAuteurText a:hover {
+    color:gray
+}
+
+#discoverBookAnchor {
+    position:absolute;
+    height:1px;
+    width:1px;
+    top:-80px;
+    border:1px solid transparent;
+}
+
+#discoverBook {
+    font-size: 30px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#discoverBookDiv {
+    margin-top:-40px;
+    margin-bottom: 20px;
+}
+
 /* -------------------- MQ - Tablette -------------------- */
 
 @media screen and (max-width: 968px){
@@ -267,6 +558,15 @@ footer p {
 
 /* -------------------- MQ - Mobile -------------------- */
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 600px){
+    #login-header-white {
+        width:95%;
+        margin-left:2.5%;
+        margin-right:2.5%;
+    }
 
+    #biographie-text-div2 {
+        padding: 0;
+        width: 100%;
+    }
 }

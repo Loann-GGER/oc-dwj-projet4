@@ -1,35 +1,32 @@
 {% extends "frontend/template.html" %}
+
+{% block title %}
+<title>Jean Forteroche | Le blog</title>
+{% endblock %}
+
 {% block content %}
-<div class="page-heading">
-    <div class="container">
-        <div class="heading-content">
-            <h1>BLOG</h1>
-        </div>
+<section id="headerPage">
+    <img src="../../public/frontend/img/header/header_jean_4.jpg" alt="Image de Jean decorative">
+    <div id="layerBlack"></div>
+    <div class="titlePage">
+        <p>Le livre</p>
     </div>
-</div>
-<div class="blog-entries">
-    <div class="container">
-        <div class="col-md-9">
-            <div class="blog-posts">
-                <div class="row">
-                    {% for mesPosts in posts %}
-                    <div class="col-md-12">
-                        <div class="blog-post">
-                            <div class="text-content">
-                                <h2>{{ mesPosts.title }}</h2>
-                                <span><a href="author">Auteur : {{ mesPosts.author}}</a> / <a href="#">Date
-                                        de publication : {{ mesPosts.creationDate|date("d m Y")}}</a></span>
-                                <p>{{ mesPosts.contents|slice(0, 400)|raw}}</p>
-                                <div class="simple-btn">
-                                    <a href="singlepost&id={{mesPosts.id}}">Lire la suite</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+</section>
+
+<section id="rwdBiographie">
+    <p>Le livre</p>
+</section>
+
+<div id="biographie-text-div-box">
+    <div id="biographie-text-div">
+        {% for mesPosts in posts %}
+        <div id="blockCommentSP">
+            <p class="textSinglePostContent blockCommentSPp">{{ mesPosts.title }}</p>
+            <div class="contentsBlog">{{ mesPosts.contents|slice(0, 580)|raw}}...</div>
+            <p class="textSinglePostContent blockCommentSPp">Publié le {{ mesPosts.creationDate|date("d.m.Y")}} par {{ mesPosts.author}}</p>
+            <p class="textSinglePostContent blockCommentSPp"><a href="singlepost&id={{mesPosts.id}}">Lire la suite</a></p>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

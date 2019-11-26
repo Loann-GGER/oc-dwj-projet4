@@ -1,75 +1,58 @@
 {% extends "frontend/template.html" %}
+
+{% block title %}
+<title>Jean Forteroche | {{ post.title }}</title>
+{% endblock %}
+
 {% block content %}
-
-<div class="page-heading">
-    <div class="container">
-        <div class="heading-content">
-            <h1 style="color:black;">{{ post.title }}</h1>
-        </div>
+<section id="headerPage">
+    <img src="../../public/frontend/img/header/header_jean.jpg" alt="Image de Jean decorative">
+    <div id="layerBlack"></div>
+    <div class="titlePage">
+        <p>{{ post.title }}</p>
     </div>
-</div>
-<div>
-<div class="blog-entries">
-    <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="blog-posts">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="single-blog-post">
-                            <div class="text-content">
-                                <span style="font-size: 2rem; text-align:center;">Publié le :
-                                    {{post.creationDate|date("d M Y")}} - Auteur : <a style="color:white" href="author">{{post.author}}</a></span>
-                                <p>{{post.contents|raw}}</p>
-                                <div class="tags-share">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="text-content">
-                                                <p style="font-size: 2rem; color : white; text-align:center;">Commentaires</p>
+</section>
 
+<section id="rwdBiographie">
+    <p>{{ post.title }}</p>
+</section>
 
+<div id="biographie-text-div-box">
+    <div id="biographie-text-div">
 
+        <p class="textSinglePost">Publié le : {{post.creationDate|date("d M Y")}} par {{post.author}}</p>
+        <p id="barSP-1">______</p>
+        <div class="textSinglePostContent">{{post.contents|raw}}</div>
 
-                                                {% for commentaire in commentaires  %}
-
-                                                {% if commentaire.alert == false %}
-
-                                                <div style="width:100%;background-color: #2b2a2a;color:white;">
-                                                    <p>Publié le : {{commentaire.publicationDate|date("d M Y à H:m")}} par {{commentaire.author}}</p>
-                                                    {{commentaire.contents}}
-                                                    <p><a href="commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
-
-                                                </div>
-                                               
-
-                                                {% endif %}
-                                                {% endfor %}
-
-                                                <p style="font-size: 2rem;text-align:center;color:white;">Ajouter un commentaire</p>
-
-                                                <p class="flash">{{ flash() }}</p>
-                                                <form method="post" action="postComment">
-                                                    <input style="width:100%" type="text" name="author" placeholder="Pseudo" required="required"><br>
-                                                    <input type="hidden" name="id" value={{post.id}}>
-                                                    <br/>
-                                                    <textarea style="width:100%" rows="5" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br/><br/>
-                                                    <button style="width:100%" type="submit" class="btn btn-light">Envoyer</button>
-                                                </form>
-                                            
-                                               
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </br>
-                            <p style="text-align:center;"><a style="font-size: 2rem; color : white; text-align:center;" href="blog">Retour au Blog</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <i>______________________</i>
+        <p class="titleComSinglePost textSinglePost">Commentaires :</p>
+        <div id="flash">
+            <p id="varFlash" class="flash">{{ flash() }}</p>
+            <i id="closeFlash" class="fas fa-times"></i>
         </div>
+
+        {% for commentaire in commentaires  %}
+        {% if commentaire.alert == false %}
+        <div id="blockCommentSP">
+            <p class="textSinglePostContent blockCommentSPp">Publié le : {{commentaire.publicationDate|date("d M Y à H:m")}} par {{commentaire.author}}</p>
+            <p class="textSinglePostContent blockCommentSPp">{{commentaire.contents}}</p>
+            <p class="textSinglePostContent blockCommentSPp"><a href="commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <p>______________________</p>
+        <p class="titleComSinglePost textSinglePost">Ajouter un commentaire :</p>
+        <form method="post" action="postComment">
+            <input class="input-form-com" type="text" name="author" placeholder="Pseudo" required="required"><br>
+            <input type="hidden" name="id" value={{post.id}}>
+            <br/>
+            <textarea class="input-form-com" rows="8" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br/><br/>
+            <button id="btnSubmitComm" type="submit" class="btn btn-light">Envoyer</button>
+        </form>
+
+        <p id="barSP-1">______________________</p>
+        <p class="textSinglePostContent"><a href="blog">Retour au Blog</a></p>
     </div>
-</div>
 </div>
 {% endblock %}

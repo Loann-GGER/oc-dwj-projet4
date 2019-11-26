@@ -1,58 +1,38 @@
-<!DOCTYPE html>
-<html lang="fr">
+{% extends "frontend/template.html" %}
 
-<head>
+{% block title %}
+<title>Jean Forteroche | Connexion espace administrateur</title>
+{% endblock %}
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Jean Forteroche - Login</title>
-
-  <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="public/css/sb-admin.css" rel="stylesheet">
-
-</head>
-
-<body class="bg-dark">
-  <div class="container">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
-      <div class="card-body">
-
-     <div id="flash">
-      <p id="varFlash" class="flash">{{ flash() }}</p>
-      <i id="closeFlash" class="fas fa-times"></i>
-  </div>
-
-        <form method="post" action="validelogin">
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Adresse Mail</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password" name="Password" id="inputPassword" class="form-control" placeholder="Password"
-                required="required">
-              <label for="inputPassword">Mot de passe</label>
-            </div>
-          </div>
-          <input class="btn btn-primary btn-block" type="submit" value="Login">
-        </form>
-      </div>
+{% block content %}
+<section id="headerPage">
+    <img src="../../public/frontend/img/header/header_jean_2.jpg" alt="Image de Jean decorative">
+    <div id="layerBlack"></div>
+    <div class="titlePage">
+        <p>Connexion espace admin</p>
     </div>
-  </div>
+</section>
 
+<section id="rwdBiographie">
+    <p>Connexion espace admin</p>
+</section>
 
-  <script src="public/vendor/jquery/jquery.min.js"></script>
-  <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-</body>
-
-</html>
+<div id="biographie-text-div-box">
+    <div id="biographie-text-div2">
+        <div id="flash" style="background: #f8d7da; color:#721c24;">
+            <p id="varFlash" class="flash">{{ flash() }}</p>
+            <i id="closeFlash" class="fas fa-times"></i>
+        </div>
+        <div id="login-header-white">
+            <div>
+                <p>Connexion à l'espace administrateur</p>
+            </div>
+            <form method="post" action="validelogin" style="width: 100%;">
+                <input id="login-input" type="email" name="Email" placeholder="&nbsp;&nbsp;&nbsp;Adresse mail de connexion" required="required"><br>
+                <input id="login-input" type="password" name="Password" placeholder="&nbsp;&nbsp;&nbsp;Mot de passe" required="required"><br>
+                <input id="btnSubmitComm" class="btn-login" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
