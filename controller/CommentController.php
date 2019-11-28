@@ -31,7 +31,7 @@ class CommentController extends Controller
         }
 
         $_SESSION['flash'] = '🚀 Votre commentaire a bien été posté ! ';
-        header("location:index.php?action=singlepost&id=".$_POST['id']);
+        header("location:index.php?action=singlepost&id=".$_POST['id']."#comArticle");
      
     }
     /**
@@ -85,7 +85,7 @@ class CommentController extends Controller
         $comment->setalert(false);
         $entityManager->flush(); // Exe. réquète
 
-        $_SESSION['flash'] = '🚀 Le commentaire a bien été conserver !';
+        $_SESSION['flash'] = '🚀 Le commentaire a bien été conservé !';
         header("location:index.php?action=manageComments");
     }
 
