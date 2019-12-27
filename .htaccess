@@ -1,26 +1,7 @@
 Options -Indexes
 
-ErrorDocument 401 /controller/ErrorController.php
-ErrorDocument 403 /controller/ErrorController.php
-ErrorDocument 404 /controller/ErrorController.php
-ErrorDocument 405 /controller/ErrorController.php
-ErrorDocument 408 /controller/ErrorController.php
-ErrorDocument 500 /controller/ErrorController.php
-ErrorDocument 502 /controller/ErrorController.php
-ErrorDocument 504 /controller/ErrorController.php
+Options +FollowSymlinks 
+RewriteEngine on
 
-# Options +FollowSymlinks
-# Activation du module de réécriture d'URL :
-# RewriteEngine on
-
-# RewriteCond %{REQUEST_FILENAME} !-f 
-
-# RewriteRule ^(.*)$ index.php?action=$1 [QSA,L]
-
-
-
-# Article sans numéro de page :
-# RewriteRule ^article-([0-9]+)-([0-9]+).html$   /articles/article.php?id=$1&rubrique=$2 [L]
-
-# Article avec numéro de page :
-# RewriteRule ^article-([0-9]+)-([0-9]+)-([0-9]+).html   /articles/article.php?id=$1&page=$2&rubrique=$3 [L]
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*)$ index.php?action=$1 [QSA,L]

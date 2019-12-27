@@ -2,131 +2,49 @@
 
 require "vendor/autoload.php";
 
-use App\Session;
-Session::start();
+use App\Router;
 
-use Controller\BackendController;
-use Controller\PostController;
-use Controller\CommentController;
-use Controller\FrontendController;
+session_start();
 
-$frontend = new FrontendController();
-$backend = new BackendController();
-$post = new PostController();
-$comment = new CommentController();
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
 
-if (isset($_GET['action'])) 
-{
-    switch ($_GET['action'])
-    {
-        case 'admin':
-            $backend->admin();
-            break;
+$action = $_GET['action'] ?? '';
 
-        case 'writeNewPost':
-            $backend->addPost();
-            break;
+$router = new Router($action);
 
-        case 'managePosts':
-            $backend->managePosts();
-            break;
+// View FrontEnd
+$router->getRoute('', ['controller'=>'FrontendController', 'method'=>'index']);
+$router->getRoute('index', ['controller'=>'FrontendController', 'method'=>'index']);
+$router->getRoute('biographie', ['controller'=>'FrontendController', 'method'=>'author']);
+$router->getRoute('blog', ['controller'=>'FrontendController', 'method'=>'blog']);
+$router->getRoute('singlepost', ['controller'=>'FrontendController', 'method'=>'singlepost']);
+$router->getRoute('mentionlegales', ['controller'=>'FrontendController', 'method'=>'mentionlegales']);
 
-        case 'manageComments':
-            $comment->manageComments();
-            break;
+// View BackEnd
+$router->getRoute('admin', ['controller'=>'BackendController', 'method'=>'admin']);
+$router->getRoute('writeNewPost', ['controller'=>'PostController', 'method'=>'addPost']);
+$router->getRoute('viewPosts', ['controller'=>'PostController', 'method'=>'viewPosts']);
+$router->getRoute('updatePost', ['controller'=>'PostController', 'method'=>'updatePost']);
+$router->getRoute('manageComments', ['controller'=>'CommentController', 'method'=>'manageComments']);
 
-        case 'post':
-            $backend->postPost();
-            break;
+// Action FrontEnd
+$router->postRoute('postComment', ['controller'=>'CommentController', 'method'=>'postComment']);
+$router->getRoute('commentSignal', ['controller'=>'CommentController', 'method'=>'commentSignal']);
 
-        case 'login':
-            $backend->login();
-            break;
+// Action BackEnd
+$router->postRoute('post', ['controller'=>'PostController', 'method'=>'postPost']);
+$router->postRoute('updatePosts', ['controller'=>'PostController', 'method'=>'updatePosts']);
+$router->getRoute('delete', ['controller'=>'PostController', 'method'=>'delete']);
+$router->getRoute('aprouvecomment', ['controller'=>'CommentController', 'method'=>'aprouvecomment']);
+$router->getRoute('refusecomment', ['controller'=>'CommentController', 'method'=>'refusecomment']);
 
-        case 'register':
-            $backend->register();
-            break;
+// Auth
+$router->getRoute('login', ['controller'=>'UserController', 'method'=>'login']);
+$router->postRoute('validelogin', ['controller'=>'UserController', 'method'=>'validelogin']);
+$router->getRoute('logout', ['controller'=>'UserController', 'method'=>'logout']);
 
-        case 'forgotPassword':
-            $backend->forgotPassword();
-            break;  
+// Global 
+$router->getRoute('erreur', ['controller'=>'ErrorController', 'method'=>'errors']);
 
-        case 'singlepost':
-            $frontend->singlePost();
-            break;
-
-        case 'testpost':
-            $backend->show();
-            break;
-
-        case 'delete':
-            $backend->deletePost();
-            break;
-
-        case 'blog':
-            $frontend->blog();
-            break;
-
-        case'author':
-            $frontend->author();
-            break;
-
-        case 'viewPosts':
-            $backend->viewPosts();
-            break;
-
-        case 'voirlesposts':
-            $backend->voirlesposts();
-            break;
-
-        case 'updatePosts':
-            $backend->updatePosts();
-            break;
-
-        case 'writeUpdatePosts':
-            $backend->writeUpdatePosts();
-            break;
-
-        case 'delete':
-            $backend->deletePost();
-            break;
-
-        case 'viewdelete':
-            $backend->viewdelete();
-            break;
-
-        case 'lireunpost':
-            $backend->show(2);
-            break;
-        case 'postComment':
-            $comment->postComment();
-            break;
-        case 'viewComment':
-            $comment->viewComment();
-            break;
-        case 'commentSignal':
-            $comment->commentSignal();
-            break;
-        case 'aprouvecomment':
-            $comment->aprouvecomment();
-            break;
-        case 'refusecomment':
-            $comment->refusecomment();
-            break;
-        case 'validelogin':
-            $backend->validelogin();
-            break;
-        case 'logout':
-            $backend->logout();
-            break;
-        case 'mentionlegales':
-            $frontend->mentionlegales();
-            break;
-        default:
-            $frontend->listPosts();
-            break;
-    }
-}
-else {
-    $frontend->listPosts();
-}
+$router->run();

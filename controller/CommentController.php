@@ -3,98 +3,63 @@
 namespace Controller;
 
 use Entity\Comment;
+use Entity\Post;
 use App\Bootstrap;
-use App\Session;
 
-class CommentController
+class CommentController extends Controller
 {
     public function postComment()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $entityManager = Bootstrap::getEntityManager();
             $comment = new Comment([
-                'postid'=>$_POST['id'],
+                'post'=>$entityManager->find("Entity\Post",$_POST['id']),
                 'contents'=>$_POST['content'],
                 'author'=>$_POST['author'],
-                'alert'=>0
+                'alert'=>0,
+                'publicationDate'=>new \DateTime("now")
                 ]);
-                // var_dump($comment); // Voir 
-            try
-            {
-                $entityManager = Bootstrap::getEntityManager();
-                $entityManager->persist($comment); // Créer la réquète 
-                $entityManager->flush(); // Exe. réquète
-            } 
-            catch(Exception $e) 
-            {
-                var_dump($e->getMessage());
+            try {
+                $entityManager->persist($comment); // Création de la réquète 
+                $entityManager->flush(); // Executer la réquète
+            } catch(Exception $e) {
+                echo $e->getMessage();
             } 
         }
-        Session::setValue('flash', 'Votre commentaire a bien été posté ! ');
-        header("location:index.php?action=singlepost&id=".$_POST['id']);
-     
-    }
-    /**
-     * 
-     */
-    public function viewComment()
-    {   
-        $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
-        $post = $postRepo->findAll();
 
-        foreach ($post as $mesPosts)
-        {
-            $idpost = $mesPosts->postId();
-            if ($idpost == 2){
-                echo ('ID : '.$mesPosts->id().'<br/>');
-                echo ('Title : '.$mesPosts->postId().'<br/>');
-                echo ('Contents : '.$mesPosts->contents().'<br/>');
-                echo ('Author : '.$mesPosts->author().'<br/>');
-                echo ('CreationDate : '.$mesPosts->alert().'<br/>');
-                echo ("<br/>"); 
-            }
-        }
+        $_SESSION['flash'] = '🚀 Votre commentaire a bien été posté ! ';  
+        header("location:index.php?action=singlepost&id=".$_POST['id']."#comArticle");
     }
 
     public function commentSignal()
     {   
-
         $entityManager = Bootstrap::getEntityManager();
-        $comment = $entityManager->find("Entity\Comment",$_GET['id']);
-        // var_dump($comment);
-
+        $comment = $entityManager->find("Entity\Comment",(int)$_GET['n_com']);
         $comment->setalert(true);
-        // var_dump($comment);
-        // echo("<br/>");
-
-        $entityManager->flush(); // Exe. réquète
+        $entityManager->flush();
        
-        Session::setValue('flash', 'Votre commentaire a bien été signalé ! ');
+        $_SESSION['flash'] = ' ✅ Votre commentaire a bien été signalé !';
         header("location:index.php?action=singlepost&id=".$_GET['id']);
-
     }
-
 
     public function manageComments()
     {  
         $postRepo = Bootstrap::getEntityManager()->getRepository(Comment::class);
-        $comments = $postRepo->findAll();
-
-        require("view/backend/manageComments.php");
+        $comments = $postRepo->findBy(['alert'=>true]);
+    
+        $this->render('backend/manageComments.html', ['comments'=>$comments]);
     }
 
     public function aprouvecomment()
     {  
         $entityManager = Bootstrap::getEntityManager();
         $comment = $entityManager->find("Entity\Comment",$_GET['id']);
-        // var_dump($comment);
-
         $comment->setalert(false);
-        // var_dump($comment);
-        // echo("<br/>");
+        $entityManager->flush();
 
-        $entityManager->flush(); // Exe. réquète
-        echo("comm supprimer");
-    
+        $_SESSION['flash'] = '🚀 Le commentaire a bien été conservé !';
+        header("location:index.php?action=manageComments");
     }
 
     public function refusecomment()
@@ -103,7 +68,8 @@ class CommentController
         $comment = $entityManager->find("Entity\Comment",$_GET['id']);
         $entityManager->remove($comment);
         $entityManager->flush();
-        echo("comm conserver");
 
+        $_SESSION['flash'] = '🗑 Le commentaire a bien été supprimé !';
+        header("location:index.php?action=manageComments");
     }
 }

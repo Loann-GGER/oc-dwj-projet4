@@ -1,0 +1,81 @@
+{% if session.login == 1 %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="Espace administrateur du site de Jean Forteroche">
+    <meta name="author" content="Loann GOERGER">
+    <meta name="keywords" content="BackEnd, Jean Forteroche, Espace administrateur">
+    <meta name="creation_date" content="21.10.2019">
+    <meta name="robots" content="index, follow">
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Titre -->
+    <title>Espace administrateur | Jean Forteroche</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/img/icon"/>
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Espace administrateur | Jean Forteroche">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oc.loanngoerger.fr/projet_4/">
+    <meta property="og:image" content="#">
+    <meta property="og:description" content="Espace administrateur du site de Jean Forteroche">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Espace administrateur | Jean Forteroche">
+    <meta name="twitter:description" content="Espace administrateur du site de Jean Forteroche">
+    <meta name="twitter:image" content="#">
+    <!--For Ios number highlight-->
+    <meta name="format-detection" content="telephone=no">
+    <!-- Css -->
+    <link href="public/backend/css/styles.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="textHeader">
+            <i class="fas fa-stream"></i>
+            <p id="desktopText"><a href="admin"> Espace administrateur | Blog de Jean Forteroche</a></p>
+            <p id="mobilText"><a href="admin"> Espace administrateur</a></p>
+        </div>
+        <div id="avatar">
+            <i id="iAvatar" class="fas fa-user-circle fa-2x"></i>
+        </div>
+        <div class="modalAvatar">
+            <div id="modalAvatarSite">
+                <i class="fas fa-home"></i>
+                <a href="index.php"><p class="liModalAvatar">Voir le site</p></a>
+            </div>
+            <div id="modalAvatarLogout">
+                <i class="fas fa-power-off"></i>
+               <a href="logout"><p class="liModalAvatar">Déconnexion</p></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>Copyright © Loann GOERGER 2019</p>
+    </footer>
+    
+    <!-- SCRIPT JavaScript -->
+    <script src='public/backend/js/flash.back.js'></script>
+    <script src='public/backend/js/modalAvatar.js'></script>
+    <script src="public/backend/js/main.js"></script>
+
+    <!-- TINY MCE -->
+    <script src="/vendor/tinymce/tinymce/tinymce.min.js"></script>
+    <script src='public/backend/js/tinyConfig.js'></script>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/dab178ca63.js" crossorigin="anonymous"></script>
+</body>
+</html>
+{% else %}
+<p>Veuillez vous <a href="login">connecter</a>.</p>
+{% endif %}

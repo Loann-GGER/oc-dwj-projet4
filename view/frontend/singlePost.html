@@ -1,0 +1,58 @@
+{% extends "frontend/template.html" %}
+
+{% block title %}
+<title>Jean Forteroche | {{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+<section id="headerPage">
+    <img src="../../public/frontend/img/header/header_jean.jpg" alt="Image de Jean decorative">
+    <div id="layerBlack"></div>
+    <div class="titlePage">
+        <p>{{ post.title }}</p>
+    </div>
+</section>
+
+<section id="rwdBiographie">
+    <p>{{ post.title }}</p>
+</section>
+
+<div id="biographie-text-div-box">
+    <div id="biographie-text-div">
+
+        <p class="textSinglePost">Publié le : {{post.creationDate|date("d M Y")}} par {{post.author}}</p>
+        <p id="barSP-1">______</p>
+        <div class="textSinglePostContent">{{post.contents|raw}}</div>
+
+        <i id="comArticle" >______________________</i>
+        <p class="titleComSinglePost textSinglePost">Commentaires :</p>
+        <div id="flash">
+            <p id="varFlash" class="flash">{{ flash() }}</p>
+            <i id="closeFlash" class="fas fa-times"></i>
+        </div>
+
+        {% for commentaire in commentaires  %}
+        {% if commentaire.alert == false %}
+        <div id="blockCommentSP"> 
+            <p class="textSinglePostContent blockCommentSPp">Publié le : {{commentaire.publicationDate|date("d M Y à H:m")}} par {{commentaire.author}}</p>
+            <p class="textSinglePostContent blockCommentSPp blockCommentSPpRwd">{{commentaire.contents}}</p>
+            <p class="textSinglePostContent blockCommentSPp"><a href="commentSignal&id={{post.id}}&n_com={{commentaire.id}}">Signaler le commentaire</a></p>
+        </div>
+        {% endif %}
+        {% endfor %} 
+
+        <p>______________________</p>
+        <p class="titleComSinglePost textSinglePost">Ajouter un commentaire :</p>
+        <form method="post" action="postComment">
+            <input class="input-form-com" type="text" name="author" placeholder="Pseudo" required="required"><br>
+            <input type="hidden" name="id" value={{post.id}}>
+            <br/>
+            <textarea class="input-form-com" rows="8" cols="25" name="content" placeholder="Contenu du commentaire" required="required"></textarea><br/><br/>
+            <button id="btnSubmitComm" type="submit" class="btn btn-light">Envoyer</button>
+        </form>
+        
+        <p id="barSP-1">______________________</p>
+        <p class="textSinglePostContent"><a href="blog">Retour au Blog</a></p>
+    </div>
+</div>
+{% endblock %}

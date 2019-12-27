@@ -1,0 +1,38 @@
+{% extends "backend/template.html" %}
+{% block content %}
+
+<section id="title">
+    <div>
+        <p><a href="admin">Accueil </a></p>
+        <p>&nbsp;>&nbsp;</p>
+        <p> Gestions des commentaires</p>
+    </div>
+    <h2>Gestion des commentaires</h2>
+</section>
+
+<section id="content">
+
+    <div id="flash">
+        <p id="varFlash" class="flash">{{ flash() }}</p>
+        <i id="closeFlash" class="fas fa-times"></i>
+    </div>
+
+    {% if comments|length > 0 %}
+        {% for commentaire in comments %}
+        <div id="contentDbComment">
+            <p id="comLink"><span>Commentaire lié au post : </span>{{ commentaire.post.title }}</p>
+            <p>{{ commentaire.contents }}</p>
+            <p><span>Auteur du commentaires : </span>{{ commentaire.author }}</p>
+            <p class="pDatePublicationComment"><span>Date de publications : </span>{{commentaire.publicationDate|date("d.m.Y à H:i")}}</p>
+            <div id="btn">
+                <a href="aprouvecomment&id={{ commentaire.id }}"><button id="btnRead">Conserver</button></a>
+                <a href="refusecomment&id={{ commentaire.id }}"><button id="btnDelete">Supprimer</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Pas de commentaires signalés</p>
+    {% endif %}
+    
+</section>
+{% endblock %}

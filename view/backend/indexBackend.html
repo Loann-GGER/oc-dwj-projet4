@@ -1,0 +1,30 @@
+{% extends "backend/template.html" %}
+
+{% block content %}
+<section id="title">
+    <div>
+        <p><a href="admin">Accueil </a></p>
+        <p>&nbsp;>&nbsp;</p>
+        <p>Dashboard</p>
+    </div>
+    <h2>Bienvenue sur le dashboard</h2>
+</section>
+
+<section id="content">
+
+    <div id="flash">
+        <p id="varFlash" class="flash">{{ flash() }}</p>
+        <i id="closeFlash" class="fas fa-times"></i>
+    </div>
+
+    <p id="titleDashboard"><i class="far fa-edit"></i> Gestion des articles : </p>
+    <p id="contentDashboard"><a href="writeNewPost"><i class="fas fa-arrow-circle-right"></i> Ecrire un nouvel article</a></p>
+    <p id="contentDashboard"><a href="viewPosts"><i class="fas fa-arrow-circle-right"></i> Modifier ou supprimer un article</a></p>
+    
+    <p id="titleDashboard"><i class="far fa-comments"></i> Gestion des commentaires : </p>
+    <p id="contentDashboard"><a href="manageComments"><i class="fas fa-arrow-circle-right"></i> Gestion des commentaires signalés</a></p>
+
+</section>
+
+<section id="vide"></section>
+{% endblock %}

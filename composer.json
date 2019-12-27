@@ -2,16 +2,14 @@
     "name": "loann_gger/projet_4",
     "description": "OC - DWJ - Projet_4",
     "require": {
-        "michelf/php-markdown": "1.4.*@dev",
         "twig/twig": "^2.5",
         "doctrine/orm": "^2.6",
         "tinymce/tinymce": "^4.8",
-        "twbs/bootstrap": "^4.1"
-        
+        "vlucas/phpdotenv": "^3.6"
     },
     "authors": [
         {
-            "name": "Loann GGER",
+            "name": "Loann GOERGGER",
             "email": "loann.goerger@glk-group.com"
         }
     ], 

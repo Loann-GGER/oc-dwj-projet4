@@ -1,5 +1,7 @@
 <?php
+
 namespace Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,31 +55,5 @@ class User extends Entity
     public function level()
     {
         return $this->level;
-    }
-
-    // SETTER
-    public function setUserName(int $UserName)
-    {
-        $this->userName = $UserName;
-    }
-
-    public function setPassword($password)
-    {
-        $this->password = md5($password);
-    }
-
-    public function setemail(int $email)
-    {
-        $this->email = $email;
-    }
-
-    public function setdateInscription(int $dateInscription)
-    {
-        $this->dateInscription = $dateInscription;
-    }
-
-    public function setlevel(int $level)
-    {
-        $this->level = $level;
     }
 }

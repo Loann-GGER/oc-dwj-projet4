@@ -1,4 +1,5 @@
 <?php
+
 $entityManager = require_once 'bootstrap.php';
 
 use Doctrine\ORM\Tools\Console\ConsoleRunner;

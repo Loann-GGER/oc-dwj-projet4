@@ -3,23 +3,32 @@
 namespace Controller;
 
 use Entity\Post;
+use Entity\Comment;
 use App\Bootstrap;
 
-class FrontendController 
+class FrontendController extends Controller
 {
-    public function listPosts()
+    public function index()
     {
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
-        $post = $postRepo->findAll();
-    
-        require("view/frontend/indexFrontend.php");
+        $post = $postRepo->findBy([],["id"=>"desc"]);
+
+        $this->render("frontend/indexFrontend.html",['posts'=>$post]);
     }
 
     public function singlePost()
     {
         $entityManager = Bootstrap::getEntityManager();
-        require("view/frontend/single-post.php");
+        $post = $entityManager->find("Entity\Post",$_GET['id']);
 
+        if ($post == null) {
+            $this->render("frontend/indexFrontEnd.html");
+        }
+        else {
+            $commentaires = $post->comments();
+
+            $this->render("frontend/singlePost.html",['post'=>$post,'commentaires'=>$commentaires]);
+        }
     }
 
     public function blog()
@@ -27,16 +36,16 @@ class FrontendController
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
 
-        require("view/frontend/blog.php");
+        $this->render("frontend/blog.html",['posts'=>$post]);
     }
 
     public function author()
     {
-        require("view/frontend/auteur.php");
+        $this->render("frontend/auteur.html");
     }
 
     public function mentionlegales()
     {
-        require("view/frontend/mentionlegales.php");
+        $this->render("frontend/mentionlegales.html");
     }
 }

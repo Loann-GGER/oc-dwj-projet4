@@ -1,0 +1,39 @@
+{% extends "backend/template.html" %}
+{% block content %}
+
+<section id="title">
+    <div>
+        <p><a href="admin">Accueil </a></p>
+        <p>&nbsp;>&nbsp;</p>
+        <p> Gestions des articles</p>
+    </div>
+    <h2>Gestion des articles</h2>
+</section>
+
+<section id="content">
+
+    <div id="flash">
+        <p id="varFlash" class="flash">{{ flash() }}</p>
+        <i id="closeFlash" class="fas fa-times"></i>
+    </div>
+    
+    {% if posts|length > 0 %}
+    {% for post in posts %}
+    <div id="contentDb">
+        <h3>{{post.title}}</h3>
+        <p>{{post.contents|slice(0, 500)|raw}}</p>
+        <p><span>Auteur de l'article : </span>{{post.author}}</p>
+        <p class="pDatePublication"><span>Date de publication :</span>{{post.creationDate|date("d.m.Y à H:i")}}</p>
+
+        <div id="btn">
+                <a href="singlepost&id={{ post.id }}"><button id="btnRead">Lire</button></a>
+                <a href="updatePost&id={{ post.id }}"><button id="btnEdit">Modifier</button></a>
+                <a href="delete&id={{ post.id }}"><button id="btnDelete">Supprimer</button></a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Il n'y a pas d'article sur votre blog</p>
+    {% endif %}
+</section>
+{% endblock %}

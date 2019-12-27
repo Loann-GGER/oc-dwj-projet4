@@ -1,5 +1,7 @@
 <?php 
+
 namespace Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,9 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Comment extends Entity
 {
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Entity\Post",inversedBy="comment")
      */
-    private $postid;
+    private $post;
     /**
      * @ORM\Column(type="text")
      */
@@ -30,9 +32,9 @@ class Comment extends Entity
     private $alert;
 
     // GETTER
-    public function postid()
+    public function post()
     {
-        return $this->postid;
+        return $this->post;
     }
 
     public function contents()
@@ -56,9 +58,9 @@ class Comment extends Entity
     }
     
     // SETTER
-    public function setpostid($postid)
+    public function setpost(Post $post)
     {
-        $this->postid = $postid;
+        $this->post = $post;
     }
 
     public function setcontents($contents)
