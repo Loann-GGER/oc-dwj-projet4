@@ -1,7 +1,7 @@
 {% extends "frontend/template.html" %}
 
 {% block title %}
-<title>Jean Forteroche | Connexion espace administrateur</title>
+<title>Jean Forteroche | Login </title>
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
 
 <div id="biographie-text-div-box">
     <div id="biographie-text-div2">
-        <div id="flash" style="background: #f8d7da; color:#721c24;">
+        <div id="flash" class="flash-login">
             <p id="varFlash" class="flash">{{ flash() }}</p>
             <i id="closeFlash" class="fas fa-times"></i>
         </div>
@@ -27,7 +27,7 @@
             <div>
                 <p>Connexion à l'espace administrateur</p>
             </div>
-            <form method="post" action="validelogin" style="width: 100%;">
+            <form method="post" action="validelogin" id="form-login">
                 <input id="login-input" type="email" name="Email" placeholder="&nbsp;&nbsp;&nbsp;Adresse mail de connexion" required="required"><br>
                 <input id="login-input" type="password" name="Password" placeholder="&nbsp;&nbsp;&nbsp;Mot de passe" required="required"><br>
                 <input id="btnSubmitComm" class="btn-login" type="submit" value="Login">

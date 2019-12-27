@@ -1,8 +1,10 @@
 <?php
+
 namespace Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
-class Entity
+abstract class Entity
 {
     /**
      * @ORM\Id
@@ -16,13 +18,13 @@ class Entity
     {
         return $this->id;
     }
+
     //SETTER
     public function setId(int $identifiant)
     {
         $this->id = $identifiant;
     }
 
-    
     public function __construct(array $datas = null)
     {
         if($datas != null)
@@ -32,7 +34,7 @@ class Entity
         
     }
 
-    private function hydrate($datas)
+    protected function hydrate($datas)
     {
         foreach($datas as $attribute => $value)
         {

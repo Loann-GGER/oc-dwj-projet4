@@ -1,5 +1,7 @@
 <?php 
+
 namespace Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -30,7 +32,7 @@ class Post extends Entity
      */
     private $comments;
 
-// GETTER
+    // GETTER
     public function __construct($datas = null)
     {
         parent::__construct($datas);
@@ -62,7 +64,7 @@ class Post extends Entity
         return $this->comments;
     }
     
-// SETTER
+    // SETTER
     public function setTitle($title)
     {
         $this->title = $title;
@@ -90,6 +92,5 @@ class Post extends Entity
             $this->comments[]=$comment;
             $comment->setPost($this);
         }
-
     }
 }

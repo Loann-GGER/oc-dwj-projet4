@@ -36,7 +36,7 @@
 </head>
 <body>
     <header>
-        <div id="textHeader"style="">
+        <div id="textHeader">
             <i class="fas fa-stream"></i>
             <p id="desktopText"><a href="admin"> Espace administrateur | Blog de Jean Forteroche</a></p>
             <p id="mobilText"><a href="admin"> Espace administrateur</a></p>
@@ -64,11 +64,13 @@
     </footer>
     
     <!-- SCRIPT JavaScript -->
+    <script src='public/backend/js/flash.back.js'></script>
+    <script src='public/backend/js/modalAvatar.js'></script>
     <script src="public/backend/js/main.js"></script>
 
     <!-- TINY MCE -->
     <script src="/vendor/tinymce/tinymce/tinymce.min.js"></script>
-    <script src='public/backend/js/tinyconfig.js'></script>
+    <script src='public/backend/js/tinyConfig.js'></script>
 
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/dab178ca63.js" crossorigin="anonymous"></script>
@@ -76,5 +78,4 @@
 </html>
 {% else %}
 <p>Veuillez vous <a href="login">connecter</a>.</p>
-<!-- header("location:viewPosts"); -->
 {% endif %}

@@ -29,8 +29,6 @@ class FrontendController extends Controller
 
             $this->render("frontend/singlePost.html",['post'=>$post,'commentaires'=>$commentaires]);
         }
-
-
     }
 
     public function blog()

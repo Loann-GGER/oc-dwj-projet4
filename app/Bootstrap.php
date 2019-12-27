@@ -8,8 +8,8 @@ use Doctrine\ORM\EntityManager;
 class Bootstrap
 {
     /**
-     * @desc La fonction fait ceci
-     * @param path string le chemin vers truc muche
+     * Connexion à la base de données SQL     
+     * @param path string du chemin vers les entites
      * @return class entityManager
      */
     public static function getEntityManager($path = "..model/entites")
@@ -22,13 +22,10 @@ class Bootstrap
         $dbParams = [
             'driver'   => 'pdo_mysql',
             'host'     => getenv('DB_HOST'),
-            'charset'  => 'utf8mb4',
+            'charset'  => getenv('DB_CHARSET'),
             'user'     => getenv('DB_USER'),
             'password' => getenv('DB_PASSWORD'),
             'dbname'   => getenv('DB_NAME'),
-            
-            // 'port'     => '8889',/* A supprimer en mode production */
-            // 'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock'/* A supprimer en mode production */
         ];
     
         $config = Setup::createAnnotationMetadataConfiguration(
@@ -40,7 +37,7 @@ class Bootstrap
         );
         
         $entityManager = EntityManager::create($dbParams, $config);
-    
+
         return $entityManager;
     }
 }

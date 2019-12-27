@@ -1,6 +1,8 @@
 # OC - DWJ - Projet_4
 Projet 4 - Création d'un blog pour un écrivain (Jean Forteroche)
 
+**Mise en production :** xx.xx.2019
+
 ## Legend of commits
 * :art: CSS modifications, styling, design
 * :wrench: Fixes
@@ -17,7 +19,7 @@ Projet 4 - Création d'un blog pour un écrivain (Jean Forteroche)
 * 🤩 Mise en production
 
 ## Requirement
-* PHP ≥ 7.1
+* PHP ≥ 7.2
 
 ## Installation
 * Clone : 
@@ -29,11 +31,17 @@ git clone https://github.com/Loann-GGER/oc-dwj-projet4.git
 composer install
 ```
 
+* Config .env :
+``` bash
+cp .env.example .env
+```
+
 ## Vendor
 * [Twig](https://twig.symfony.com/doc/2.x/tags/if.html)
 * [Doctrine](https://packagist.org/packages/composer/composer)
 * [TinyMce](https://www.tiny.cloud/)
 * [Font Awesome](https://fontawesome.com/)
+* [Php dot env](https://github.com/vlucas/phpdotenv/)
 
 
 ## Sujet de projet

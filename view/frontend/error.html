@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<html lang="fr">
+{% extends "frontend/template.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{{ title }}</title>
-  <link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="public/css/sb-admin.css" rel="stylesheet">
-</head>
+{% block title %}
+<title>Jean Forteroche | Erreur(s)</title>
+{% endblock %}
 
-<body class="bg-dark">
-  <div class="container">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header" style="text-align:center;">{{ title }}</div>
-      <div class="card-body">
-        <p style="text-align:center;">{{ message }}</p>
-        <p style="text-align:center;"><a href="index.php">Retour à l'accueil</a></p>
-      </div>
+{% block content %}
+<section id="headerPage">
+    <img src="../../public/frontend/img/header/header_jean.jpg" alt="Image de Jean decorative">
+    <div id="layerBlack"></div>
+    <div class="titlePage">
+        <p>Erreur</p>
     </div>
-  </div>
-</body>
+</section>
 
-</html>
+<section id="rwdBiographie">
+    <p>Erreur</p>
+</section>
+
+<div id="biographie-text-div-box">
+    <div id="biographie-text-div">
+        <h1 id="error-title"> Désolé, une erreur est survenue...</h1>
+        <h3 id="error-link-homePage"><a href="index.php">Retour à la page d'accueil</a></h3>
+    </div> 
+</div>
+{% endblock %}

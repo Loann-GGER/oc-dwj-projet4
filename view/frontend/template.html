@@ -13,11 +13,11 @@
     <!-- Titre -->
     {% block title %}{% endblock %}
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="public/img/icon"/>
+    <link rel="icon" type="image/png" href="#"/>
     <!-- Open Graph data -->
     <meta property="og:title" content="Blog de Jean Forteroche | Acteur et Écrivain">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://oc.loanngoerger.fr/projet_4/">
+    <meta property="og:url" content="#">
     <meta property="og:image" content="#">
     <meta property="og:description" content="Blog de Jean Forteroche, auteur du livre UN BILLET SIMPLE POUR L'ALASKA. Cliquez pour découvrir son dernier livre ! ">
     <!-- Twitter Card data -->
@@ -73,10 +73,12 @@
     </footer>
     
     <!-- SCRIPT JavaScript -->
+    <script src="../../public/frontend/js/flash.front.js"></script>
+    <script src="../../public/frontend/js/menu.js"></script>
     <script src="../../public/frontend/js/main.js"></script>
+    {% block script %}{% endblock %}
 
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/dab178ca63.js" crossorigin="anonymous"></script>
-    {% block script %}{% endblock %}
 </body>
 </html>

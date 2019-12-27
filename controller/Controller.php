@@ -4,7 +4,6 @@ namespace Controller;
 
 abstract class Controller
 {
-
     private $loader;
     protected $twig;
 
@@ -12,6 +11,7 @@ abstract class Controller
 
         $this->loader = new \Twig_Loader_Filesystem('view');
         $this->twig = new \Twig_Environment($this->loader, array('cache' => false));
+        
         $twigFunctionFlash = new \Twig_SimpleFunction('flash', function(){
             if ( isset($_SESSION['flash'])) {
                 echo $_SESSION['flash'];
@@ -19,6 +19,7 @@ abstract class Controller
             }
         });
         $this->twig->addFunction($twigFunctionFlash);
+        
         $this->twig->addGlobal('session',$_SESSION);
     }
 
@@ -30,6 +31,4 @@ abstract class Controller
             echo $this->twig->render($file, $datas);
         }
     }
-
-
 }
