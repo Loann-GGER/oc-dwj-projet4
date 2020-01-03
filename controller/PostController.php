@@ -51,11 +51,9 @@ class PostController extends Controller
 
     public function viewposts()
     {   
-        echo "ok";
         $postRepo = Bootstrap::getEntityManager()->getRepository(Post::class);
         $post = $postRepo->findAll();
-        echo "ok1";
-        $this->render('backend/viewposts.html',['posts'=>$post]);
+        $this->render('backend/viewPosts.html',['posts'=>$post]);
     }
 
     // Update Post
