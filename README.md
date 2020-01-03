@@ -1,7 +1,7 @@
 # OC - DWJ - Projet_4
 Projet 4 - Création d'un blog pour un écrivain (Jean Forteroche)
 
-**Mise en production :** xx.xx.2019
+**Mise en production :** 27.12.2019
 
 ## Legend of commits
 * :art: CSS modifications, styling, design
@@ -32,8 +32,19 @@ composer install
 ```
 
 * Config .env :
+
+Création du fichier d'environnement et édition du fichier.
 ``` bash
 cp .env.example .env
+```
+``` bash
+nano .env 
+```
+
+* Config db :
+
+``` bash
+________ 
 ```
 
 ## Vendor
