@@ -4,7 +4,7 @@
     "require": {
         "twig/twig": "^2.5",
         "doctrine/orm": "^2.6",
-        "tinymce/tinymce": "^4.8",
+        "tinymce/tinymce": "^5.9",
         "vlucas/phpdotenv": "^3.6"
     },
     "authors": [
